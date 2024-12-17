@@ -632,7 +632,7 @@
     @extend %box-spacearound;
     height: 100vh;
     padding: 0 50px;
-    background: url(/images/bg-bandmap.svg);
+    background: url(./images/bg-bandmap.svg);
     background-size: cover;
     background-position: center;
 
@@ -678,7 +678,7 @@
         content: '';
         display: block;
         position: absolute;
-        background-image: url(/images/texture.png);
+        background-image: url(./images/texture.png);
         width: 100%;
         height: 100%;
         background-size: cover;
@@ -745,7 +745,7 @@
         content: '';
         display: block;
         position: absolute;
-        background-image: url(/images/texture.png);
+        background-image: url(./images/texture.png);
         width: 100%;
         height: 100%;
         background-size: cover;
@@ -803,7 +803,7 @@
 #chatboard-page {
     @extend %box-spacearound;
     height: 100vh;
-    background-image: url(/images/bandchat-photo.jpg);
+    background-image: url(./images/bandchat-photo.jpg);
     background-size: cover;
     background-position: center;
     position: relative;
@@ -1343,7 +1343,7 @@ main {
                 -webkit-appearance: none;
                 -moz-appearance: none;
                 cursor: pointer;
-                background: url(/images/selector.svg) no-repeat scroll right center transparent;
+                background: url(./images/selector.svg) no-repeat scroll right center transparent;
 
                 option {
                     padding-left: $distance_s;
@@ -2478,11 +2478,11 @@ main {
         }
 
         .icon-member {
-            background-image: url(/images/icon/icon-member.svg);
+            background-image: url(./images/icon/icon-member.svg);
         }
 
         .icon-msg {
-            background-image: url(/images/icon/icon-msg.svg);
+            background-image: url(./images/icon/icon-msg.svg);
         }
     }
 }
