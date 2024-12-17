@@ -1,0 +1,170 @@
+/* 跑馬燈動畫-X軸 */
+@keyframes scroll {
+    0% {
+        transform: translateX(100%)
+    }
+
+    100% {
+        transform: translateX(-100%)
+    }
+}
+
+@keyframes scroll2 {
+    0% {
+        transform: translateX(0%)
+    }
+
+    100% {
+        transform: translateX(-200%)
+    }
+}
+
+/* 跑馬燈動畫-Y軸 */
+@keyframes scroll-y {
+    0% {
+        transform: translateY(-130%)
+    }
+
+    100% {
+        transform: translateY(60%)
+    }
+}
+
+/* 音符動畫 */
+@keyframes rotate {
+    0% {
+        transform: rotate(5deg)
+    }
+
+    25% {
+        transform: rotate(0deg)
+    }
+
+    50% {
+        transform: rotate(-5deg)
+    }
+
+    75% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(5deg)
+    }
+}
+
+@keyframes rotate2 {
+    0% {
+        transform: rotate(-5deg)
+    }
+
+    25% {
+        transform: rotate(0deg)
+    }
+
+    50% {
+        transform: rotate(5deg)
+    }
+
+    75% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(-5deg)
+    }
+}
+
+/* 笑臉動畫 */
+@keyframes smile-face-up {
+    0% {
+        transform: translateY(10%);
+    }
+
+    25% {
+        transform: translateY(-10%);
+    }
+
+    50% {
+        transform: translateY(10%);
+    }
+
+    75% {
+        transform: translateY(-10%);
+    }
+
+    100% {
+        transform: translateY(10%);
+    }
+}
+
+/* 耳朵動畫 */
+@keyframes zoom {
+    0% {
+        transform: scale(1.2)
+    }
+
+    50% {
+        transform: scale(0.9)
+    }
+
+    100% {
+        transform: scale(1.2)
+    }
+}
+
+/* 轉圈動畫 */
+@keyframes bong_roll {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* cube12音符動畫 */
+@keyframes note-roll-odd {
+    0% {
+        transform: translateX(5%);
+    }
+
+    25% {
+        transform: translateX(-5%);
+    }
+
+    50% {
+        transform: translateX(5%);
+    }
+
+    75% {
+        transform: translateX(-5%);
+    }
+
+    100% {
+        transform: translateX(5%);
+    }
+}
+
+@keyframes note-roll-even {
+    0% {
+        transform: translateX(-5%);
+    }
+
+    25% {
+        transform: translateX(5%);
+    }
+
+    50% {
+        transform: translateX(-5%);
+    }
+
+    75% {
+        transform: translateX(5%);
+    }
+
+    100% {
+        transform: translateX(-5%);
+    }
+}

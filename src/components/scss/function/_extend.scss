@@ -1,0 +1,29 @@
+%box-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+%box-spacearound {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+%box-spacebetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+%img-cover {
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 單行省略 */
+%line-single {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}

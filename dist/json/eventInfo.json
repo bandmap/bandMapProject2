@@ -1,0 +1,116 @@
+{
+    "eventdata": {
+        "eventinfo": [
+            {
+                "year": "2024",
+                "month": "nov",
+                "img": "/public/images/活動/近期活動-揪音秘.jpg",
+                "key": "1",
+                "date": "2024/11/10（日）14:00",
+                "event": "揪音秘",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "阿橘Ahh G",
+                    "粗大Band",
+                    "胡凱兒"
+                ]
+            },
+            {
+                "year": "2024",
+                "month": "nov",
+                "img": "/public/images/活動/近期活動-刑男大主廚.jpg",
+                "key": "2",
+                "date": "2024/11/24 (日）18:30",
+                "event": "旺福2024旺聖節《刑男大主廚》演唱會",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "WONFU旺福"
+                ]
+            },
+            {
+                "year": "2024",
+                "month": "nov",
+                "img": "/public/images/活動/近期活動-開往天堂的海盜船.jpg",
+                "key": "3",
+                "date": "2024/11/29 (五）20:00",
+                "event": "無妄合作社《開往天堂的海盜船》2024專場巡演-台北場(一)",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "無妄合作社"
+                ]
+            },
+            {
+                "year": "2024",
+                "month": "dec",
+                "img": "/public/images/活動/近期活動-生祥樂隊.jpg",
+                "key": "4",
+                "date": "2024/12/06 (五）20: 00",
+                "event": "生祥樂隊《種樹與野生》15+3週年紀念演唱會",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "生祥樂隊"
+                ]
+            },
+            {
+                "year": "2024",
+                "month": "dec",
+                "img": "/public/images/活動/近期活動-橋.jpg",
+                "key": "5",
+                "date": "2024/12/08 (日）20: 00",
+                "event": "步行者",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "步行者"
+                ]
+            },
+            {
+                "year": "2024",
+                "month": "dec",
+                "img": "/public/images/活動/近期活動-巴大雄-雄心未泯_1.jpg",
+                "key": "6",
+                "date": "2024/12/11 (三）19: 00",
+                "event": "【2024 Forest Night 】巴大雄－雄心未泯",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "巴大雄"
+                ]
+            },
+            {
+                "year": "2024",
+                "month": "dec",
+                "img": "/public/images/活動/近期活動-都市女生-洪佩瑜.jpg",
+                "key": "7",
+                "date": "2024/12/14 (六）20: 00",
+                "event": "【2024都市女聲】：洪佩瑜-台北場(加場)",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "洪佩瑜"
+                ]
+            },
+            {
+                "year": "2024",
+                "month": "dec",
+                "img": "/public/images/活動/近期活動-宋德鶴10周年音樂會.png",
+                "key": "8",
+                "date": "2024/12/19 (四）19: 30",
+                "event": "宋德鶴IRONHORN十週年紀念專場－台北場",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "宋德鶴IRONHORN"
+                ]
+            },
+            {
+                "year": "2024",
+                "month": "dec",
+                "img": "/public/images/活動/近期活動-柯泯薰-好好的專輯發片演唱會.jpg",
+                "key": "9",
+                "date": "2024/12/26 (四）19: 30",
+                "event": "柯泯薰 misi Ke《好好的 BE GOOD》專輯發片專場",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "柯泯薰 misi Ke"
+                ]
+            }
+        ]
+    }
+}

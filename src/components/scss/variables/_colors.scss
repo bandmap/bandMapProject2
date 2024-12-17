@@ -1,0 +1,31 @@
+$Neutral_color_black: black;
+$Neutral_color_white: white;
+$Neutral_color_grey_300: #B2B2B2;
+
+$Primary_color_blue: #0099FF;
+$Primary_color_pink: #FE8DBA;
+$Primary_color_red: #FF4438;
+$Primary_color_orange: #FFAF00;
+$Primary_color_beige: #FFF8E4;
+
+$Opacity_b_75: rgba(0,0,0,0.75);
+$Opacity_b_50: rgba(0,0,0,0.5);
+$Opacity_b_25: rgba(0,0,0,0.25);
+
+/* 日曆樣式 */
+// 全域設定
+$primary-color: #ffae00;
+$background-color: #fff;
+$text-color: #000;
+$today-color: #000;
+$today-bg-color: #000;
+$event-indicator-size: 8px;
+
+// 容器樣式
+// 色彩設定
+$primary-color: #ffae00;
+$background-color: #fff;
+$text-color: #000;
+$disabled-color: #ccc;
+$today-bg-color: #000;
+$today-text-color: #fff;

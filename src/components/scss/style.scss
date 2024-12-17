@@ -1,0 +1,2525 @@
+@use 'reset';
+@use 'variables' as *;
+@use 'function' as *;
+@use 'keyframes';
+
+/* 當popup出現時，底下頁面不能滑動 */
+.active-popup {
+    overflow-y: hidden;
+}
+
+/* 跑馬燈區 */
+.newsTicker {
+    height: 55px;
+    background-color: $Neutral_color_black;
+    display: flex;
+    overflow: hidden;
+
+    .bandmap-wrapper {
+        @extend %box-center;
+        animation: scroll 40s linear infinite;
+
+        &:nth-child(2) {
+            animation: scroll2 40s linear infinite;
+            animation-delay: -20s;
+        }
+    }
+
+    span {
+        color: $Neutral_color_white;
+        font-family: $font_title_dela;
+        font-size: $fontsize_32;
+        padding: 0 12px;
+        @extend %box-center;
+        white-space: nowrap;
+    }
+}
+
+/* 首頁cube區 */
+#cubes {
+    width: 100%;
+    height: calc(100vh - 110px);
+    display: flex;
+
+    .cube-btn {
+        cursor: pointer;
+    }
+
+    .cube-left {
+        width: 65%;
+
+        .row-left-up {
+            height: 35%;
+
+            &:hover {
+                .cube1 {
+                    background-color: $Primary_color_orange;
+                    padding: 20px 40px 20px 0;
+
+                }
+
+                .cube2 {
+                    background-color: $Primary_color_pink;
+                    padding: 20px 0 20px 40px;
+                }
+            }
+
+            .cube1 {
+                display: flex;
+                align-items: flex-start;
+                justify-content: center;
+                width: 100%;
+                height: 30%;
+                background-color: $Primary_color_red;
+                padding: 20px;
+                overflow: hidden;
+                position: relative;
+                transition: $speed-cubebuttomhover;
+
+                .texture {
+                    position: absolute;
+                    opacity: 0.3;
+                    width: 100%;
+                    left: 0;
+                    top: 0;
+                }
+
+                img {
+                    width: 90%;
+                }
+            }
+
+            .cube2 {
+                width: 100%;
+                height: 70%;
+                background-color: $Primary_color_blue;
+                padding: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                overflow: hidden;
+                transition: $speed-cubebuttomhover;
+
+                .texture {
+                    position: absolute;
+                    opacity: 0.3;
+                    width: 100%;
+                    left: 0;
+                    top: 0;
+                }
+
+                img {
+                    width: 90%;
+                }
+            }
+
+        }
+
+        .row-left-down {
+            display: flex;
+            width: 100%;
+            height: 65%;
+
+            .cube3 {
+                width: 20%;
+                flex: 0 0 20%;
+                background-color: $Primary_color_orange;
+                @extend %box-center;
+                flex-direction: column;
+                overflow: hidden;
+
+                .arrow-roll {
+                    @extend %box-center;
+                    flex-direction: column;
+                    animation: scroll-y 8s ease-in-out infinite;
+
+                    &:nth-child(2) {
+                        animation: scroll-y 8s ease-in-out infinite;
+                        animation-delay: -8s;
+                    }
+
+                    .ani-arrow {
+                        fill: $Primary_color_beige;
+                    }
+
+                    .arrow1 {
+                        fill: $Primary_color_red;
+                        width: 145px;
+                    }
+                }
+            }
+
+            .row-right {
+                width: 80%;
+
+                .row-1 {
+                    display: flex;
+                    width: 100%;
+                    height: 40%;
+
+                    .cube4 {
+                        width: 25%;
+                        height: 100%;
+                        background-color: $Primary_color_red;
+                        @extend %box-center;
+                        overflow: hidden;
+
+                        .note-roll {
+                            display: flex;
+                            animation: scroll 12s linear infinite;
+
+                            &:nth-child(2) {
+                                animation: scroll2 12s linear infinite;
+                                animation-delay: -6s;
+                            }
+
+
+                            .ani-note {
+                                display: flex;
+                                width: 130px;
+                                fill: $Primary_color_beige;
+                                animation: rotate 2s linear infinite;
+
+                            }
+                        }
+
+
+                    }
+
+                    .cube5 {
+                        width: 75%;
+                        height: 100%;
+                        padding: 10px;
+                        background-color: $Primary_color_beige;
+                        @extend %box-center;
+                        flex-direction: column;
+                        transition: $speed-cubebuttomhover;
+                        position: relative;
+                        overflow: hidden;
+
+                        .texture {
+                            position: absolute;
+                            opacity: 0.3;
+                            width: 100%;
+                            left: 0;
+                            top: 0;
+                            z-index: 4;
+                        }
+
+                        &:hover {
+                            background-color: $Primary_color_pink;
+                            padding: 10px 0 10px 20px;
+
+                            .band-introducement {
+                                color: $Primary_color_beige;
+                            }
+
+                            figure .arrow {
+                                stroke: $Primary_color_beige;
+                            }
+                        }
+
+                        .band-introducement {
+                            font-family: $font_title_dela;
+                            font-size: 60px;
+                            letter-spacing: 0.3rem;
+                            color: $Primary_color_pink;
+                        }
+
+                        figure {
+                            @extend %box-center;
+
+                            .arrow {
+                                width: 90%;
+                                stroke: $Primary_color_pink;
+                                stroke-width: 10px;
+                            }
+                        }
+                    }
+
+                }
+
+                .row-2 {
+                    display: flex;
+                    width: 100%;
+                    height: 60%;
+
+                    .row-right-left {
+                        width: 70%;
+
+                        .row-right-left-up {
+                            display: flex;
+                            justify-content: space-between;
+                            width: 100%;
+                            height: 40%;
+
+                            .cube6 {
+                                width: calc(100%/3);
+                                background-color: $Primary_color_pink;
+                                display: flex;
+
+                                img {
+                                    color: $Primary_color_beige;
+                                    object-fit: cover;
+                                }
+                            }
+
+                            .cube7 {
+                                width: calc(100%/3);
+                                background-color: $Primary_color_blue;
+                                @extend %box-center;
+                                overflow: hidden;
+
+                                .smile-face-roll {
+                                    display: flex;
+
+                                    animation: scroll 30s linear infinite;
+
+                                    &:nth-child(2) {
+                                        animation: scroll2 30s linear infinite;
+                                        animation-delay: -15s;
+                                    }
+
+                                    .smile-face {
+                                        display: flex;
+                                        width: 150px;
+                                        margin: 0 10px;
+
+                                        animation: smile-face-up 5s linear infinite;
+
+                                        &:nth-child(2) {
+                                            animation: smile-face-up 5s linear infinite;
+                                        }
+                                    }
+                                }
+                            }
+
+                            .cube8 {
+                                width: calc(100%/3);
+                                background-color: $Primary_color_red;
+                            }
+                        }
+
+                        .cube9 {
+                            width: 100%;
+                            height: 60%;
+                            padding: 10px;
+                            background-color: $Primary_color_beige;
+                            @extend %box-center;
+                            flex-direction: column;
+                            transition: $speed-cubebuttomhover;
+                            overflow: hidden;
+                            position: relative;
+
+                            .texture {
+                                position: absolute;
+                                opacity: 0.3;
+                                width: 100%;
+                                left: 0;
+                                top: 0;
+                                z-index: 4;
+                            }
+
+                            &:hover {
+                                background-color: $Primary_color_pink;
+                                padding: 10px 0 10px 20px;
+
+                                .band-discussion {
+                                    color: $Primary_color_beige;
+                                }
+
+                                figure .arrow {
+                                    stroke: $Primary_color_beige;
+                                }
+                            }
+
+                            .band-discussion {
+                                font-family: $font_title_dela;
+                                font-size: 60px;
+                                letter-spacing: 0.3rem;
+                                color: $Primary_color_pink;
+                            }
+
+                            figure {
+                                @extend %box-center;
+
+                                .arrow {
+                                    width: 90%;
+                                    stroke: $Primary_color_pink;
+                                    stroke-width: 10px;
+                                }
+                            }
+                        }
+                    }
+
+                    .cube10 {
+                        width: 30%;
+                        height: 100%;
+                        background-color: $Primary_color_blue;
+                        @extend %box-center;
+
+                        .ani-bong {
+                            width: 90%;
+                            fill: $Neutral_color_white;
+                            animation: bong_roll 20s linear infinite;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .cube-right {
+        width: 35%;
+
+        .cube-right-up {
+            display: flex;
+            height: 60%;
+
+            .cube11 {
+                width: 50%;
+                background-color: $Primary_color_orange;
+                @extend %box-center;
+
+                .ear {
+                    width: 80%;
+                    animation: zoom 2s ease-in-out infinite;
+                }
+            }
+
+            .cube12 {
+                width: 50%;
+                background-color: $Primary_color_blue;
+                @extend %box-center;
+                flex-direction: column;
+                overflow: hidden;
+
+                .odd-roll {
+                    animation: note-roll-odd 8s ease-in-out infinite;
+                }
+
+                .even-roll {
+                    animation: note-roll-even 8s ease-in-out infinite;
+                }
+
+                .note-roll-cube12 {
+                    @extend %box-center;
+                    margin: 5px 0;
+
+                    .ani-note {
+                        display: flex;
+                        width: 100px;
+                        fill: $Primary_color_beige;
+                    }
+
+                    .odd {
+                        fill: $Primary_color_pink;
+                    }
+                }
+            }
+        }
+
+        .cube13 {
+            width: 100%;
+            height: 40%;
+            background-color: $Primary_color_red;
+            @extend %box-center;
+            overflow: hidden;
+            position: relative;
+
+            .texture {
+                position: absolute;
+                opacity: 0.3;
+                width: 100%;
+                left: 0;
+                top: 0;
+                z-index: 4;
+            }
+        }
+    }
+}
+
+/* 導覽列區 */
+#nav-bar {
+    height: 55px;
+    padding: 0 40px;
+    background-color: $Neutral_color_black;
+    display: flex;
+    justify-content: space-between;
+    z-index: $z_index_l;
+
+    // 下拉後固定選單位置
+    position: sticky;
+    margin-top: 0;
+    top: 0; // 當到達這個位置後固定
+
+    img {
+        width: 220px;
+        padding: 12px 12px 12px 0;
+    }
+
+    .menu {
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+
+        button {
+            border: none;
+            height: 100%;
+            background-color: transparent;
+            text-align: center;
+            padding: 0;
+        }
+
+        p {
+            color: $Neutral_color_white;
+            padding: 17px 8px;
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.05rem;
+            transition: 0.35s;
+        }
+
+        p:hover {
+            background-color: $Primary_color_beige;
+            color: $Neutral_color_black;
+        }
+    }
+}
+
+/* Footer區 */
+#footer {
+    @extend %box-center;
+    flex-direction: column;
+    position: relative;
+
+    .footer-up {
+        width: 100%;
+        margin-bottom: -20px;
+    }
+
+    .footer-main {
+        background-color: $Neutral_color_black;
+        padding: 40px 125px;
+        width: 100%;
+        @extend %box-spacebetween;
+        z-index: $z_index-m;
+
+        .logo {
+            width: 210px;
+        }
+
+        .menu {
+            @extend %box-center;
+
+            a {
+                font-size: $fontsize_16;
+                color: $Neutral_color_white;
+                padding-left: $distance_l;
+            }
+        }
+    }
+
+}
+
+/* 首頁區塊共用區 */
+.intro-section {
+    width: 500px;
+    padding: $distance_l;
+    letter-spacing: 0.2rem;
+
+    .title {
+        margin-bottom: $distance_xxl;
+
+        h2 {
+            font-family: $font_title_dela;
+            font-size: $fontsize_title;
+
+            margin-bottom: $distance_m;
+        }
+
+        h3 {
+            font-size: $fontsize_subtitle;
+            font-weight: $font_bold;
+        }
+    }
+
+    p {
+        font-size: $fontsize_content;
+        font-weight: $font_regular;
+        line-height: 1.5;
+        margin-bottom: $distance_xxl;
+    }
+
+    .cta {
+        display: flex;
+        align-items: center;
+
+        span {
+            font-size: $fontsize_14;
+            margin-right: $distance_s;
+        }
+    }
+}
+
+/* 每個頁面的按鈕 */
+.cta-btn {
+    width: 48px;
+    height: 48px;
+    border: none;
+    border-radius: 100px;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+
+    transition: all $speed-cubebuttomhover;
+
+    &:hover {
+        transform: translateX(10px);
+    }
+}
+
+/* 首頁區塊拖拉選單 */
+.box-roll {
+    @extend %box-center;
+    width: 40%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 2;
+
+    .box-intro {
+
+        .box-pic {
+            @extend %box-center;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            margin: 24px 0;
+            cursor: pointer;
+
+            &:hover {
+                .hover-text {
+                    bottom: 0;
+                }
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            .hover-text {
+                position: absolute;
+                bottom: -88px;
+                background-color: rgba($Neutral_color_black, 0.7);
+                color: $Neutral_color_white;
+                width: 100%;
+                height: 88px;
+                padding: 12px 24px;
+                letter-spacing: $letterspacing_10per;
+                transition: $speed-cubebuttomhover;
+
+            }
+        }
+    }
+}
+
+/* 首頁隨BAND地圖區 */
+#bandmap-page {
+    @extend %box-spacearound;
+    height: 100vh;
+    padding: 0 50px;
+    background-image: url(./images/bg-bandmap.svg);
+    background-size: cover;
+    background-position: center;
+
+    // 下拉後固定選單位置
+    position: sticky;
+    margin-top: 0;
+    top: 0; // 當到達這個位置後固定
+
+    figure {
+        @extend %box-center;
+        width: 90%;
+    }
+}
+
+/* 首頁BAND利商店區 */
+#banddiscover-page {
+    @extend %box-spacearound;
+    height: 100vh;
+    background-color: $Primary_color_blue;
+    position: relative;
+    padding: 0 50px;
+
+    // 下拉後固定選單位置
+    position: sticky;
+    margin-top: 0;
+    top: 0; // 當到達這個位置後固定
+
+    .hover-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: $speed-cubebuttomhover;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-image: url(./images/texture.png);
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        opacity: 0.2;
+    }
+
+    .intro-section {
+        color: $Neutral_color_white;
+        z-index: 1;
+
+        h3 {
+            font-weight: 600;
+        }
+    }
+
+    .hover-text {
+
+        h4 {
+            font-size: 20px;
+            font-weight: $font_bold;
+            margin-bottom: $distance_xs;
+        }
+
+        p {
+            font-size: $fontsize_12;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+/* 首頁BAND地開花區 */
+#currentevent-page {
+    @extend %box-spacearound;
+    height: 100vh;
+    background-color: $Primary_color_pink;
+    position: relative;
+    padding: 0 50px;
+
+    // 下拉後固定選單位置
+    position: sticky;
+    margin-top: 0;
+    top: 0; // 當到達這個位置後固定
+
+    .hover-bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: $speed-cubebuttomhover;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        background-image: url(./images/texture.png);
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        opacity: 0.2;
+    }
+
+    .intro-section {
+        color: $Neutral_color_white;
+        z-index: $z_index-m;
+
+        h3 {
+            font-weight: 600;
+        }
+    }
+
+    .hover-text {
+        padding: 20px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .text-left {
+            h4 {
+                font-size: 20px;
+                font-weight: $font_bold;
+                margin-bottom: $distance_s;
+            }
+
+            .place {
+                @extend %box-center;
+
+                figure {
+                    width: 20x;
+                    height: 20px;
+                }
+
+                p {
+                    font-family: 'inter';
+                    font-size: $fontsize_12;
+                    line-height: 1.5;
+                }
+            }
+        }
+
+        .event-time {
+            font-family: 'inter';
+            font-size: $fontsize_12;
+        }
+
+    }
+
+}
+
+/* 首頁BAND利貼區 */
+#chatboard-page {
+    @extend %box-spacearound;
+    height: 100vh;
+    background-image: url(./images/樂迷留言板photo.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding: 0 50px;
+
+    // 下拉後固定選單位置
+    position: sticky;
+    margin-top: 0;
+    top: 0; // 當到達這個位置後固定
+
+    .intro-section {
+        color: $Neutral_color_white;
+        z-index: 1;
+
+        h3 {
+            font-weight: 600;
+        }
+    }
+
+    .buttons {
+        .button {
+            @extend %box-center;
+            padding: $distance_l;
+            background-color: $Neutral_color_white;
+            cursor: pointer;
+            margin-bottom: $distance_xxl;
+            transition: $speed-cubebuttomhover;
+
+            &:hover {
+                transform: translateX(10px);
+
+                .cta-btn {
+                    transform: none;
+                }
+            }
+
+            p {
+                font-size: 30px;
+                font-weight: $font_bold;
+                color: $Neutral_color_black;
+                letter-spacing: $letterspacing_10per;
+                margin-right: $distance_l;
+            }
+        }
+    }
+}
+
+/* 首頁隨BAND排區 */
+#personalcal-page {
+    @extend %box-spacearound;
+    height: 100vh;
+    position: relative;
+    padding: 0 50px;
+    background-color: $Neutral_color_white;
+
+    // 下拉後固定選單位置
+    position: sticky;
+    margin-top: 0;
+    top: 0; // 當到達這個位置後固定
+
+    .calendar-illu {
+        width: 50%;
+        height: 100%;
+        background-color: $Primary_color_red;
+    }
+
+}
+
+/* 各分頁面共用區 */
+
+/* 主要內容區main */
+main {
+    margin-bottom: $distance_xxl;
+}
+
+/* 各分頁topbar */
+.topbar {
+    height: 50vh;
+    @extend %box-center;
+
+    .left-part {
+        flex: 1;
+        @extend %box-center;
+        letter-spacing: $letterspacing_10per;
+        color: $Neutral_color_white;
+
+        .title {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            h2 {
+                font-family: $font_title_dela;
+                font-size: $fontsize_title;
+                margin-bottom: $distance_l;
+                padding: $interval_32_24;
+            }
+
+            p {
+                font-size: $fontsize_subtitle;
+                font-weight: $font_bold;
+                padding: $interval_16_24;
+            }
+        }
+    }
+
+    .right-part {
+        flex: 1.2;
+        height: 700px;
+        @extend %box-center;
+    }
+}
+
+/* banner輪播區 */
+.banner-section {
+    @extend %box-center;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 120px;
+
+    .cta-btn {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        opacity: 0.6;
+        z-index: $z_index-l;
+        border: 1px solid $Neutral_color_white;
+        transition: $speed-cubebuttomhover;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .left {
+        transform: scale(-1);
+        left: 50px;
+
+        &:hover {
+            transform: scale(-1) translateX(10px);
+        }
+    }
+
+    .right {
+        right: 50px;
+
+        &:hover {
+            transform: translateX(10px);
+        }
+    }
+
+    .carousel {
+        @extend %box-center;
+
+        .banner-card {
+            position: relative;
+            width: 700px;
+            height: 500px;
+            flex-shrink: 0;
+            margin: $interval_0_24;
+            cursor: pointer;
+
+            .mask {
+                position: absolute;
+            }
+
+            .event-img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .gallery-image-wrapper {
+            position: relative;
+            width: 700px;
+            height: 500px;
+            overflow: hidden;
+            margin: $interval_0_24;
+            flex-shrink: 0;
+
+            .gallery-image {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+            }
+
+            .svg-overlay {
+                position: absolute;
+                object-fit: cover;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 2;
+
+            }
+
+            .overlay-text {
+                display: flex;
+                width: 120%;
+                height: auto;
+                position: absolute;
+                top: -4px;
+                left: -32px;
+                padding: 8px 4px;
+                font-family: $font_title_dela;
+                font-size: $fontsize_36;
+                overflow: hidden;
+                z-index: 3;
+                color: $Neutral_color_white;
+                background-color: $Neutral_color_black;
+                white-space: nowrap;
+                transform: rotate(-8deg);
+
+                .text {
+                    margin-left: 16px;
+                }
+            }
+        }
+    }
+}
+
+/* 背景區漸層 */
+.linear-bg {
+    z-index: -1;
+    pointer-events: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -2;
+
+    img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+        opacity: .3;
+    }
+}
+
+/* card卡片樣式 */
+.card {
+    width: 40%;
+    min-width: 360px;
+    margin: 0 30px 40px 30px;
+    transition: $speed-cubebuttomhover;
+
+    &:hover {
+        box-shadow: 10px 10px $Primary_color_blue;
+        transform: translate(-10px, -10px);
+    }
+
+    figure {
+        width: 100%;
+        height: 247px;
+
+        img {
+            @extend %img-cover;
+        }
+    }
+
+    .content {
+        width: 100%;
+        height: 153px;
+        font-family: 'inter';
+        background-color: $Neutral_color_black;
+        color: $Neutral_color_white;
+        padding: $distance_m;
+
+        .date {
+            font-size: $fontsize_16;
+            margin-bottom: $distance_s;
+        }
+
+        .event {
+            font-size: $fontsize_content;
+            font-weight: $font_medium;
+            margin-bottom: $distance_s;
+            @extend %line-single;
+        }
+
+        .location {
+            display: flex;
+            margin-bottom: $distance_s;
+
+            figure {
+                width: 20px;
+                height: 20px;
+            }
+
+            p {
+                font-family: 'inter';
+                font-size: $fontsize_16;
+            }
+        }
+    }
+
+    .bottom-line {
+        @extend %box-spacebetween;
+
+        .name-tags {
+            font-size: $fontsize_10;
+            display: flex;
+
+            .nametag {
+                border: solid 1px $Neutral_color_white;
+                padding: $interval_4_8;
+                border-radius: 100px;
+                margin-right: $distance_s;
+                cursor: pointer;
+                transition: $speed-cubebuttomhover;
+
+                &:hover {
+                    border: solid 1px $Primary_color_blue;
+                    color: $Primary_color_blue;
+                }
+            }
+        }
+
+        .btns {
+            display: flex;
+
+            .like {
+                width: 24px;
+                height: 24px;
+                margin-right: $distance_s;
+                cursor: pointer;
+            }
+
+            .collect-btn {
+                @extend %box-center;
+                border: solid 1px $Neutral_color_white;
+                padding: 2px 8px 2px 4px;
+                cursor: pointer;
+
+                figure {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                p {
+                    font-size: $fontsize_12;
+                }
+            }
+        }
+    }
+}
+
+/* 右邊卡片 */
+.right-place {
+    margin: 40px 30px 0 30px;
+}
+
+/* 近期活動長卡片 */
+.card-long {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: $Neutral_color_black;
+    padding: $distance_m;
+    margin-bottom: $distance_l;
+
+    transition: $speed-cubebuttomhover;
+
+    &:hover {
+        box-shadow: 10px 10px $Primary_color_pink;
+        transform: translate(-10px, -10px);
+    }
+
+    figure {
+        width: 205px;
+        height: 120px;
+
+        img {
+            @extend %img-cover;
+        }
+    }
+
+    .card-right {
+        width: 100%;
+        height: 100%;
+        color: $Neutral_color_white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-left: $distance_m;
+
+        .content {
+            font-family: 'inter';
+
+            .date {
+                font-size: $fontsize_16;
+                margin-bottom: $distance_s;
+            }
+
+            .event {
+                font-size: $fontsize_content;
+                font-weight: $font_medium;
+                margin-bottom: $distance_s;
+                @extend %line-single;
+            }
+
+            .location {
+                display: flex;
+                margin-bottom: $distance_s;
+
+                figure {
+                    width: 20px;
+                    height: 20px;
+                }
+
+                p {
+                    font-family: 'inter';
+                    font-size: $fontsize_16;
+                }
+            }
+        }
+
+        .bottom-line {
+            @extend %box-spacebetween;
+
+            .name-tags {
+                font-size: $fontsize_10;
+                display: flex;
+
+                .nametag {
+                    border: solid 1px $Neutral_color_white;
+                    padding: $interval_4_8;
+                    border-radius: 100px;
+                    margin-right: $distance_s;
+                    cursor: pointer;
+                    transition: $speed-cubebuttomhover;
+
+                    &:hover {
+                        border: solid 1px $Primary_color_pink;
+                        color: $Primary_color_pink;
+                    }
+                }
+            }
+
+            .btns {
+                display: flex;
+
+                .like {
+                    width: 24px;
+                    height: 24px;
+                    margin-right: $distance_s;
+                    cursor: pointer;
+                }
+
+                .collect-btn {
+                    @extend %box-center;
+                    border: solid 1px $Neutral_color_white;
+                    padding: 2px 8px 2px 4px;
+                    cursor: pointer;
+
+                    figure {
+                        width: 20px;
+                        height: 20px;
+                    }
+
+                    p {
+                        font-size: $fontsize_12;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 演出搜尋頁面 */
+#bandmap-main {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+
+    .linear-bg {
+        background: linear-gradient(to bottom, $Primary_color_orange, $Neutral_color_white, $Primary_color_pink);
+    }
+
+    .left-part {
+        h2 {
+            background-color: $Primary_color_blue;
+        }
+
+        p {
+            background-color: $Primary_color_blue;
+        }
+    }
+
+    .right-part {
+        background-color: $Primary_color_red;
+    }
+
+    /* 搜尋選單 */
+    .search-section {
+        width: 70%;
+        margin: auto;
+        @extend %box-center;
+        margin-bottom: 100px;
+
+        div {
+            flex: 1;
+            background-color: $Neutral_color_black;
+            color: $Neutral_color_white;
+            display: flex;
+            flex-direction: column;
+            padding: $distance_xxl;
+
+            label {
+                margin-bottom: $distance_s;
+            }
+
+            input,
+            select {
+                background-color: transparent;
+                border: solid 3px $Neutral_color_white;
+                height: $distance_xxl;
+                padding-left: $distance_xs;
+                color: $Neutral_color_white;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            ::placeholder {
+                padding-left: $distance_xs;
+            }
+
+            select {
+                appearance: none;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                cursor: pointer;
+                background: url(./images/selector.svg) no-repeat scroll right center transparent;
+
+                option {
+                    padding-left: $distance_s;
+                }
+            }
+        }
+
+        .where {
+            background-color: $Primary_color_blue;
+        }
+    }
+
+    .newsTicker {
+        width: 110%;
+        height: 80px;
+        transform: rotate(-3deg) translateX(-10px);
+        margin-bottom: $distance_60;
+
+        span {
+            font-size: $fontsize_40;
+        }
+    }
+
+    .cards {
+        display: flex;
+        // width: fit-content;
+        flex-wrap: wrap;
+        max-width: 1200px;
+        margin: auto;
+    }
+
+}
+
+/* 近期演出頁面 */
+#currentevent-main {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+
+    .linear-bg {
+        background: linear-gradient(to bottom, $Primary_color_blue, $Neutral_color_white, $Primary_color_red);
+    }
+
+    .left-part {
+        h2 {
+            background-color: $Primary_color_pink;
+        }
+
+        p {
+            background-color: $Primary_color_pink;
+        }
+    }
+
+    .right-part {
+        background-color: $Primary_color_blue;
+    }
+
+    /* current event跑馬燈 */
+    .newsTicker {
+        width: 110%;
+        height: 80px;
+        transform: rotate(-3deg) translateX(-10px);
+        margin-bottom: $distance_60;
+
+        span {
+            font-size: $fontsize_40;
+        }
+    }
+
+    .cards {
+        @extend %box-center;
+        flex-direction: column;
+        width: 70%;
+        max-width: 1200px;
+        margin: auto;
+    }
+}
+
+/* 樂團推薦頁面 */
+
+/* 樂團介紹頁排版 */
+#banddiscover-main {
+    position: relative;
+    z-index: 0;
+
+    .linear-bg {
+        background: linear-gradient(to bottom, $Primary_color_orange, $Neutral_color_white, $Primary_color_beige);
+    }
+
+    .left-part {
+        h2 {
+            background-color: $Primary_color_red;
+        }
+
+        p {
+            background-color: $Primary_color_red;
+        }
+    }
+
+    .right-part {
+        background-color: $Primary_color_pink;
+    }
+
+    /* 背景漸層 */
+    .linear-bg {
+        background: linear-gradient(to bottom, $Primary_color_orange, $Neutral_color_white);
+        z-index: -1;
+        pointer-events: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: -2;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            opacity: .3;
+        }
+    }
+}
+
+/* 各樂團介紹分頁 */
+#bandintro-main {
+    position: relative;
+
+    .background {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        z-index: -100;
+
+        img {
+            position: fixed;
+            object-fit: cover;
+            width: 100%;
+            height: 100vh;
+            z-index: -99;
+
+        }
+
+        .overlay-bg {
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            z-index: -98;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0), $Opacity_b_75);
+        }
+    }
+
+    .content {
+        width: 100%;
+        justify-content: flex-start;
+        align-items: center;
+
+        /* 樂團介紹區塊 */
+        .band-intro {
+            padding: 24px 96px;
+            background: linear-gradient(to bottom, $Opacity_b_75, $Opacity_b_50);
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            display: inline-flex;
+
+
+            .band-name {
+                font-size: $fontsize_title;
+                font-family: $font_title_dela;
+                color: $Primary_color_orange;
+                margin-bottom: $distance_l;
+            }
+
+            .band-description {
+                line-height: 2rem;
+                font-size: $fontsize_content;
+                color: $Neutral_color_white;
+                letter-spacing: $letterspacing_10per;
+            }
+        }
+
+        /* 近期演出區塊 */
+        .upcoming-shows {
+            margin-top: $distance_l;
+            padding: 24px 96px;
+            background: linear-gradient(to bottom, $Opacity_b_75, $Opacity_b_50);
+
+            .shows-title {
+                font-size: $fontsize_title;
+                font-family: $font_title_dela;
+                color: $Primary_color_orange;
+                padding-bottom: $distance_l;
+            }
+
+            .show-card {
+                @extend %box-spacebetween;
+                font-family: 'inter';
+                border: 5px solid $Neutral_color_white;
+                padding: 24px 48px;
+                margin-bottom: $distance_l;
+                color: $Neutral_color_white;
+                transition: $speed-cubebuttomhover;
+                cursor: pointer;
+
+                &:hover {
+                    transform: translateX(10px);
+                    background-color: $Opacity_b_50;
+                }
+
+                .show-info {
+                    line-height: 2rem;
+
+                    .show-date {
+                        color: $Primary_color_orange;
+                        font-weight: $font_bold;
+                        font-size: $fontsize_subtitle;
+                    }
+
+                    .show-title {
+                        @extend %line-single;
+                        font-size: $fontsize_content;
+                        font-weight: $font_bold;
+                    }
+                }
+
+                .next-btn {
+                    background: none;
+                    border: none;
+                }
+            }
+        }
+
+        /* 音樂專輯區塊 */
+        .music-albums {
+            margin-top: $distance_l;
+            padding: 24px 96px;
+            background: linear-gradient(to bottom, $Opacity_b_75, $Opacity_b_50);
+
+            .music-title {
+                font-size: $fontsize_title;
+                font-family: $font_title_dela;
+                color: $Primary_color_orange;
+                padding-bottom: $distance_l;
+            }
+
+            .album-grid {
+                display: flex;
+
+                .album-card {
+                    width: 280px;
+                    display: flex;
+                    justify-content: flex-start;
+                    align-items: center;
+                    flex-direction: column;
+                    margin-right: $distance_xxl;
+
+                    .album-cover {
+                        object-fit: cover;
+                        height: 280px;
+
+                        margin-bottom: $distance_s;
+                    }
+
+                    .album-title {
+                        font-size: $fontsize_16;
+                        font-weight: $font_medium;
+                        color: $Neutral_color_white;
+
+                    }
+                }
+            }
+        }
+
+        /* 其他樂團輪播區 */
+        .gallery-container {
+            margin-top: $distance_l;
+            padding: 24px 0 24px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            font-family: $font_title_dela;
+
+            .gallery-title {
+                padding: 0 96px;
+                font-size: $fontsize_title;
+                font-family: $font_title_dela;
+                color: $Primary_color_orange;
+                padding-bottom: $distance_l;
+            }
+
+            .banner-section {
+                margin-bottom: 0;
+
+                .gallery-image-wrapper {
+                    opacity: 0.7;
+                    transition: $speed-cubebuttomhover;
+
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 行事曆頁面 */
+.calendar {
+    height: calc(100vh - 55px);
+    background: $Neutral_color_white;
+    font-family: $font_title_dela;
+    overflow: hidden;
+
+    .menu {
+        position: relative;
+        @extend %box-spacearound;
+        padding: $distance_s;
+        background: $Primary_color_orange;
+        color: $Neutral_color_white;
+
+        button {
+            position: absolute;
+            background: none;
+            border: none;
+            cursor: pointer;
+            opacity: 0.6;
+            transition: $speed-cubebuttomhover;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+
+        .left {
+            left: 100px;
+
+            &:hover {
+                transform: translateX(-10px);
+            }
+        }
+
+        .right {
+            right: 100px;
+
+            &:hover {
+                transform: translateX(10px);
+            }
+        }
+
+        h2 {
+            margin: 0;
+            font-size: $fontsize_40;
+            text-transform: uppercase;
+            font-family: $font_title_dela;
+            color: $Neutral_color_black;
+            text-align: center;
+        }
+    }
+
+    .days {
+        display: grid;
+        text-align: center;
+        font-size: $fontsize_subtitle;
+        grid-template-columns: repeat(7, 1fr);
+        background: $Neutral_color_black;
+        padding: 12px 0;
+        color: $Neutral_color_white;
+    }
+
+    .body {
+        height: 100%;
+
+        .row {
+            height: 16vh;
+            display: grid;
+            text-align: center;
+            grid-template-columns: repeat(7, 1fr);
+
+            .cell {
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                font-size: $fontsize_subtitle;
+                padding-top: $distance_xs;
+                cursor: pointer;
+                transition: 0.3s ease;
+
+                &.disabled {
+                    color: $Primary_color_beige !important;
+                    background-color: lighten($Primary_color_beige, 40%);
+                    pointer-events: none;
+                    cursor: not-allowed;
+                }
+
+                &.today {
+                    background: $Primary_color_beige;
+                    color: $Neutral_color_white;
+                }
+
+                .number {
+                    display: inline-block;
+                    color: $Neutral_color_black;
+                }
+            }
+        }
+    }
+}
+
+.cell {
+    &.disabled {
+        .number {
+            color: $Opacity_b_25 !important; // 灰色
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+    }
+}
+
+/* 樂迷留言板頁面 */
+#chatboard-main {
+    position: relative;
+    z-index: 0;
+
+    .linear-bg {
+        background: linear-gradient(to bottom, $Primary_color_pink, $Neutral_color_white, $Primary_color_blue);
+    }
+
+    .left-part {
+        h2 {
+            background-color: $Primary_color_orange;
+        }
+
+        p {
+            background-color: $Primary_color_orange;
+        }
+    }
+
+    .right-part {
+        background-color: $Primary_color_orange;
+        overflow: hidden;
+
+        .smile-face-roll {
+            display: flex;
+            animation: scroll 16s linear infinite;
+
+            &:nth-child(2) {
+                animation: scroll2 16s linear infinite;
+                animation-delay: -8s;
+            }
+
+            .smile-face {
+                display: flex;
+                width: 560px;
+                margin: $interval_0_24;
+
+                animation: smile-face-up 5s linear infinite;
+
+                &:nth-child(2) {
+                    animation: smile-face-up 5s linear infinite;
+                }
+            }
+        }
+    }
+
+    .main-area {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin: 0 auto;
+
+        /* Search Bar */
+        .searchbar {
+            @extend %box-spacebetween;
+            border: 4px solid $Neutral_color_black;
+            width: 100%;
+            height: 56px;
+            background-color: $Neutral_color_white;
+
+            .search {
+                width: 100%;
+                border: none;
+                padding-left: $distance_s;
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .magnifier {
+                width: 40px;
+                height: 40px;
+                background-color: $Primary_color_orange;
+                margin: 8px 4px 8px 16px;
+                @extend %box-center;
+                cursor: pointer;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+        }
+
+        /* Filter */
+        .filter {
+            display: flex;
+            margin: 64px 0 32px 0;
+
+            .option {
+                font-size: $fontsize_16;
+                border: 3px solid #ffaf00;
+                background-color: white;
+                margin-right: $distance_m;
+                padding: $interval_4_8;
+            }
+        }
+
+        /* message */
+        .article {
+            border: 3px solid $Neutral_color_black;
+            padding: 32px 36px;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 32px;
+            background-color: $Neutral_color_white;
+            transition: $speed-cubebuttomhover;
+
+            &:hover {
+                box-shadow: 10px 10px $Primary_color_orange;
+                transform: translate(-10px, -10px);
+            }
+
+            .tag {
+                border: 1px solid $Primary_color_blue;
+                border-radius: 50px;
+                padding: $interval_4_8;
+                font-size: $fontsize_12;
+                margin-bottom: $distance_m;
+            }
+
+            .message {
+                display: flex;
+                justify-content: space-between;
+
+                .text-area {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    margin-right: $distance_l;
+                    max-width: calc(100% - 190px);
+
+                    .user {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: $distance_s;
+
+                        .profile {
+                            width: 36px;
+                            height: 36px;
+                            margin-right: $distance_s;
+                        }
+
+                        .username {
+                            font-family: 'inter';
+                            font-size: $fontsize_14;
+                            text-align: center;
+                        }
+                    }
+
+                    .article-title {
+                        color: $Primary_color_orange;
+                        margin-bottom: $distance_s;
+                        font-size: $fontsize_content;
+                        font-weight: $font_bold;
+                    }
+
+                    .content {
+                        font-size: $fontsize_16;
+                        margin-bottom: $distance_m;
+                        @extend %line-single;
+                    }
+
+                    .feedback {
+                        display: flex;
+
+                        .icon-number {
+                            display: flex;
+                            justify-content: center;
+                            margin-right: $distance_xxl;
+
+                            figure {
+                                width: 24px;
+                                height: 24px;
+                                margin-right: $distance_xs;
+                            }
+                        }
+                    }
+                }
+
+                .picture {
+                    width: 190px;
+
+                    img {
+                        object-fit: cover;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+/* 各活動頁排版 */
+.event-page {
+    .event-banner {
+        position: relative;
+        display: flex;
+        overflow: hidden;
+
+        .cover {
+            position: absolute;
+            width: 100%;
+        }
+
+        .eventpic {
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        h1,
+        h2 {
+            position: absolute;
+            background-color: $Neutral_color_black;
+            color: $Neutral_color_white;
+            font-size: $fontsize_36;
+            font-weight: $font_bold;
+            padding: $interval_16_24;
+        }
+
+        h1 {
+            margin-top: 40px;
+        }
+
+        h2 {
+            margin-top: 108px;
+        }
+
+    }
+
+    .content-bg-up {
+        margin-top: -70px;
+    }
+
+    .content-down {
+        display: flex;
+        justify-content: space-around;
+        padding: $interval_0_80;
+        margin-bottom: $distance_60;
+
+        .left-part {
+            flex: 3;
+            padding: 40px 56px 0 56px;
+            margin-right: $distance_xxl;
+            background-color: $Primary_color_blue;
+
+            figure {
+                width: 100%;
+            }
+
+            .content-words {
+                margin-top: $distance_xl;
+                color: $Neutral_color_white;
+
+                h2 {
+                    font-size: $fontsize_36;
+                    font-weight: $font_bold;
+                    padding-bottom: $distance_l;
+                    border-bottom: solid 2px $Neutral_color_white;
+                }
+
+                p {
+                    margin-top: $distance_l;
+                    line-height: 1.5;
+                    font-size: $fontsize_16;
+                    margin-bottom: $distance_80;
+                }
+            }
+        }
+
+        .right-part {
+            flex: 1;
+
+            .info-sec {
+                font-family: 'inter';
+                background-color: $Neutral_color_black;
+                color: $Neutral_color_white;
+                padding: $interval_32_24;
+                letter-spacing: $letterspacing_10per;
+
+                .time {
+                    font-size: $fontsize_subtitle;
+                    font-weight: $font_bold;
+                    padding-bottom: $distance_m;
+                    border-bottom: solid 2px $Neutral_color_white;
+                }
+
+                .li-sec {
+                    padding: $interval_16_0;
+
+                    h3 {
+                        font-size: $fontsize_16;
+                        margin-bottom: $distance_s;
+                    }
+
+                    p {
+                        font-size: $fontsize_subtitle;
+                        line-height: 1.5;
+                    }
+                }
+
+                button {
+                    width: 100%;
+                    height: 40px;
+                    font-size: $fontsize_16;
+                    background-color: $Neutral_color_white;
+                    color: $Neutral_color_black;
+                    border: none;
+                    margin-bottom: $distance_m;
+                    cursor: pointer;
+                }
+
+                .share {
+                    @extend %box-center;
+                    margin-bottom: $distance_m;
+
+                    p {
+                        margin-right: $distance_m;
+                    }
+
+                    figure {
+                        width: 40px;
+                        height: 40px;
+                        margin-right: $distance_m;
+                        cursor: pointer;
+                    }
+                }
+            }
+
+        }
+    }
+
+    .newsTicker {
+        height: 80px;
+        transform: rotate(-3deg);
+        margin-bottom: $distance_60;
+
+        span {
+            font-size: $fontsize_40;
+        }
+    }
+
+    .cards-bottom {
+        @extend %box-center;
+        overflow: hidden;
+        padding: $interval_16_0;
+        position: relative;
+        z-index: $z_index-m;
+
+
+        .buttons {
+            z-index: $z_index-l;
+
+            .cta-btn {
+                position: absolute;
+                width: 60px;
+                height: 60px;
+                opacity: 0.6;
+                border: 1px solid $Neutral_color_white;
+                transition: $speed-cubebuttomhover;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+
+            .left {
+                transform: scale(-1);
+                left: 50px;
+
+                &:hover {
+                    transform: scale(-1) translateX(10px);
+                }
+            }
+
+            .right {
+                right: 50px;
+
+                &:hover {
+                    transform: translateX(10px);
+                }
+            }
+        }
+    }
+}
+
+/* 登入頁面 */
+#login-page {
+    height: calc(100vh - 55px);
+    @extend %box-center;
+
+    .login-left {
+        flex: 1.5;
+        @extend %box-center;
+        flex-direction: column;
+        margin-right: $distance_l;
+
+        h3,
+        p {
+            background-color: $Neutral_color_black;
+            color: $Neutral_color_white;
+            padding: $interval_4_8;
+            font-size: $fontsize_36;
+            font-weight: $font_black;
+            font-family: 'inter';
+            letter-spacing: $letterspacing_10per;
+        }
+
+        h3 {
+            margin-bottom: $distance_l;
+        }
+    }
+
+    .login-right {
+        flex: 1;
+
+        .login-card {
+            position: relative;
+            left: 0;
+            top: 0;
+            transform: none;
+            width: 345px;
+            height: 100%;
+            padding: $distance_xxl;
+            box-shadow: 10px 10px $Primary_color_orange;
+
+            figure {
+                margin-bottom: $distance_s;
+            }
+
+            p {
+                font-size: $fontsize_14;
+            }
+
+            .remember-me {
+                p {
+                    font-size: $fontsize_12;
+                }
+            }
+
+            .card-content {
+                form {
+                    .login-btns {
+                        margin-top: $distance_m;
+
+                        .line {
+                            margin: 4px 0 12px 0;
+                        }
+
+                        .orange-btn,
+                        .normal-btn,
+                        .disabled-btn {
+                            margin-bottom: $distance_s;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 登入/註冊畫面卡片彈跳視窗 共用區 */
+.overlay {
+    background-color: rgba($Neutral_color_black, 0.6);
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    // z-index: -1;
+}
+
+// 註冊頁背景
+.signup-bg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+
+    .bg-smile {
+        position: absolute;
+        width: 800px;
+        top: 0px;
+        right: -250px;
+    }
+
+    .bg-blue12 {
+        position: absolute;
+        width: 500px;
+        left: -60px;
+        top: 500px;
+    }
+}
+
+.login-popup {
+    height: calc(100vh - 55px);
+    width: 100%;
+    position: absolute;
+    @extend %box-center;
+    flex-direction: column;
+    overflow: hidden;
+
+    .flow {
+        width: 486px;
+        @extend %box-spacebetween;
+        margin-bottom: $distance_xl;
+
+        .line {
+            display: block;
+            width: 160px;
+            height: 4px;
+            border-radius: 0;
+            background-color: $Neutral_color_grey_300;
+        }
+
+        div {
+            width: 48px;
+            height: 48px;
+            font-family: $font_title_dela;
+            text-align: center;
+            font-size: $fontsize_32;
+            border-radius: 100px;
+            color: $Neutral_color_white;
+        }
+
+        .done {
+            background-color: $Primary_color_orange;
+        }
+
+        .undo {
+            background-color: $Neutral_color_grey_300;
+        }
+    }
+
+    .login-card {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+}
+
+/* 登入畫面卡片btns 共用樣式 */
+.login-card {
+    position: absolute;
+    top: 50vh;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    border: solid 5px $Neutral_color_black;
+    @extend %box-center;
+    flex-direction: column;
+    width: 486px;
+    height: 512px;
+    padding: 0 80px;
+    box-shadow: 10px 10px $Primary_color_orange;
+    background-color: $Neutral_color_white;
+
+    h1 {
+        font-family: $font_title_dela;
+        font-size: $fontsize_36;
+    }
+
+    p {
+        text-align: center;
+        font-size: $fontsize_14;
+        margin-top: $distance_xs;
+        line-height: 1.5;
+    }
+
+    .card-content {
+        width: 100%;
+
+        form {
+            margin-top: $distance_l;
+            @extend %box-center;
+            flex-direction: column;
+            width: 100%;
+
+            .user-data {
+                width: 100%;
+                border: none;
+                border-bottom: solid 1px $Neutral_color_black;
+                margin-bottom: $distance_m;
+                font-size: $fontsize_16;
+                padding-bottom: $distance_xs;
+
+                &::placeholder {
+                    color: $Neutral_color_grey_300;
+                }
+
+                &:focus {
+                    outline: none;
+                }
+            }
+
+            .remember-me {
+                width: 100%;
+                @extend %box-spacebetween;
+                font-size: $fontsize_12;
+                margin-top: -12px;
+                color: $Neutral_color_grey_300;
+
+                p {
+                    font-size: $fontsize_12;
+                    color: $Primary_color_blue;
+                }
+            }
+
+            .line {
+                display: block;
+                width: 100%;
+                height: 1px;
+                background-color: $Neutral_color_grey_300;
+                margin: 8px 0 24px 0;
+            }
+        }
+    }
+
+    .login-btns {
+        @extend %box-center;
+        flex-direction: column;
+        width: 100%;
+        margin-top: $distance_l;
+
+        .orange-btn,
+        .normal-btn,
+        .disabled-btn {
+            width: 100%;
+            border: solid 1px $Neutral_color_black;
+            font-size: $fontsize_16;
+            padding: $interval_8_0;
+            text-align: center;
+            color: $Neutral_color_black;
+            margin-bottom: $distance_m;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        .disabled-btn {
+            border: solid 1px $Neutral_color_grey_300;
+            color: $Neutral_color_grey_300;
+        }
+
+        .orange-btn {
+            background-color: $Primary_color_orange;
+            border: none;
+        }
+    }
+}
+
+/* 會員專區頁面 */
+.collect-content {
+    height: calc(100vh - 55px);
+    margin-top: 55px;
+
+    .collect-a {
+        flex-grow: 1;
+        margin-left: 205px;
+        padding: 24px;
+        overflow-y: auto;
+
+        h2 {
+            font-family: $font_title_dela;
+            font-size: $fontsize_36;
+            color: $Primary_color_orange;
+            margin-bottom: $distance_m;
+        }
+
+        .card-list {
+            display: flex;
+            flex-wrap: wrap;
+
+            .card {
+                width: 400px;
+                margin: 0 16px 16px 0;
+
+                &:hover {
+                    box-shadow: none;
+                    transform: none;
+                }
+            }
+        }
+    }
+}
+
+#member-bar {
+    @extend %box-spacebetween;
+    position: fixed; // 確保它固定在視窗
+    top: 0; // 置頂
+    left: 0; // 確保靠左
+    width: 100%; // 占滿整個視窗寬度
+    height: 55px;
+    padding: 0 40px;
+    background-color: $Neutral_color_black;
+    z-index: $z_index_l;
+
+    img {
+        width: 220px;
+        padding: 12px 12px 12px 0;
+    }
+
+    .menu {
+        @extend %box-center;
+
+        a {
+            width: 32px;
+            height: 32px;
+            margin-left: 16px;
+        }
+
+        .icon-member {
+            background-image: url('./images/icon/icon-member.svg');
+        }
+
+        .icon-msg {
+            background-image: url('./images/icon/icon-msg.svg');
+        }
+    }
+}
+
+/* sidebar */
+#sidebar {
+    width: 205px;
+    height: calc(100vh - 55px);
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 12px;
+    /* 允許垂直滾動 */
+    background-color: $Neutral_color_white;
+
+    .nav {
+        margin: 10px;
+        font-size: $fontsize_16;
+
+        .section-title {
+            padding: 18px 16px;
+            border-bottom: 1px solid rgba($Neutral_color_black, 0.2);
+            font-weight: $font_bold;
+            color: $Opacity_b_75;
+        }
+
+        li a {
+            display: block;
+            padding: 18px 16px;
+            color: $Opacity_b_50;
+            text-decoration: none;
+            transition: all 0.3s;
+
+            &:hover {
+                background-color: $Primary_color_beige;
+                color: $Neutral_color_black;
+            }
+        }
+    }
+}
