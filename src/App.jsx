@@ -7,12 +7,12 @@ import BandDiscoverPage from "./pages/BandDiscoverPage"
 import PersonalCalendarPage from "./pages/PersonalCalendarPage"
 import CurrentEventPage from "./pages/CurrentEventPage"
 import EventOne from "./pages/EventOne"
-import SignUpOne from "./components/SignUpOne"
-import SignUpTwo from "./components/SignUpTwo"
-import SignUpThree from "./components/SignUpThree"
-import SignUpFour from "./components/SignUpFour"
-import LogIn from "./components/logIn"
 import BandIntroPage from "./pages/BandIntroPage"
+import SignUpOne from "./pages/SignUpOne"
+import SignUpTwo from "./pages/SignUpTwo"
+import SignUpThree from "./pages/SignUpThree"
+import SignUpFour from "./pages/SignUpFour"
+import LogIn from "./pages/LogIn"
 
 function App() {
 
