@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"
-import NavBar from "./NavBar"
+import NavBar from "../components/NavBar"
+
 
 function LogIn() {
     return (
         <>
-            <NavBar />
+            <NavBar/>
             <main>
                 <div id="login-page">
                     <div className="login-left">

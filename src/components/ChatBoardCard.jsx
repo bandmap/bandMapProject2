@@ -18,7 +18,7 @@ function ChatBoardCard() {
             username: "NatureLover88",
             title: "種樹與野生的現場像進入了森林音樂祭🌳🎶",
             content: "昨天第一次去看種樹和野生的聯合演出，簡直像走進了音樂與自然交融的世界🍃✨！種樹的開場曲《綠意漫山》直接帶我進入放鬆的狀態，而野生的《風中追尋》又瞬間讓人熱血沸騰🔥。現場的舞台布置也超有意境，真的像在森林裡開音樂會🌲🎤。兩團合作的安可曲《與自然共舞》更是全場亮點，全觀眾一起揮手合唱，氣氛美到讓人忘了時間❤️。超推薦給喜歡自然系音樂的朋友，下次他們有演出一定要去支持",
-            pic: "./images/樂迷留言板/種樹與野生.jpg",
+            pic: "./images/chatcard/chatcard_7.jpg",
             number: ['673', '56', '45']
         },
         {
@@ -28,7 +28,7 @@ function ChatBoardCard() {
             username: "Huanglala789",
             title: "周邊用搶的，好難!!",
             content: "打狗祭的周邊真的是難買到嚇死人，預售沒跟到，開賣後也沒有搶到><，要不是強者我朋友，我可能就買不到了。建議有計畫購買打狗祭周邊商品的朋友下次一定要趁早上網訂購啊!",
-            pic: "./images/樂迷留言板/留言附圖_音樂祭單品_1.jfif",
+            pic: "./images/chatcard/chatcard_1.jfif",
             number: ['98', '6', '18']
         },
         {
@@ -68,7 +68,7 @@ function ChatBoardCard() {
             username: "IndieLove_22",
             title: "秋波愛麗的夢幻現場!!",
             content: "秋波愛麗的現場氣氛太美了，燈光、音樂和他們的表演融合得無比自然！特別是那首慢板曲《銀河之聲》，直接把大家帶到另一個次元。現場粉絲都超安靜，好像怕打擾到這份美好。",
-            pic: "./images/樂迷留言板/留言附圖_專場_2.jfif",
+            pic: "./images/chatcard/chatcard_2.jfif",
             number: ['418', '40', '279']
         },
         {
@@ -88,7 +88,7 @@ function ChatBoardCard() {
             username: "Lisa098",
             title: "關於聽團穿搭這件事",
             content: "一直都不是個會在意穿搭的人直到開始聽團之後，看到朋友們去聽團錢都會用心搭配穿著，增加聽團的儀式感，我也慢慢受到影響......",
-            pic: "./images/樂迷留言板/留言附圖_音樂祭單品_2.jfif",
+            pic: "./images/chatcard/chatcard_3.jfif",
             number: ['108', '30', '38']
         },
     ]

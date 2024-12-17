@@ -38,14 +38,14 @@ function EventOne() {
             <NavBar />
             <main className="event-page">
                 <div className="event-banner">
-                    <figure className="eventpic"><img src="./images/活動/活動頁-揪音秘-橫式.jpg" alt="活動頁-刑男大主廚" /></figure>
+                    <figure className="eventpic"><img src="./images/event/event1-banner-1.jpg" alt="活動頁-揪音秘" /></figure>
                 </div>
                 <div className="content-bg-up">
-                    <img src="./images/資訊頁-bg圖形.svg" alt="" />
+                    <img src="./images/event1-bg.svg" alt="" />
                 </div>
                 <div className="content-down">
                     <div className="left-part">
-                        <figure><img src="./images/活動/近期活動-揪音秘.jpg" alt="" /></figure>
+                        <figure><img src="./images/event/currentevent-json-1.jpg" alt="" /></figure>
                         <div className="content-words">
                             <h2>挺音樂｜揪音秘</h2>
                             <p>這次音樂派對將為你帶來5組獨具特色的音樂人，共同呈現音樂的多元樣貌！

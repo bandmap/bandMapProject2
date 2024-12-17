@@ -17,7 +17,7 @@ function PersonalCalendar() {
                 </p>
                 <div className="cta">
                     <span>馬上編輯</span>
-                    <Link to='/calendar'><button className="cta-btn"><img src="../images/btn-next-b&w.svg" alt="" /></button></Link>
+                    <Link to='/calendar'><button className="cta-btn"><img src="./images/btn-next-b&w.svg" alt="" /></button></Link>
                 </div>
             </div>
         </div>

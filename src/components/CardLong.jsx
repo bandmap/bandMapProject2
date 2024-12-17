@@ -10,7 +10,7 @@ function CardLong({ searchcard }) {
                     <p className="date">{searchcard.date}</p>
                     <p className="event">{searchcard.event}</p>
                     <div className="location">
-                        <figure><img src="./images/icon/icon-地點.svg" alt="icon-地點" /></figure>
+                        <figure><img src="./images/icon/icon-location.svg" alt="icon-地點" /></figure>
                         <p>{searchcard.location}</p>
                     </div>
                 </div>

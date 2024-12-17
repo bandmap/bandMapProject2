@@ -1,5 +1,5 @@
-import BandMapPage from "./pages/BandMapPage"
 import { Route, Routes } from "react-router-dom"
+import BandMapPage from "./pages/BandMapPage"
 import ChatBoardPage from "./pages/ChatBoardPage"
 import MemberPage from "./pages/MemberPage"
 import Home from "./pages/Home"

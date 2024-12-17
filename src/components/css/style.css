@@ -709,7 +709,7 @@ a {
 #bandmap-page {
   height: 100vh;
   padding: 0 50px;
-  background-image: url(/public/images/bg-bandmap.svg);
+  background: url(/images/bg-bandmap.svg);
   background-size: cover;
   background-position: center;
   position: sticky;
@@ -745,7 +745,7 @@ a {
   content: "";
   display: block;
   position: absolute;
-  background-image: url(/public/images/texture.png);
+  background-image: url(/images/texture.png);
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -799,7 +799,7 @@ a {
   content: "";
   display: block;
   position: absolute;
-  background-image: url(/public/images/texture.png);
+  background-image: url(/images/texture.png);
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -840,7 +840,7 @@ a {
 /* 首頁BAND利貼區 */
 #chatboard-page {
   height: 100vh;
-  background-image: url(/public/images/樂迷留言板photo.jpg);
+  background-image: url(/images/bandchat-photo.jpg);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -1270,7 +1270,7 @@ main {
   -webkit-appearance: none;
   -moz-appearance: none;
   cursor: pointer;
-  background: url(/public/images/selector.svg) no-repeat scroll right center transparent;
+  background: url(/images/selector.svg) no-repeat scroll right center transparent;
 }
 #bandmap-main .search-section div select option {
   padding-left: 8px;
@@ -2187,10 +2187,10 @@ main {
   margin-left: 16px;
 }
 #member-bar .menu .icon-member {
-  background-image: url("public/images/icon/icon-member.svg");
+  background-image: url(/images/icon/icon-member.svg);
 }
 #member-bar .menu .icon-msg {
-  background-image: url("public/images/icon/icon-msg.svg");
+  background-image: url(/images/icon/icon-msg.svg);
 }
 
 /* sidebar */
