@@ -2469,20 +2469,12 @@ main {
     }
 
     .menu {
-        @extend %box-center;
+        // @extend %box-center;
 
-        a {
-            width: 32px;
-            height: 32px;
+        img {
+            width: 24px;
+            height: 24px;
             margin-left: 16px;
-        }
-
-        .icon-member {
-            background-image: url(./images/icon/icon-member.svg);
-        }
-
-        .icon-msg {
-            background-image: url(./images/icon/icon-msg.svg);
         }
     }
 }

@@ -53,7 +53,7 @@ a {
 }
 
 /* 日曆樣式 */
-.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, .topbar, .topbar .left-part, .topbar .right-part, .banner-section, .banner-section .carousel, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, #member-bar .menu {
+.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, .topbar, .topbar .left-part, .topbar .right-part, .banner-section, .banner-section .carousel, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2181,16 +2181,10 @@ main {
   width: 220px;
   padding: 12px 12px 12px 0;
 }
-#member-bar .menu a {
-  width: 32px;
-  height: 32px;
+#member-bar .menu img {
+  width: 24px;
+  height: 24px;
   margin-left: 16px;
-}
-#member-bar .menu .icon-member {
-  background-image: url(./images/icon/icon-member.svg);
-}
-#member-bar .menu .icon-msg {
-  background-image: url(./images/icon/icon-msg.svg);
 }
 
 /* sidebar */
