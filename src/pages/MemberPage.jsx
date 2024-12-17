@@ -10,7 +10,7 @@ function MemberPage() {
 
     const sampleCards = [
         {
-            img: "./images/活動/近期活動-都市女生-洪佩瑜.jpg",
+            img: "./images/event/currentevent-json-7.jpg",
             key: 1,
             date: "2024/12/14 (六）20: 00",
             event: "【2024都市女聲】：洪佩瑜-台北場(加場)",
@@ -20,7 +20,7 @@ function MemberPage() {
             ]
         },
         {
-            img: "./images/活動/近期活動-柯泯薰-好好的專輯發片演唱會.jpg",
+            img: "./images/event/currentevent-json-9.jpg",
             key: 2,
             date: "2024/12/26 (四）19: 30",
             event: "柯泯薰 misi Ke《好好的 BE GOOD》專輯發片專場",

@@ -9,7 +9,7 @@ function BandDiscover() {
 
         { img: './images/banddiscover-1.jpg', key: '2', name: '樂團介紹-秋波愛麗', band: '秋波愛麗', content: '秋波愛麗是一支來自台灣的新生代獨立樂團，以夢幻且充滿情感的旋律在樂迷間迅速打響名號。樂團名稱「秋波愛麗」帶有濃厚的文學與藝術氣息，彷彿是一場溫柔的凝視，帶領聽眾進入如同愛麗絲仙境般的音樂世界。' },
 
-        { img: './images/banddiscover-3.jpg', key: '3', name: '樂團介紹-Resa Club', band: 'Resa Club', content: 'Resa Club，台灣備受矚目的音樂創作單位，以獨特的音樂美學與精緻的聲音製作在獨立音樂圈中嶄露頭角。「Resa」源自於「旅程」的意涵，而這個名字也象徵著他們以音樂為載體，帶領聽眾踏上一場感官與情感的探索旅途。' }
+        { img: './images/banddiscover-3.png', key: '3', name: '樂團介紹-Resa Club', band: 'Resa Club', content: 'Resa Club，台灣備受矚目的音樂創作單位，以獨特的音樂美學與精緻的聲音製作在獨立音樂圈中嶄露頭角。「Resa」源自於「旅程」的意涵，而這個名字也象徵著他們以音樂為載體，帶領聽眾踏上一場感官與情感的探索旅途。' }
     ]
 
     const [hoverIndex, setHoverIndex] = useState(null);
