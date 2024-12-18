@@ -22,8 +22,8 @@ function ChatBoardPage() {
                     <div className="topbar">
                         <div className="left-part">
                             <div className="title">
-                                <h2>隨BAND聊</h2>
-                                <p>樂迷留言板</p>
+                                <h2 className="title-ani title-ani-tar">隨BAND聊</h2>
+                                <p className="title-ani-s title-ani-tar-s">樂迷留言板</p>
                             </div>
                         </div>
                         <div className="right-part">

@@ -471,6 +471,7 @@
             background-color: transparent;
             text-align: center;
             padding: 0;
+            cursor: pointer;
         }
 
         p {
@@ -536,13 +537,62 @@
         h2 {
             font-family: $font_title_dela;
             font-size: $fontsize_title;
-
             margin-bottom: $distance_m;
+        }
+
+        .title-ani {
+            overflow: hidden;
+            transition-delay: .6s;
+
+            &::after {
+                animation: textani 1s forwards;
+            }
+        }
+
+        .title-ani-tar {
+            position: relative;
+            width: fit-content;
+
+            &::after {
+                content: '';
+                width: 0%;
+                height: 90%;
+                position: absolute;
+                top: 5px;
+                left: 0;
+                background-color: $Neutral_color_black;
+            }
         }
 
         h3 {
             font-size: $fontsize_subtitle;
             font-weight: $font_bold;
+        }
+
+        .title-ani-s {
+            overflow: hidden;
+            transition-delay: .6s;
+
+            &::after {
+                animation: textani .8s forwards;
+                animation-delay: .5s;
+            }
+        }
+
+        .title-ani-tar-s {
+            position: relative;
+            width: fit-content;
+
+            &::after {
+                content: '';
+                width: 0%;
+                height: 120%;
+                transition: .3s;
+                position: absolute;
+                top: 0;
+                left: 0;
+                background-color: $Neutral_color_black;
+            }
         }
     }
 
@@ -551,6 +601,22 @@
         font-weight: $font_regular;
         line-height: 1.5;
         margin-bottom: $distance_xxl;
+    }
+
+    .fadein-bottom {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: 0.5s;
+        transition-delay: 0.5s;
+    }
+
+    .fadein-bottom-show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .button-delay {
+        transition-delay: 0.7s;
     }
 
     .cta {
@@ -689,6 +755,18 @@
         color: $Neutral_color_white;
         z-index: 1;
 
+        .title-ani-tar {
+            &::after {
+                background-color: $Neutral_color_white;
+            }
+        }
+
+        .title-ani-tar-s {
+            &::after {
+                background-color: $Neutral_color_white;
+            }
+        }
+
         h3 {
             font-weight: 600;
         }
@@ -756,6 +834,18 @@
         color: $Neutral_color_white;
         z-index: $z_index-m;
 
+        .title-ani-tar {
+            &::after {
+                background-color: $Neutral_color_white;
+            }
+        }
+
+        .title-ani-tar-s {
+            &::after {
+                background-color: $Neutral_color_white;
+            }
+        }
+
         h3 {
             font-weight: 600;
         }
@@ -818,6 +908,18 @@
         color: $Neutral_color_white;
         z-index: 1;
 
+        .title-ani-tar {
+            &::after {
+                background-color: $Neutral_color_white;
+            }
+        }
+
+        .title-ani-tar-s {
+            &::after {
+                background-color: $Neutral_color_white;
+            }
+        }
+
         h3 {
             font-weight: 600;
         }
@@ -865,9 +967,36 @@
     top: 0; // 當到達這個位置後固定
 
     .calendar-illu {
+        position: absolute;
         width: 50%;
         height: 100%;
+        @extend %box-center;
+        flex-direction: column;
+        top: 0;
+        left: 0;
         background-color: $Primary_color_red;
+        overflow: hidden;
+
+        .graphic-sec {
+            margin: 12px 0;
+        }
+
+        .note-ani {
+            width: 110%;
+            animation: note-roll-odd 8s infinite;
+
+        }
+
+        .words {
+            width: 200%;
+            animation: note-roll-even 8s infinite;
+        }
+    }
+
+    .intro-section {
+        position: relative;
+        margin-left: 50%;
+
     }
 
 }
@@ -898,14 +1027,66 @@ main {
             h2 {
                 font-family: $font_title_dela;
                 font-size: $fontsize_title;
-                margin-bottom: $distance_l;
-                padding: $interval_32_24;
+                margin-bottom: $distance_m;
+                padding: $interval_4_8;
+                background-color: $Neutral_color_white;
+            }
+
+            .title-ani {
+                overflow: hidden;
+                transition-delay: .6s;
+
+                &::after {
+                    animation: textani 1s forwards;
+                }
+            }
+
+            .title-ani-tar {
+                position: relative;
+                width: fit-content;
+
+                &::after {
+                    content: '';
+                    width: 0%;
+                    height: 110%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: $Neutral_color_black;
+                }
             }
 
             p {
                 font-size: $fontsize_subtitle;
                 font-weight: $font_bold;
-                padding: $interval_16_24;
+                padding: $interval_4_8;
+                background-color: $Neutral_color_white;
+            }
+
+            .title-ani-s {
+                overflow: hidden;
+                transition-delay: .6s;
+
+                &::after {
+                    animation: textani .8s forwards;
+                    animation-delay: .5s;
+                }
+            }
+
+            .title-ani-tar-s {
+                position: relative;
+                width: fit-content;
+
+                &::after {
+                    content: '';
+                    width: 0%;
+                    height: 120%;
+                    transition: .3s;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    background-color: $Neutral_color_black;
+                }
             }
         }
     }
@@ -1289,12 +1470,13 @@ main {
     }
 
     .left-part {
-        h2 {
-            background-color: $Primary_color_blue;
-        }
+        color: $Primary_color_blue;
 
-        p {
-            background-color: $Primary_color_blue;
+        .title-ani-tar,
+        .title-ani-tar-s {
+            &::after {
+                background-color: $Primary_color_blue;
+            }
         }
     }
 
@@ -1388,12 +1570,13 @@ main {
     }
 
     .left-part {
-        h2 {
-            background-color: $Primary_color_pink;
-        }
+        color: $Primary_color_pink;
 
-        p {
-            background-color: $Primary_color_pink;
+        .title-ani-tar,
+        .title-ani-tar-s {
+            &::after {
+                background-color: $Primary_color_pink;
+            }
         }
     }
 
@@ -1434,12 +1617,13 @@ main {
     }
 
     .left-part {
-        h2 {
-            background-color: $Primary_color_red;
-        }
+        color: $Primary_color_red;
 
-        p {
-            background-color: $Primary_color_red;
+        .title-ani-tar,
+        .title-ani-tar-s {
+            &::after {
+                background-color: $Primary_color_red;
+            }
         }
     }
 
@@ -1471,6 +1655,7 @@ main {
 /* 各樂團介紹分頁 */
 #bandintro-main {
     position: relative;
+    font-family: 'inter';
 
     .background {
         position: relative;
@@ -1541,7 +1726,6 @@ main {
 
             .show-card {
                 @extend %box-spacebetween;
-                font-family: 'inter';
                 border: 5px solid $Neutral_color_white;
                 padding: 24px 48px;
                 margin-bottom: $distance_l;
@@ -1773,12 +1957,13 @@ main {
     }
 
     .left-part {
-        h2 {
-            background-color: $Primary_color_orange;
-        }
+        color: $Primary_color_orange;
 
-        p {
-            background-color: $Primary_color_orange;
+        .title-ani-tar,
+        .title-ani-tar-s {
+            &::after {
+                background-color: $Primary_color_orange;
+            }
         }
     }
 
@@ -1890,11 +2075,10 @@ main {
                 justify-content: space-between;
 
                 .text-area {
-                    width: 100%;
+                    width: calc(100% - 190px);
                     display: flex;
                     flex-direction: column;
                     margin-right: $distance_l;
-                    max-width: calc(100% - 190px);
 
                     .user {
                         display: flex;
@@ -1942,6 +2126,10 @@ main {
                             }
                         }
                     }
+                }
+
+                .no-graph-area {
+                    width: 100%;
                 }
 
                 .picture {
@@ -2463,18 +2651,19 @@ main {
     background-color: $Neutral_color_black;
     z-index: $z_index_l;
 
-    img {
+    .logo {
         width: 220px;
         padding: 12px 12px 12px 0;
     }
 
     .menu {
-        // @extend %box-center;
+        @extend %box-center;
 
         img {
-            width: 24px;
-            height: 24px;
+            width: 32px;
+            height: 32px;
             margin-left: 16px;
+            cursor: pointer;
         }
     }
 }

@@ -21,8 +21,8 @@ function BandDiscoverPage() {
                     <div className="topbar">
                         <div className="left-part">
                             <div className="title">
-                                <h2>BAND利商店</h2>
-                                <p>本月樂團推薦</p>
+                                <h2 className="title-ani title-ani-tar">BAND利商店</h2>
+                                <p className="title-ani-s title-ani-tar-s">本月樂團推薦</p>
                             </div>
                         </div>
                         <div className="right-part">

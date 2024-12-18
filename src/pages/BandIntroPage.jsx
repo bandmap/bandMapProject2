@@ -17,7 +17,7 @@ function BandIntroPage() {
             <NavBar />
             <main id='bandintro-main'>
                 <section className="background">
-                    <img src="./images/樂團圖片-秋波愛麗.png" alt="" />
+                    <img src="./images/banddiscover-1.jpg" alt="" />
                     <div className="overlay-bg"></div>
                 </section >
                 <div className="content">

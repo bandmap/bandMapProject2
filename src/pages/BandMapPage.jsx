@@ -51,8 +51,8 @@ function BandMapPage() {
                     <div className="topbar">
                         <div className="left-part">
                             <div className="title">
-                                <h2>隨BAND地圖</h2>
-                                <p>全台演出搜尋</p>
+                                <h2 className="title-ani title-ani-tar">隨BAND地圖</h2>
+                                <p className="title-ani-s title-ani-tar-s">全台演出搜尋</p>
                             </div>
                         </div>
                         <div className="right-part">

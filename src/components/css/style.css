@@ -53,7 +53,7 @@ a {
 }
 
 /* 日曆樣式 */
-.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, .topbar, .topbar .left-part, .topbar .right-part, .banner-section, .banner-section .carousel, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns {
+.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .banner-section, .banner-section .carousel, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, #member-bar .menu {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -216,6 +216,19 @@ a {
   }
   100% {
     transform: translateX(-5%);
+  }
+}
+@keyframes textani {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 100%;
+    left: 102%;
   }
 }
 /* 當popup出現時，底下頁面不能滑動 */
@@ -585,6 +598,7 @@ a {
   background-color: transparent;
   text-align: center;
   padding: 0;
+  cursor: pointer;
 }
 #nav-bar .menu p {
   color: white;
@@ -637,15 +651,70 @@ a {
   font-size: 60px;
   margin-bottom: 16px;
 }
+.intro-section .title .title-ani {
+  overflow: hidden;
+  transition-delay: 0.6s;
+}
+.intro-section .title .title-ani::after {
+  animation: textani 1s forwards;
+}
+.intro-section .title .title-ani-tar {
+  position: relative;
+  width: fit-content;
+}
+.intro-section .title .title-ani-tar::after {
+  content: "";
+  width: 0%;
+  height: 90%;
+  position: absolute;
+  top: 5px;
+  left: 0;
+  background-color: black;
+}
 .intro-section .title h3 {
   font-size: 24px;
   font-weight: 700;
+}
+.intro-section .title .title-ani-s {
+  overflow: hidden;
+  transition-delay: 0.6s;
+}
+.intro-section .title .title-ani-s::after {
+  animation: textani 0.8s forwards;
+  animation-delay: 0.5s;
+}
+.intro-section .title .title-ani-tar-s {
+  position: relative;
+  width: fit-content;
+}
+.intro-section .title .title-ani-tar-s::after {
+  content: "";
+  width: 0%;
+  height: 120%;
+  transition: 0.3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
 }
 .intro-section p {
   font-size: 20px;
   font-weight: 400;
   line-height: 1.5;
   margin-bottom: 40px;
+}
+.intro-section .fadein-bottom {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.5s;
+  transition-delay: 0.5s;
+}
+.intro-section .fadein-bottom-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+.intro-section .button-delay {
+  transition-delay: 0.7s;
 }
 .intro-section .cta {
   display: flex;
@@ -755,6 +824,12 @@ a {
   color: white;
   z-index: 1;
 }
+#banddiscover-page .intro-section .title-ani-tar::after {
+  background-color: white;
+}
+#banddiscover-page .intro-section .title-ani-tar-s::after {
+  background-color: white;
+}
 #banddiscover-page .intro-section h3 {
   font-weight: 600;
 }
@@ -809,6 +884,12 @@ a {
   color: white;
   z-index: 888;
 }
+#currentevent-page .intro-section .title-ani-tar::after {
+  background-color: white;
+}
+#currentevent-page .intro-section .title-ani-tar-s::after {
+  background-color: white;
+}
 #currentevent-page .intro-section h3 {
   font-weight: 600;
 }
@@ -853,6 +934,12 @@ a {
   color: white;
   z-index: 1;
 }
+#chatboard-page .intro-section .title-ani-tar::after {
+  background-color: white;
+}
+#chatboard-page .intro-section .title-ani-tar-s::after {
+  background-color: white;
+}
 #chatboard-page .intro-section h3 {
   font-weight: 600;
 }
@@ -888,9 +975,29 @@ a {
   top: 0;
 }
 #personalcal-page .calendar-illu {
+  position: absolute;
   width: 50%;
   height: 100%;
+  flex-direction: column;
+  top: 0;
+  left: 0;
   background-color: #FF4438;
+  overflow: hidden;
+}
+#personalcal-page .calendar-illu .graphic-sec {
+  margin: 12px 0;
+}
+#personalcal-page .calendar-illu .note-ani {
+  width: 110%;
+  animation: note-roll-odd 8s infinite;
+}
+#personalcal-page .calendar-illu .words {
+  width: 200%;
+  animation: note-roll-even 8s infinite;
+}
+#personalcal-page .intro-section {
+  position: relative;
+  margin-left: 50%;
 }
 
 /* 各分頁面共用區 */
@@ -916,13 +1023,57 @@ main {
 .topbar .left-part .title h2 {
   font-family: "Dela Gothic One";
   font-size: 60px;
-  margin-bottom: 24px;
-  padding: 32px 24px;
+  margin-bottom: 16px;
+  padding: 4px 8px;
+  background-color: white;
+}
+.topbar .left-part .title .title-ani {
+  overflow: hidden;
+  transition-delay: 0.6s;
+}
+.topbar .left-part .title .title-ani::after {
+  animation: textani 1s forwards;
+}
+.topbar .left-part .title .title-ani-tar {
+  position: relative;
+  width: fit-content;
+}
+.topbar .left-part .title .title-ani-tar::after {
+  content: "";
+  width: 0%;
+  height: 110%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
 }
 .topbar .left-part .title p {
   font-size: 24px;
   font-weight: 700;
-  padding: 16px 24px;
+  padding: 4px 8px;
+  background-color: white;
+}
+.topbar .left-part .title .title-ani-s {
+  overflow: hidden;
+  transition-delay: 0.6s;
+}
+.topbar .left-part .title .title-ani-s::after {
+  animation: textani 0.8s forwards;
+  animation-delay: 0.5s;
+}
+.topbar .left-part .title .title-ani-tar-s {
+  position: relative;
+  width: fit-content;
+}
+.topbar .left-part .title .title-ani-tar-s::after {
+  content: "";
+  width: 0%;
+  height: 120%;
+  transition: 0.3s;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
 }
 .topbar .right-part {
   flex: 1.2;
@@ -1225,10 +1376,11 @@ main {
 #bandmap-main .linear-bg {
   background: linear-gradient(to bottom, #FFAF00, white, #FE8DBA);
 }
-#bandmap-main .left-part h2 {
-  background-color: #0099FF;
+#bandmap-main .left-part {
+  color: #0099FF;
 }
-#bandmap-main .left-part p {
+#bandmap-main .left-part .title-ani-tar::after,
+#bandmap-main .left-part .title-ani-tar-s::after {
   background-color: #0099FF;
 }
 #bandmap-main .right-part {
@@ -1304,10 +1456,11 @@ main {
 #currentevent-main .linear-bg {
   background: linear-gradient(to bottom, #0099FF, white, #FF4438);
 }
-#currentevent-main .left-part h2 {
-  background-color: #FE8DBA;
+#currentevent-main .left-part {
+  color: #FE8DBA;
 }
-#currentevent-main .left-part p {
+#currentevent-main .left-part .title-ani-tar::after,
+#currentevent-main .left-part .title-ani-tar-s::after {
   background-color: #FE8DBA;
 }
 #currentevent-main .right-part {
@@ -1339,10 +1492,11 @@ main {
 #banddiscover-main .linear-bg {
   background: linear-gradient(to bottom, #FFAF00, white, #FFF8E4);
 }
-#banddiscover-main .left-part h2 {
-  background-color: #FF4438;
+#banddiscover-main .left-part {
+  color: #FF4438;
 }
-#banddiscover-main .left-part p {
+#banddiscover-main .left-part .title-ani-tar::after,
+#banddiscover-main .left-part .title-ani-tar-s::after {
   background-color: #FF4438;
 }
 #banddiscover-main .right-part {
@@ -1369,6 +1523,7 @@ main {
 /* 各樂團介紹分頁 */
 #bandintro-main {
   position: relative;
+  font-family: "inter";
 }
 #bandintro-main .background {
   position: relative;
@@ -1431,7 +1586,6 @@ main {
   padding-bottom: 24px;
 }
 #bandintro-main .content .upcoming-shows .show-card {
-  font-family: "inter";
   border: 5px solid white;
   padding: 24px 48px;
   margin-bottom: 24px;
@@ -1617,10 +1771,11 @@ main {
 #chatboard-main .linear-bg {
   background: linear-gradient(to bottom, #FE8DBA, white, #0099FF);
 }
-#chatboard-main .left-part h2 {
-  background-color: #FFAF00;
+#chatboard-main .left-part {
+  color: #FFAF00;
 }
-#chatboard-main .left-part p {
+#chatboard-main .left-part .title-ani-tar::after,
+#chatboard-main .left-part .title-ani-tar-s::after {
   background-color: #FFAF00;
 }
 #chatboard-main .right-part {
@@ -1714,11 +1869,10 @@ main {
   justify-content: space-between;
 }
 #chatboard-main .main-area .article .message .text-area {
-  width: 100%;
+  width: calc(100% - 190px);
   display: flex;
   flex-direction: column;
   margin-right: 24px;
-  max-width: calc(100% - 190px);
 }
 #chatboard-main .main-area .article .message .text-area .user {
   display: flex;
@@ -1757,6 +1911,9 @@ main {
   width: 24px;
   height: 24px;
   margin-right: 4px;
+}
+#chatboard-main .main-area .article .message .no-graph-area {
+  width: 100%;
 }
 #chatboard-main .main-area .article .message .picture {
   width: 190px;
@@ -2177,14 +2334,15 @@ main {
   background-color: black;
   z-index: 999;
 }
-#member-bar img {
+#member-bar .logo {
   width: 220px;
   padding: 12px 12px 12px 0;
 }
 #member-bar .menu img {
-  width: 24px;
-  height: 24px;
+  width: 32px;
+  height: 32px;
   margin-left: 16px;
+  cursor: pointer;
 }
 
 /* sidebar */

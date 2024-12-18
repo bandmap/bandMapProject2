@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Link } from "react-router-dom";
 
 function BandDiscover() {
@@ -14,25 +14,93 @@ function BandDiscover() {
 
     const [hoverIndex, setHoverIndex] = useState(null);
 
+    /* 滾動到位置時才觸發標題動畫 */
+    const titleRef = useRef(null);
+    const subtitleRef = useRef(null);
+    const contentRef = useRef(null);
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const triggerPosition = window.innerHeight * 0.8;
+
+            if (titleRef.current) {
+                const titleTop = titleRef.current.getBoundingClientRect().top;
+                if (titleTop < triggerPosition) {
+                    setIsVisible(true);
+                }
+            }
+        }
+        window.addEventListener('scroll', handleScroll); // 監聽滾動事件
+        handleScroll(); // 頁面加載時檢查一次
+
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, [])
+
+    /* 滾動到每個頁面讓它停留一秒 */
+    const containerRef = useRef(null); // 用來參考主容器
+    const isAtTarget = useRef(false); // 紀錄是否已到達目標位置
+
+    useEffect(() => {
+        const handleScrollAll = () => {
+            const targetPosition2 = window.innerHeight * 2;
+            const currentScroll = window.scrollY;
+
+            if (!isAtTarget.current) {
+                // 如果未到達目標位置
+                if (currentScroll >= targetPosition2) {
+                    window.scrollTo(0, targetPosition2); // 固定滾動到目標位置
+                    isAtTarget.current = true; // 標記為已到達
+                    document.body.style.overflow = "hidden"; // 鎖住滾動
+
+                    setTimeout(() => {
+                        document.body.style.overflow = "auto"; // 解鎖滾動
+                    }, 1000); // 停留時間（1秒）
+                }
+            }
+        };
+
+        document.body.style.overflow = "auto"; // 初始設置：滾動
+        window.addEventListener("scroll", handleScrollAll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScrollAll); // 清理事件
+        };
+    }, []);
+
+
     return (
-        <div id="banddiscover-page">
+        <div id="banddiscover-page" ref={containerRef}>
             {/* 滑鼠hover進卡片的時候背景也出現相對應的樂團圖片 */}
             <div className="hover-bg"
-            style={{opacity: hoverIndex !== null ? 0.3 : 0}}>
-                { hoverIndex !== null && (
+                style={{ opacity: hoverIndex !== null ? 0.3 : 0 }}>
+                {hoverIndex !== null && (
                     <img src={arrBandCard[hoverIndex].img} alt={arrBandCard[hoverIndex].name} />
                 )}
             </div>
             <div className="intro-section">
                 <div className="title">
-                    <h2>BAND利商店</h2>
-                    <h3>本月樂團推薦</h3>
+                    <h2
+                        ref={titleRef}
+                        className={`title-ani-tar ${isVisible ? 'title-ani' : ''}`}>
+                        BAND利商店
+                    </h2>
+                    <h3
+                        ref={subtitleRef}
+                        className={`title-ani-tar-s ${isVisible ? 'title-ani-s' : ''}`}>
+                        本月樂團推薦
+                    </h3>
                 </div>
-                <p>每月精選值得關注的新樂團，<br />
+                <p
+                    ref={contentRef}
+                    className={`fadein-bottom ${isVisible ? 'fadein-bottom-show' : ''}`}>
+                    每月精選值得關注的新樂團，<br />
                     讓你發現未來的音樂新星，<br />
                     感受不同風格與多元創意！
                 </p>
-                <div className="cta">
+                <div
+                    ref={contentRef}
+                    className={`cta fadein-bottom button-delay ${isVisible ? 'fadein-bottom-show' : ''}`}>
                     <span>點進探索</span>
                     <Link to='/band'><button className="cta-btn"><img src="./images/btn-next-w&b.svg" alt="" /></button></Link>
                 </div>
@@ -43,8 +111,8 @@ function BandDiscover() {
                         arrBandCard.map((band, index) => {
                             return (
                                 <div className="box-pic" key={band.key}
-                                onMouseOver={() => {setHoverIndex(index)}}
-                                onMouseOut={() => {setHoverIndex(null)}}>
+                                    onMouseOver={() => { setHoverIndex(index) }}
+                                    onMouseOut={() => { setHoverIndex(null) }}>
                                     <img src={band.img} alt={band.name} />
                                     <div className="hover-text">
                                         <h4>{band.band}</h4>

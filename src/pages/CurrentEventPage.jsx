@@ -45,8 +45,8 @@ function CurrentEventPage() {
                     <div className="topbar">
                         <div className="left-part">
                             <div className="title">
-                                <h2>BAND地開花</h2>
-                                <p>近期活動</p>
+                                <h2 className="title-ani title-ani-tar">BAND地開花</h2>
+                                <p className="title-ani-s title-ani-tar-s">近期活動</p>
                             </div>
                         </div>
                         <div className="right-part">

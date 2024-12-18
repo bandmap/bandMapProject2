@@ -168,3 +168,17 @@
         transform: translateX(-5%);
     }
 }
+
+@keyframes textani {
+    0% {
+        width: 0%;
+    }
+    50% {
+        width: 100%;
+        left: 0;
+    }
+    100% {
+        width: 100%;
+        left: 102%;
+    }
+}

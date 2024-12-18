@@ -28,7 +28,7 @@ function ChatBoardCard() {
             username: "Huanglala789",
             title: "周邊用搶的，好難!!",
             content: "打狗祭的周邊真的是難買到嚇死人，預售沒跟到，開賣後也沒有搶到><，要不是強者我朋友，我可能就買不到了。建議有計畫購買打狗祭周邊商品的朋友下次一定要趁早上網訂購啊!",
-            pic: "./images/chatcard/chatcard_1.jfif",
+            pic: "./images/chatcard/chatcard_3.jfif",
             number: ['98', '6', '18']
         },
         {
@@ -68,7 +68,7 @@ function ChatBoardCard() {
             username: "IndieLove_22",
             title: "秋波愛麗的夢幻現場!!",
             content: "秋波愛麗的現場氣氛太美了，燈光、音樂和他們的表演融合得無比自然！特別是那首慢板曲《銀河之聲》，直接把大家帶到另一個次元。現場粉絲都超安靜，好像怕打擾到這份美好。",
-            pic: "./images/chatcard/chatcard_2.jfif",
+            pic: "./images/chatcard/chatcard_6.jfif",
             number: ['418', '40', '279']
         },
         {
@@ -88,20 +88,24 @@ function ChatBoardCard() {
             username: "Lisa098",
             title: "關於聽團穿搭這件事",
             content: "一直都不是個會在意穿搭的人直到開始聽團之後，看到朋友們去聽團錢都會用心搭配穿著，增加聽團的儀式感，我也慢慢受到影響......",
-            pic: "./images/chatcard/chatcard_3.jfif",
+            pic: "./images/chatcard/chatcard_4.jfif",
             number: ['108', '30', '38']
         },
     ]
+
+    let className = 'text-area';
 
     return (
         <>
             {
                 arrArticle.map((article) => {
+                    const dynamicClass = article.pic === '' ? `${className} no-graph-area` : className;
+
                     return (
                         <article className="article" key={article.key}>
                             <span className="tag">{article.tag}</span>
                             <div className="message">
-                                <div className="text-area">
+                                <div className={dynamicClass}>
                                     <div className="user">
                                         <figure className="profile"><img src={article.user_img} /></figure>
                                         <p className="username">{article.username}</p>
@@ -123,7 +127,11 @@ function ChatBoardCard() {
                                         </div>
                                     </div>
                                 </div>
-                                <figure className="picture"><img src={article.pic} alt="上傳圖片" /></figure>
+                                {article.pic && (
+                                    <figure className="picture">
+                                        <img src={article.pic} alt="上傳圖片" />
+                                    </figure>
+                                )}
                             </div>
                         </article>
                     )
