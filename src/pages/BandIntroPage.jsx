@@ -5,9 +5,12 @@ import NavBar from '../components/NavBar'
 import UpcomingEvents from '../components/UpcomingEvents'
 import Footer from "../components/Footer"
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function BandIntroPage() {
-    
+
+    const navigate = useNavigate();
+
     useEffect(() => {
         window.scrollTo(0, 0);
     });
@@ -16,6 +19,10 @@ function BandIntroPage() {
         <>
             <NavBar />
             <main id='bandintro-main'>
+                <button onClick={() => navigate(-1)} className="back-to-page">
+                    <img src="./images/btn-back.svg" alt="" />
+                    <p>回上一頁</p>
+                </button>
                 <section className="background">
                     <img src="./images/banddiscover-1.jpg" alt="" />
                     <div className="overlay-bg"></div>

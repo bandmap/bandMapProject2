@@ -1006,6 +1006,42 @@
 /* 主要內容區main */
 main {
     margin-bottom: $distance_xxl;
+    position: relative;
+}
+
+/* 回上一頁按鈕 */
+.back-to-page {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    left: 40px;
+    top: 20px;
+    padding: 0;
+    background: none;
+    border: none;
+    border: solid 1px $Neutral_color_white;
+    border-radius: 100px;
+    background-color: $Neutral_color_black;
+    cursor: pointer;
+    z-index: $z_index-m;
+    opacity: 0.7;
+    transition: $speed-cubebuttomhover;
+
+    &:hover {
+        opacity: 1;
+        transform: translateX(-10px);
+    }
+
+    img {
+        width: 48px;
+        height: 48px;
+        margin-left: $distance_xs;
+    }
+    p {
+        color: $Neutral_color_white;
+        font-size: $fontsize_12;
+        margin-right: $distance_m;
+    }
 }
 
 /* 各分頁topbar */

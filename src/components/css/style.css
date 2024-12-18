@@ -1004,6 +1004,40 @@ a {
 /* 主要內容區main */
 main {
   margin-bottom: 40px;
+  position: relative;
+}
+
+/* 回上一頁按鈕 */
+.back-to-page {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  left: 40px;
+  top: 20px;
+  padding: 0;
+  background: none;
+  border: none;
+  border: solid 1px white;
+  border-radius: 100px;
+  background-color: black;
+  cursor: pointer;
+  z-index: 888;
+  opacity: 0.7;
+  transition: 0.4s;
+}
+.back-to-page:hover {
+  opacity: 1;
+  transform: translateX(-10px);
+}
+.back-to-page img {
+  width: 48px;
+  height: 48px;
+  margin-left: 4px;
+}
+.back-to-page p {
+  color: white;
+  font-size: 12px;
+  margin-right: 16px;
 }
 
 /* 各分頁topbar */

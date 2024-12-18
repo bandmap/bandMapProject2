@@ -103,7 +103,7 @@ function ChatBoardCard() {
 
                     return (
                         <article className="article" key={article.key}>
-                            <span className="tag">{article.tag}</span>
+                            {/* <span className="tag">{article.tag}</span> */}
                             <div className="message">
                                 <div className={dynamicClass}>
                                     <div className="user">

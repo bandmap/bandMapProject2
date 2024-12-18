@@ -1,23 +1,22 @@
-function EventInfoCard() {
+function EventInfoCard({arrEventInfoCard}) {
+
     return (
         <div className="info-sec">
             <div className="time">
-                <p>2024.11.07（四）<br />20:00</p>
+                <p>{arrEventInfoCard[0].time}</p>
             </div>
             <div className="li-sec">
                 <h3>演出者</h3>
-                <p>秋波愛麗、Resa Club、Andr</p>
+                <p>{arrEventInfoCard[0].line}</p>
             </div>
             <div className="li-sec">
                 <h3>場館</h3>
-                <p>Legacy Taipei </p>
+                <p>{arrEventInfoCard[0].location}</p>
             </div>
             <div className="li-sec">
                 <h3>票價資訊</h3>
                 <p>
-                    預售票300元<br />
-                    身障票150元<br />
-                    現場票350元
+                    {arrEventInfoCard[0].price}
                 </p>
             </div>
             <div className="li-sec">
