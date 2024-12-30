@@ -7,12 +7,7 @@ function UpcomingEvents() {
             title: "2024 The Next Big Thing 大團誕生 開發廠 9",
             venue: "Legacy 傳 音樂展演空間"
         },
-        {
-            date: "2024/11/07(四) 18:30",
-            title: "2024 The Next Big Thing 大團誕生 開發廠 9",
-            venue: "Legacy 傳 音樂展演空間"
-        }
-    ];
+    ]
 
     return (
         <section className="upcoming-shows">

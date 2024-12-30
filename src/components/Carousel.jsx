@@ -1,5 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from 'axios';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function Carousel() {
 
@@ -15,27 +18,34 @@ function Carousel() {
         })()
     }, [])
 
+    const settings = {
+        dots: true,
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        pauseOnHover: true,
+        centerMode: true,
+        centerPadding: "0px",
+    };
+
+
     return (
-        <div className="banner-section">
-            {/* 下一張按鈕 */}
-            <div className="buttons">
-                <button className="cta-btn left"><img src="./images/btn-next-b&w.svg" alt="" /></button>
-                <button className="cta-btn right"><img src="./images/btn-next-b&w.svg" alt="" /></button>
-            </div>
-            {/* 輪播卡片 */}
-            <div className="carousel">
-                {
-                    eventInfo.map((banner) => {
-                        return (
-                            <figure className="banner-card" key={banner.key}>
+        <Slider {...settings}>
+            {
+                eventInfo.slice(0,5).map((banner) => {
+                    return (
+                        <div className="carousel" key={banner.key}>
+                            <figure className="banner-card">
                                 <img className="mask" src="./images/mask-blue.svg" alt="" />
                                 <img className="event-img" src={banner.img} alt="" />
                             </figure>
-                        )
-                    })
-                }
-            </div>
-        </div>
+                        </div>
+                    )
+                })
+            }
+        </Slider>
     )
 }
 

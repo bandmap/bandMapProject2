@@ -22,7 +22,7 @@ function EventInfoCard({arrEventInfoCard}) {
             <div className="li-sec">
                 <h3>僅限iNDIEVOX傳真訂購</h3>
             </div>
-            <button>購票連結</button>
+            <a href="#">購票連結</a>
             <div className="share">
                 <p>Share :</p>
                 <figure><img src="./images/icon/icon-facebook.svg" alt="fb" /></figure>

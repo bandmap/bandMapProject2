@@ -1,8 +1,27 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { format, addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, isSameMonth, isSameDay } from 'date-fns';
+import axios from 'axios';
 
 function Calendar() {
     const [currentDate, setCurrentDate] = useState(new Date());
+    const events = [
+        { date: '2024-12-01', description: '參加音樂會', time: '20:00' },
+        { date: '2024-12-05', description: '開會', time: '20:00' },
+        { date: '2024-12-10', description: '朋友聚會', time: '20:00' },
+        { date: '2024-12-15', description: '運動日', time: '20:00' },
+    ];
+
+    const [eventInfo, setEventInfo] = useState([]);
+
+    useEffect(() => {
+        (async () => {
+            // const data = await axios.get('/json/eventInfo.json');
+            const data = await axios.get('https://bandmap.github.io/bandMapProject2/json/eventInfo.json');
+
+            const { eventinfo } = data.data.eventdata;
+            setEventInfo(eventinfo);
+        })()
+    }, [])
 
     // 取得當前的月份和年份
     const currentMonth = () => format(currentDate, 'MMMM yyyy');
@@ -17,15 +36,20 @@ function Calendar() {
     const renderDays = () => {
         const startDate = startOfWeek(startOfMonth(currentDate));
         const endDate = endOfWeek(endOfMonth(currentDate));
-        const dateFormat = 'd';
+        const dateFormat = 'yyyy-MM-dd';
         const rows = [];
         let days = [];
         let day = startDate;
 
         while (day <= endDate) {
             for (let i = 0; i < 7; i++) {
-                const formattedDate = format(day, dateFormat);
+                const formattedDate = format(day, 'd');
+                const fullDate = format(day, dateFormat);
                 const cloneDay = day;
+
+                // 查找行程資料
+                const event = eventInfo.find(e => e.calendarDate === fullDate);
+
                 days.push(
                     <div
                         className={`cell ${!isSameMonth(day, currentDate) ? 'disabled' : ''} ${isSameDay(day, new Date()) ? 'today' : ''}`}
@@ -33,11 +57,22 @@ function Calendar() {
                         onClick={() => console.log('選擇的日期:', cloneDay)}
                     >
                         <span className="number">{formattedDate}</span>
+                        {/* 顯示行程內容 */}
+                        {event &&
+                            <div className="event-each">
+                                <div className="event-left">
+                                    <span className='ball'></span>
+                                    <span>{event.event}</span>
+                                </div>
+                                <span className='event-right'>{event.calendarTime}</span>
+                            </div>
+                        }
                     </div>
                 );
                 day = addDays(day, 1);
             }
-            rows.push(<div className="row" key={day}>{days}</div>);
+            rows.push(
+                <div className="row" key={day}>{days}</div>);
             days = [];
         }
 

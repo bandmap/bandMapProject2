@@ -1,8 +1,9 @@
 import { Link } from "react-router-dom"
+import ReactDOM from 'react-dom'
 
 function LogInOne({ togglePopup }) {
 
-    return (
+    return ReactDOM.createPortal(
         <>
             <div className="overlay" onClick={togglePopup}></div>
             <div className="login-card">
@@ -32,11 +33,9 @@ function LogInOne({ togglePopup }) {
                         </div>
                     </form>
                 </div>
-
             </div>
-        </>
-
-
+        </>,
+        document.body // 渲染到 body 元素
     )
 }
 

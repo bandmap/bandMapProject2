@@ -65,27 +65,6 @@ function BandMap() {
         };
     }, []);
 
-    // useEffect(() => {
-    //     if (isVisible && titleRef.current) {
-    //         const handleAnimationEnd = () => {
-    //             setAnimationDone(true);
-    //         }
-    //         console.log(animationDone);
-
-    //         const titleElement = titleRef.current.querySelector('::after');
-    //         if (titleElement) {
-    //             titleElement.addEventListener('animationend', handleAnimationEnd);
-    //         }
-
-    //         return () => {
-    //             if (titleElement){
-    //                 titleElement.removeEventListener('animationend', handleAnimationEnd);
-    //             }
-    //         }
-    //     }
-    // }, [isVisible])
-
-
     return (
         <div id="bandmap-page" ref={containerRef} >
             <div className="map">

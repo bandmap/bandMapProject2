@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './css/style.css';
 import { useEffect, useState } from 'react';
 import LogInOne from './LogInOne';
@@ -21,27 +21,46 @@ function NavBar() {
         setShowPopup(!showPopup);
     }
 
+    /* 當popup出現時，底下畫面不能滑動 */
     if (showPopup) {
-        document.body.classList.add('active-popup')
+        document.body.style.overflow = 'hidden';
     } else {
-        document.body.classList.remove('active-popup')
+        document.body.style.overflow = 'auto';
     }
 
     return (
         <div id="nav-bar" className="sticky-header">
             <h1><Link to='/'><img src="./images/logo.svg" alt="logo" /></Link></h1>
             <ul className="menu">
-                <li><Link to='/search'><p>演出搜尋</p></Link></li>
-                <li><Link to='/band'><p>本月樂團推薦</p></Link></li>
-                <li><Link to='/event'><p>近期活動</p></Link></li>
-                <li><Link to='/chatboard'><p>樂迷留言板</p></Link></li>
-                <li><Link to='/calendar'><p>個人行事曆</p></Link></li>
+                <li><NavLink to='/search' className={({ isActive }) => isActive ? 'active' : ''}>
+                    <div className="word-cube"><p>演出搜尋</p><span className='line'></span></div>
+                    <div className="word-cube"><p>演出搜尋</p><span className='line'></span></div>
+                </NavLink></li>
+                <li><NavLink to='/band' className={({ isActive }) => isActive ? 'active' : ''}>
+                    <div className="word-cube"><p>本月樂團推薦</p><span className='line'></span></div>
+                    <div className="word-cube"><p>本月樂團推薦</p><span className='line'></span></div>
+                </NavLink></li>
+                <li><NavLink to='/event' className={({ isActive }) => isActive ? 'active' : ''}>
+                    <div className="word-cube"><p>近期活動</p><span className='line'></span></div>
+                    <div className="word-cube"><p>近期活動</p><span className='line'></span></div>
+                </NavLink></li>
+                <li><NavLink to='/chatboard' className={({ isActive }) => isActive ? 'active' : ''}>
+                    <div className="word-cube"><p>樂迷留言板</p><span className='line'></span></div>
+                    <div className="word-cube"><p>樂迷留言板</p><span className='line'></span></div>
+                </NavLink></li>
+                <li><NavLink to='/calendar' className={({ isActive }) => isActive ? 'active' : ''}>
+                    <div className="word-cube"><p>個人行事曆</p><span className='line'></span></div>
+                    <div className="word-cube"><p>個人行事曆</p><span className='line'></span></div>
+                </NavLink></li>
                 <li>
-                    <button type='button' id='membership-page' onClick={handleMemberCenterClick}><p>會員中心</p></button>
+                    <button id='membership-page' onClick={handleMemberCenterClick}>
+                        <div className="word-cube"><p>會員中心</p><span className='line'></span></div>
+                        <div className="word-cube"><p>會員中心</p><span className='line'></span></div>
+                    </button>
                 </li>
             </ul>
             {
-                showPopup && <LogInOne togglePopup={togglePopup}/>
+                showPopup && <LogInOne togglePopup={togglePopup} />
             }
 
 

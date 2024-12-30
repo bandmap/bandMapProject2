@@ -118,7 +118,7 @@ function ChatBoardCard() {
                                             <p>{article.number[0]}</p>
                                         </div>
                                         <div className="icon-number">
-                                            <figure><img src="./images/icon/icon-heart-outline.svg" /></figure>
+                                            <figure><img src="./images/icon/icon-like-black.svg" /></figure>
                                             <p>{article.number[1]}</p>
                                         </div>
                                         <div className="icon-number">

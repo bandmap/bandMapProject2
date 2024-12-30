@@ -3,12 +3,6 @@
 @use 'function' as *;
 @use 'keyframes';
 
-
-/* 當popup出現時，底下頁面不能滑動 */
-.active-popup {
-    overflow-y: hidden;
-}
-
 /* 跑馬燈區 */
 .newsTicker {
     height: 55px;
@@ -462,30 +456,65 @@
 
     .menu {
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         overflow: hidden;
 
-        button {
-            border: none;
-            height: 100%;
-            background-color: transparent;
-            text-align: center;
-            padding: 0;
-            cursor: pointer;
-        }
+        li {
+            transition: $speed-cubebuttomhover;
+            overflow: hidden;
 
-        p {
-            color: $Neutral_color_white;
-            padding: 17px 8px;
-            font-size: 18px;
-            font-weight: 700;
-            letter-spacing: 0.05rem;
-            transition: 0.35s;
-        }
+            button {
+                border: none;
+                height: 100%;
+                background-color: transparent;
+                padding: 0;
+                cursor: pointer;
+            }
 
-        p:hover {
-            background-color: $Primary_color_beige;
-            color: $Neutral_color_black;
+            .word-cube {
+                height: 55px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: $interval_0_8;
+
+                p {
+                    color: $Neutral_color_white;
+                    font-size: 18px;
+                    font-weight: 700;
+                    letter-spacing: 0.05rem;
+                }
+
+                span {
+                    margin-top: 2px;
+                    display: block;
+                    height: 1px;
+                    width: 0;
+                    background-color: $Neutral_color_white;
+                    transition: 0.2s;
+                    transition-delay: 0.2s;
+                }
+            }
+
+            .active {
+                background-color: $Primary_color_beige;
+
+                p {
+                    color: $Neutral_color_black;
+                }
+
+                span {
+                    display: none;
+                }
+            }
+
+            &:hover {
+                transform: translateY(55px);
+
+                span {
+                    width: 100%;
+                }
+            }
         }
     }
 }
@@ -1037,6 +1066,7 @@ main {
         height: 48px;
         margin-left: $distance_xs;
     }
+
     p {
         color: $Neutral_color_white;
         font-size: $fontsize_12;
@@ -1135,115 +1165,172 @@ main {
 }
 
 /* banner輪播區 */
-.banner-section {
+.carousel {
+    position: relative;
     @extend %box-center;
-    width: 100%;
-    overflow: hidden;
+    margin-bottom: $distance_l;
+
+    .banner-card {
+        position: relative;
+        width: 700px;
+        height: 500px;
+        flex-shrink: 0;
+        margin: 0;
+        cursor: pointer;
+
+        .mask {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .event-img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    .gallery-card {
+        position: relative;
+        width: 80%;
+        height: 80%;
+        transition: all 0.5s ease;
+    }
+
+    .gallery-image-wrapper {
+        position: relative;
+        width: 700px;
+        height: 500px;
+        overflow: hidden;
+        margin: $interval_0_24;
+        flex-shrink: 0;
+
+        .gallery-image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        .svg-overlay {
+            position: absolute;
+            object-fit: cover;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+
+        }
+
+        .overlay-text {
+            display: flex;
+            width: 120%;
+            height: auto;
+            position: absolute;
+            top: -4px;
+            left: -32px;
+            padding: 8px 4px;
+            font-family: $font_title_dela;
+            font-size: $fontsize_36;
+            overflow: hidden;
+            z-index: 3;
+            color: $Neutral_color_white;
+            background-color: $Neutral_color_black;
+            white-space: nowrap;
+            transform: rotate(-8deg);
+
+            .text {
+                margin-left: 16px;
+            }
+        }
+    }
+}
+
+/* slider套件更改css */
+.slick-slider {
+    // width: 100%;
     position: relative;
     margin-bottom: 120px;
 
-    .cta-btn {
-        position: absolute;
-        width: 60px;
-        height: 60px;
-        opacity: 0.6;
-        z-index: $z_index-l;
-        border: 1px solid $Neutral_color_white;
-        transition: $speed-cubebuttomhover;
+    .slick-prev {
+        left: 110px;
+        transform: translate(-30px, -30px);
+        opacity: 0.7;
+        transition: $speed-cubebuttomhover ease;
+
+        &::before {
+            width: 60px;
+            height: 60px;
+            display: block;
+            content: '';
+            background-image: url(./images/btn-back.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: solid 1px $Neutral_color_white;
+            border-radius: 50%;
+            transition: $speed-cubebuttomhover ease;
+        }
 
         &:hover {
+            transform: translate(-40px, -30px);
             opacity: 1;
         }
     }
 
-    .left {
-        transform: scale(-1);
-        left: 50px;
+    .slick-next {
+        right: 110px;
+        transform: translate(-30px, -30px);
+        opacity: 0.7;
+        transition: $speed-cubebuttomhover ease;
+
+        &::before {
+            width: 60px;
+            height: 60px;
+            display: block;
+            content: '';
+            background-image: url(./images/btn-next.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            border: solid 1px $Neutral_color_white;
+            border-radius: 50%;
+            transition: $speed-cubebuttomhover ease;
+        }
 
         &:hover {
-            transform: scale(-1) translateX(10px);
+            transform: translate(-20px, -30px);
+            opacity: 1;
         }
     }
 
-    .right {
-        right: 50px;
-
-        &:hover {
-            transform: translateX(10px);
-        }
+    .slick-prev,
+    .slick-next {
+        z-index: 1000;
     }
+}
 
-    .carousel {
-        @extend %box-center;
+.slick-list {
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+}
 
-        .banner-card {
-            position: relative;
-            width: 700px;
-            height: 500px;
-            flex-shrink: 0;
-            margin: $interval_0_24;
-            cursor: pointer;
+.slick-track {
+    display: flex;
+}
 
-            .mask {
-                position: absolute;
-            }
+.slick-slide {
+    opacity: 0.7;
+    transition: 0.4s ease;
+}
 
-            .event-img {
-                object-fit: cover;
-                width: 100%;
-                height: 100%;
-            }
-        }
-
-        .gallery-image-wrapper {
-            position: relative;
-            width: 700px;
-            height: 500px;
-            overflow: hidden;
-            margin: $interval_0_24;
-            flex-shrink: 0;
-
-            .gallery-image {
-                object-fit: cover;
-                width: 100%;
-                height: 100%;
-            }
-
-            .svg-overlay {
-                position: absolute;
-                object-fit: cover;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                pointer-events: none;
-                z-index: 2;
-
-            }
-
-            .overlay-text {
-                display: flex;
-                width: 120%;
-                height: auto;
-                position: absolute;
-                top: -4px;
-                left: -32px;
-                padding: 8px 4px;
-                font-family: $font_title_dela;
-                font-size: $fontsize_36;
-                overflow: hidden;
-                z-index: 3;
-                color: $Neutral_color_white;
-                background-color: $Neutral_color_black;
-                white-space: nowrap;
-                transform: rotate(-8deg);
-
-                .text {
-                    margin-left: 16px;
-                }
-            }
-        }
-    }
+.slick-center {
+    opacity: 1;
+    transform: scale(1.1);
+    z-index: 999;
 }
 
 /* 背景區漸層 */
@@ -1693,6 +1780,32 @@ main {
     position: relative;
     font-family: 'inter';
 
+    .btn-band-collect {
+        position: absolute;
+        top: 20px;
+        right: 40px;
+        display: flex;
+        align-items: center;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 100px;
+        background-color: $Primary_color_orange;
+        z-index: $z_index-m;
+        cursor: pointer;
+
+        img {
+            width: 32px;
+            height: 32px;
+            margin-right: $distance_xs;
+        }
+
+        p {
+            font-size: $fontsize_16;
+            font-weight: $font_medium;
+            margin-right: $distance_s;
+        }
+    }
+
     .background {
         position: relative;
         width: 100%;
@@ -1731,7 +1844,6 @@ main {
             align-items: flex-start;
             display: inline-flex;
 
-
             .band-name {
                 font-size: $fontsize_title;
                 font-family: $font_title_dela;
@@ -1740,7 +1852,7 @@ main {
             }
 
             .band-description {
-                line-height: 2rem;
+                line-height: 2.3rem;
                 font-size: $fontsize_content;
                 color: $Neutral_color_white;
                 letter-spacing: $letterspacing_10per;
@@ -1841,11 +1953,7 @@ main {
         /* 其他樂團輪播區 */
         .gallery-container {
             margin-top: $distance_l;
-            padding: 24px 0 24px 0;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            font-family: $font_title_dela;
+            padding: $interval_24_0;
 
             .gallery-title {
                 padding: 0 96px;
@@ -1867,6 +1975,14 @@ main {
                     }
                 }
             }
+
+            .slick-slide {
+                opacity: 0.7;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
         }
     }
 }
@@ -1875,7 +1991,6 @@ main {
 .calendar {
     height: calc(100vh - 55px);
     background: $Neutral_color_white;
-    font-family: $font_title_dela;
     overflow: hidden;
 
     .menu {
@@ -1932,6 +2047,7 @@ main {
         background: $Neutral_color_black;
         padding: 12px 0;
         color: $Neutral_color_white;
+        font-family: $font_title_dela;
     }
 
     .body {
@@ -1945,8 +2061,9 @@ main {
 
             .cell {
                 display: flex;
-                justify-content: center;
-                align-items: flex-start;
+                justify-content: space-between;
+                align-items: center;
+                flex-direction: column;
                 font-size: $fontsize_subtitle;
                 padding-top: $distance_xs;
                 cursor: pointer;
@@ -1965,8 +2082,29 @@ main {
                 }
 
                 .number {
-                    display: inline-block;
+                    display: block;
+                    text-align: center;
                     color: $Neutral_color_black;
+                    font-family: $font_title_dela;
+                }
+                .event-each {
+                    width: 100%;
+                    font-size: $fontsize_12;
+                    display: flex;
+                    justify-content: space-between;
+                    padding: $distance_s;
+                    color: $color_orange_900;
+
+                    .event-left {
+                        @extend %box-center;
+                        .ball {
+                            width: 8px;
+                            height: 8px;
+                            background-color: $Primary_color_orange;
+                            border-radius: 50%;
+                            margin-right: $distance_xs;
+                        }
+                    }
                 }
             }
         }
@@ -2292,6 +2430,7 @@ main {
                     }
                 }
 
+                a,
                 button {
                     width: 100%;
                     height: 40px;
@@ -2301,6 +2440,11 @@ main {
                     border: none;
                     margin-bottom: $distance_m;
                     cursor: pointer;
+                }
+
+                a {
+                    text-align: center;
+                    align-content: center;
                 }
 
                 .share {
@@ -2453,6 +2597,8 @@ main {
 }
 
 /* 登入/註冊畫面卡片彈跳視窗 共用區 */
+
+/* 遮罩 */
 .overlay {
     background-color: rgba($Neutral_color_black, 0.6);
     position: fixed;
@@ -2460,10 +2606,10 @@ main {
     top: 0;
     width: 100%;
     height: 100vh;
-    // z-index: -1;
+    z-index: 1000;
 }
 
-// 註冊頁背景
+/* 註冊頁背景 */
 .signup-bg {
     position: fixed;
     width: 100%;
@@ -2482,6 +2628,7 @@ main {
         width: 500px;
         left: -60px;
         top: 500px;
+        animation: bong_roll 20s linear infinite;
     }
 }
 
@@ -2535,7 +2682,7 @@ main {
 
 /* 登入畫面卡片btns 共用樣式 */
 .login-card {
-    position: absolute;
+    position: fixed;
     top: 50vh;
     left: 50%;
     transform: translateX(-50%) translateY(-50%);
@@ -2547,6 +2694,7 @@ main {
     padding: 0 80px;
     box-shadow: 10px 10px $Primary_color_orange;
     background-color: $Neutral_color_white;
+    z-index: 1001;
 
     h1 {
         font-family: $font_title_dela;
@@ -2664,12 +2812,27 @@ main {
             flex-wrap: wrap;
 
             .card {
-                width: 400px;
+                width: 360px;
                 margin: 0 16px 16px 0;
 
                 &:hover {
                     box-shadow: none;
                     transform: none;
+                }
+            }
+
+            .band-collect-content {
+                height: auto;
+                @extend %box-spacebetween;
+
+                p {
+                    font-weight: $font_bold;
+                    font-size: $fontsize_content;
+                }
+
+                img {
+                    width: 24px;
+                    height: 24px;
                 }
             }
         }

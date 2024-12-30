@@ -23,6 +23,10 @@ function BandIntroPage() {
                     <img src="./images/btn-back.svg" alt="" />
                     <p>回上一頁</p>
                 </button>
+                <button className='btn-band-collect'>
+                    <img src="./images/icon/icon-like.svg" alt="" />
+                    <p>收藏樂團</p>
+                </button>
                 <section className="background">
                     <img src="./images/banddiscover-1.jpg" alt="" />
                     <div className="overlay-bg"></div>
@@ -38,7 +42,7 @@ function BandIntroPage() {
                     <div className="gallery-container">
                         <h2 className="gallery-title">其他樂團</h2>
                         <div className="gallery-grid"></div>
-                        <CarouselBand />
+                        <CarouselBand autoplay={false}/>
                     </div>
                 </div>
 
