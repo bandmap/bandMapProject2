@@ -1991,7 +1991,8 @@ main {
 .calendar {
     height: calc(100vh - 55px);
     background: $Neutral_color_white;
-    overflow: hidden;
+    margin-bottom: -40px;
+    // overflow: hidden;
 
     .menu {
         position: relative;
@@ -2051,22 +2052,22 @@ main {
     }
 
     .body {
-        height: 100%;
+        height: 75vh;
 
         .row {
-            height: 16vh;
+            height: 15vh;
             display: grid;
             text-align: center;
             grid-template-columns: repeat(7, 1fr);
 
             .cell {
+                width: calc(100vw / 7);
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
                 flex-direction: column;
                 font-size: $fontsize_subtitle;
                 padding-top: $distance_xs;
-                cursor: pointer;
                 transition: 0.3s ease;
 
                 &.disabled {
@@ -2081,33 +2082,92 @@ main {
                     color: $Neutral_color_white;
                 }
 
+                &:hover {
+                    background-color: rgba($Neutral_color_black, 0.1);
+                }
+
                 .number {
-                    display: block;
-                    text-align: center;
                     color: $Neutral_color_black;
                     font-family: $font_title_dela;
                 }
+
                 .event-each {
                     width: 100%;
                     font-size: $fontsize_12;
+                    color: $color_orange_900;
                     display: flex;
                     justify-content: space-between;
-                    padding: $distance_s;
-                    color: $color_orange_900;
+                    padding: 8px 16px 8px 8px;
 
                     .event-left {
-                        @extend %box-center;
+                        width: 80%;
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        margin-right: $distance_xs;
+
                         .ball {
                             width: 8px;
                             height: 8px;
+                            flex-shrink: 0;
                             background-color: $Primary_color_orange;
                             border-radius: 50%;
                             margin-right: $distance_xs;
                         }
+
+                        .event-name {
+                            @extend %line-single;
+                        }
                     }
                 }
             }
+
+            .has-event {
+                cursor: pointer !important;
+                pointer-events: auto;
+            }
         }
+    }
+
+    .sidebar {
+        position: fixed;
+        left: -300px;
+        top: 55px;
+        width: 300px;
+        height: calc(100vh - 55px);
+        background-color: $Neutral_color_white;
+        z-index: 999;
+        padding: $distance_m;
+        transition: $speed-cubebuttomhover ease;
+        z-index: 1001;
+
+        .side-details {
+            display: flex;
+            flex-direction: column;
+            
+            h2 {
+                font-size: $fontsize_16;
+                font-weight: $font_bold;
+                border-bottom: 1px solid rgba($Neutral_color_black, 0.6);
+                padding-bottom: $distance_s;
+                margin-bottom: $distance_s;
+            }
+
+            span {
+                font-size: $fontsize_12;
+                color: $color_orange_900;
+                margin-bottom: $distance_s;
+            }
+
+            .event-name {
+                font-size: $fontsize_14;
+                font-weight: $font_bold;
+            }
+        }
+    }
+
+    .visible {
+        left: 0;
     }
 }
 

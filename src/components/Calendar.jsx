@@ -4,14 +4,10 @@ import axios from 'axios';
 
 function Calendar() {
     const [currentDate, setCurrentDate] = useState(new Date());
-    const events = [
-        { date: '2024-12-01', description: '參加音樂會', time: '20:00' },
-        { date: '2024-12-05', description: '開會', time: '20:00' },
-        { date: '2024-12-10', description: '朋友聚會', time: '20:00' },
-        { date: '2024-12-15', description: '運動日', time: '20:00' },
-    ];
 
     const [eventInfo, setEventInfo] = useState([]);
+    const [selectedEvent, setSelectedEvent] = useState(null); // 被選到的日期
+    const [isSidebarVisible, setSidebarVisible] = useState(false); // sidebar的出現
 
     useEffect(() => {
         (async () => {
@@ -52,9 +48,16 @@ function Calendar() {
 
                 days.push(
                     <div
-                        className={`cell ${!isSameMonth(day, currentDate) ? 'disabled' : ''} ${isSameDay(day, new Date()) ? 'today' : ''}`}
+                        className={`cell ${!isSameMonth(day, currentDate) ? 'disabled' : ''} ${isSameDay(day, new Date()) ? 'today' : ''} ${event ? 'has-event' : ''}`}
                         key={day}
-                        onClick={() => console.log('選擇的日期:', cloneDay)}
+                        onClick={() => {
+                            if (event) {
+                                setSelectedEvent(event);
+                                setSidebarVisible(true);
+                            } else {
+                                setSidebarVisible(false);
+                            }
+                        }}
                     >
                         <span className="number">{formattedDate}</span>
                         {/* 顯示行程內容 */}
@@ -62,7 +65,7 @@ function Calendar() {
                             <div className="event-each">
                                 <div className="event-left">
                                     <span className='ball'></span>
-                                    <span>{event.event}</span>
+                                    <span className='event-name'>{event.event}</span>
                                 </div>
                                 <span className='event-right'>{event.calendarTime}</span>
                             </div>
@@ -102,6 +105,18 @@ function Calendar() {
             </div>
             {renderWeekDays()}
             {renderDays()}
+            <div className={`sidebar ${isSidebarVisible ? 'visible' : ''}`}>
+                {selectedEvent ? (
+                    <div className="side-details">
+                        <h2>即將到來的活動</h2>
+                        <span className='event-name'>{selectedEvent.event}</span>
+                        <span>時間: {selectedEvent.calendarTime}</span>
+                    </div>
+                ) : (
+                    <p>請選擇日期以查看行程</p>
+                )}
+            </div>
+            {isSidebarVisible && <div className="overlay" onClick={() => setSidebarVisible(false)} />}
         </div>
     );
 };
