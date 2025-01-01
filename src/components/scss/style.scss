@@ -1589,7 +1589,7 @@ main {
     overflow: hidden;
 
     .linear-bg {
-        background: linear-gradient(to bottom, $Primary_color_orange, $Neutral_color_white, $Primary_color_pink);
+        background: linear-gradient(to bottom, $Primary_color_orange 23%, $Neutral_color_white 56%, $Primary_color_pink 89%);
     }
 
     .left-part {
@@ -1610,11 +1610,13 @@ main {
     /* 搜尋選單 */
     .search-section {
         width: 70%;
+        height: 160px;
         margin: auto;
         @extend %box-center;
         margin-bottom: 100px;
 
         div {
+            height: 100%;
             flex: 1;
             background-color: $Neutral_color_black;
             color: $Neutral_color_white;
@@ -1659,6 +1661,25 @@ main {
         .where {
             background-color: $Primary_color_blue;
         }
+
+        .btn-container {
+            flex: 0.3;
+            height: 100%;
+            @extend %box-center;
+
+            .submit-btn {
+                width: 70px;
+                height: 70px;
+                background-color: $Primary_color_blue;
+                border: none;
+                cursor: pointer;
+                @extend %box-center;
+
+                img {
+                    width: 60%;
+                }
+            }
+        }
     }
 
     .newsTicker {
@@ -1689,7 +1710,7 @@ main {
     overflow: hidden;
 
     .linear-bg {
-        background: linear-gradient(to bottom, $Primary_color_blue, $Neutral_color_white, $Primary_color_red);
+        background: linear-gradient(to bottom, $Primary_color_blue 23%, $Neutral_color_white 56%, $Primary_color_red 89%);
     }
 
     .left-part {
@@ -1736,7 +1757,7 @@ main {
     z-index: 0;
 
     .linear-bg {
-        background: linear-gradient(to bottom, $Primary_color_orange, $Neutral_color_white, $Primary_color_beige);
+        background: linear-gradient(to bottom, $Primary_color_orange 23%, $Neutral_color_white 56%, $Primary_color_beige 89%);
     }
 
     .left-part {
@@ -2067,6 +2088,7 @@ main {
                 align-items: center;
                 flex-direction: column;
                 font-size: $fontsize_subtitle;
+                font-family: 'inter';
                 padding-top: $distance_xs;
                 transition: 0.3s ease;
 
@@ -2091,32 +2113,36 @@ main {
                     font-family: $font_title_dela;
                 }
 
-                .event-each {
+                .event-total {
                     width: 100%;
-                    font-size: $fontsize_12;
-                    color: $color_orange_900;
-                    display: flex;
-                    justify-content: space-between;
                     padding: 8px 16px 8px 8px;
 
-                    .event-left {
-                        width: 80%;
+                    .event-each {
+                        width: 100%;
+                        font-size: $fontsize_12;
+                        color: $color_orange_900;
                         display: flex;
-                        justify-content: flex-start;
-                        align-items: center;
-                        margin-right: $distance_xs;
-
-                        .ball {
-                            width: 8px;
-                            height: 8px;
-                            flex-shrink: 0;
-                            background-color: $Primary_color_orange;
-                            border-radius: 50%;
+                        justify-content: space-between;
+                        margin-bottom: $distance_xs;
+                        .event-left {
+                            width: 80%;
+                            display: flex;
+                            justify-content: flex-start;
+                            align-items: center;
                             margin-right: $distance_xs;
-                        }
 
-                        .event-name {
-                            @extend %line-single;
+                            .ball {
+                                width: 8px;
+                                height: 8px;
+                                flex-shrink: 0;
+                                background-color: $Primary_color_orange;
+                                border-radius: 50%;
+                                margin-right: $distance_xs;
+                            }
+
+                            .event-name {
+                                @extend %line-single;
+                            }
                         }
                     }
                 }
@@ -2135,6 +2161,7 @@ main {
         top: 55px;
         width: 300px;
         height: calc(100vh - 55px);
+        font-family: 'inter';
         background-color: $Neutral_color_white;
         z-index: 999;
         padding: $distance_m;
@@ -2144,24 +2171,24 @@ main {
         .side-details {
             display: flex;
             flex-direction: column;
-            
+
             h2 {
                 font-size: $fontsize_16;
                 font-weight: $font_bold;
                 border-bottom: 1px solid rgba($Neutral_color_black, 0.6);
                 padding-bottom: $distance_s;
-                margin-bottom: $distance_s;
             }
 
             span {
                 font-size: $fontsize_12;
                 color: $color_orange_900;
-                margin-bottom: $distance_s;
+                margin-bottom: $distance_xs;
             }
 
             .event-name {
                 font-size: $fontsize_14;
                 font-weight: $font_bold;
+                margin: $distance_s 0;
             }
         }
     }
@@ -2187,7 +2214,7 @@ main {
     z-index: 0;
 
     .linear-bg {
-        background: linear-gradient(to bottom, $Primary_color_pink, $Neutral_color_white, $Primary_color_blue);
+        background: linear-gradient(to bottom, $Primary_color_pink 23%, $Neutral_color_white 56%, $Primary_color_blue 89%);
     }
 
     .left-part {

@@ -4,8 +4,15 @@ import CardLong from "../components/CardLong"
 import Carousel from "../components/Carousel"
 import Footer from "../components/Footer"
 import NavBar from "../components/NavBar"
+import { useLocation } from "react-router-dom";
 
 function CurrentEventPage() {
+    const location = useLocation();
+    const maskSrc =
+        location.pathname === "/event"
+            ? "./images/mask-pink.svg"
+            : "./images/mask-blue.svg";
+
     useEffect(() => {
         window.scrollTo(0, 0);
     });
@@ -55,7 +62,7 @@ function CurrentEventPage() {
                     </div>
 
                     {/* 輪播banner區 */}
-                    <Carousel />
+                    <Carousel maskSrc={maskSrc}/>
 
                     {/* 近期活動跑馬燈 */}
                     <div className="newsTicker">

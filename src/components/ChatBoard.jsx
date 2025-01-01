@@ -85,7 +85,7 @@ function ChatBoard() {
                     <button className="cta-btn"><img src="./images/btn-next-b&w.svg" alt="" /></button>
                 </Link>
                 <Link to='/chatboard' className="button">
-                    <p>前往隨BAND聊</p>
+                    <p>前往隨BAND揪</p>
                     <button className="cta-btn"><img src="./images/btn-next-b&w.svg" alt="" /></button>
                 </Link>
             </div>

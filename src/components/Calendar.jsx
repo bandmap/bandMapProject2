@@ -62,12 +62,14 @@ function Calendar() {
                         <span className="number">{formattedDate}</span>
                         {/* 顯示行程內容 */}
                         {event &&
-                            <div className="event-each">
-                                <div className="event-left">
-                                    <span className='ball'></span>
-                                    <span className='event-name'>{event.event}</span>
+                            <div className='event-total'>
+                                <div className="event-each">
+                                    <div className="event-left">
+                                        <span className='ball'></span>
+                                        <span className='event-name'>{event.event}</span>
+                                    </div>
+                                    <span className='event-right'>{event.calendarTime}</span>
                                 </div>
-                                <span className='event-right'>{event.calendarTime}</span>
                             </div>
                         }
                     </div>
@@ -107,11 +109,15 @@ function Calendar() {
             {renderDays()}
             <div className={`sidebar ${isSidebarVisible ? 'visible' : ''}`}>
                 {selectedEvent ? (
+                    <>
                     <div className="side-details">
-                        <h2>即將到來的活動</h2>
+                        <h2>{selectedEvent.calendarDate} 的活動</h2>
                         <span className='event-name'>{selectedEvent.event}</span>
+                        <span>演出者: {selectedEvent.nametag}</span>
                         <span>時間: {selectedEvent.calendarTime}</span>
+                        <span>地點: {selectedEvent.location}</span>
                     </div>
+                    </>
                 ) : (
                     <p>請選擇日期以查看行程</p>
                 )}

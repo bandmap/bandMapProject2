@@ -5,8 +5,15 @@ import Carousel from "../components/Carousel"
 import Footer from "../components/Footer"
 import NavBar from "../components/NavBar"
 import SearchSection from "../components/SearchSection"
+import { useLocation } from "react-router-dom";
 
 function BandMapPage() {
+    const location = useLocation();
+    const maskSrc =
+        location.pathname === "/search"
+            ? "./images/mask-blue.svg"
+            : "./images/mask-pink.svg";
+
     useEffect(() => {
         window.scrollTo(0, 0);
     });
@@ -61,7 +68,7 @@ function BandMapPage() {
                     </div>
 
                     {/* 輪播banner區 */}
-                    <Carousel />
+                    <Carousel maskSrc={maskSrc}/>
 
                     {/* 搜尋選單 */}
                     <SearchSection />

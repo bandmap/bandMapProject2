@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function Carousel() {
+function Carousel({ maskSrc }) {
 
     const [eventInfo, setEventInfo] = useState([]);
 
@@ -38,7 +38,7 @@ function Carousel() {
                     return (
                         <div className="carousel" key={banner.key}>
                             <figure className="banner-card">
-                                <img className="mask" src="./images/mask-blue.svg" alt="" />
+                                <img className="mask" src={maskSrc} alt="" />
                                 <img className="event-img" src={banner.img} alt="" />
                             </figure>
                         </div>

@@ -40,6 +40,11 @@ function SearchSection() {
                         </optgroup>
                     </select>
                 </div>
+                <div className="btn-container">
+                    <button className="submit-btn" type="submit" value="">
+                        <img src="./images/icon/icon-search.svg" alt="search" />
+                    </button>
+                </div>
             </form>
         </>
     )

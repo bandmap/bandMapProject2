@@ -53,7 +53,7 @@ a {
 }
 
 /* 日曆樣式 */
-.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .carousel, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, #member-bar .menu {
+.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .carousel, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #bandmap-main .search-section .btn-container, #bandmap-main .search-section .btn-container .submit-btn, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, #member-bar .menu {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,7 +77,7 @@ a {
 }
 
 /* 單行省略 */
-.card .content .event, .card-long .card-right .content .event, #bandintro-main .content .upcoming-shows .show-card .show-info .show-title, .calendar .body .row .cell .event-each .event-left .event-name, #chatboard-main .main-area .article .message .text-area .content {
+.card .content .event, .card-long .card-right .content .event, #bandintro-main .content .upcoming-shows .show-card .show-info .show-title, .calendar .body .row .cell .event-total .event-each .event-left .event-name, #chatboard-main .main-area .article .message .text-area .content {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1489,7 +1489,7 @@ main {
   /* 搜尋選單 */
 }
 #bandmap-main .linear-bg {
-  background: linear-gradient(to bottom, #FFAF00, white, #FE8DBA);
+  background: linear-gradient(to bottom, #FFAF00 23%, white 56%, #FE8DBA 89%);
 }
 #bandmap-main .left-part {
   color: #0099FF;
@@ -1503,10 +1503,12 @@ main {
 }
 #bandmap-main .search-section {
   width: 70%;
+  height: 160px;
   margin: auto;
   margin-bottom: 100px;
 }
 #bandmap-main .search-section div {
+  height: 100%;
   flex: 1;
   background-color: black;
   color: white;
@@ -1545,6 +1547,20 @@ main {
 #bandmap-main .search-section .where {
   background-color: #0099FF;
 }
+#bandmap-main .search-section .btn-container {
+  flex: 0.3;
+  height: 100%;
+}
+#bandmap-main .search-section .btn-container .submit-btn {
+  width: 70px;
+  height: 70px;
+  background-color: #0099FF;
+  border: none;
+  cursor: pointer;
+}
+#bandmap-main .search-section .btn-container .submit-btn img {
+  width: 60%;
+}
 #bandmap-main .newsTicker {
   width: 110%;
   height: 80px;
@@ -1569,7 +1585,7 @@ main {
   /* current event跑馬燈 */
 }
 #currentevent-main .linear-bg {
-  background: linear-gradient(to bottom, #0099FF, white, #FF4438);
+  background: linear-gradient(to bottom, #0099FF 23%, white 56%, #FF4438 89%);
 }
 #currentevent-main .left-part {
   color: #FE8DBA;
@@ -1605,7 +1621,7 @@ main {
   /* 背景漸層 */
 }
 #banddiscover-main .linear-bg {
-  background: linear-gradient(to bottom, #FFAF00, white, #FFF8E4);
+  background: linear-gradient(to bottom, #FFAF00 23%, white 56%, #FFF8E4 89%);
 }
 #banddiscover-main .left-part {
   color: #FF4438;
@@ -1880,6 +1896,7 @@ main {
   align-items: center;
   flex-direction: column;
   font-size: 24px;
+  font-family: "inter";
   padding-top: 4px;
   transition: 0.3s ease;
 }
@@ -1900,22 +1917,26 @@ main {
   color: black;
   font-family: "Dela Gothic One";
 }
-.calendar .body .row .cell .event-each {
+.calendar .body .row .cell .event-total {
+  width: 100%;
+  padding: 8px 16px 8px 8px;
+}
+.calendar .body .row .cell .event-total .event-each {
   width: 100%;
   font-size: 12px;
   color: #7A4400;
   display: flex;
   justify-content: space-between;
-  padding: 8px 16px 8px 8px;
+  margin-bottom: 4px;
 }
-.calendar .body .row .cell .event-each .event-left {
+.calendar .body .row .cell .event-total .event-each .event-left {
   width: 80%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-right: 4px;
 }
-.calendar .body .row .cell .event-each .event-left .ball {
+.calendar .body .row .cell .event-total .event-each .event-left .ball {
   width: 8px;
   height: 8px;
   flex-shrink: 0;
@@ -1933,6 +1954,7 @@ main {
   top: 55px;
   width: 300px;
   height: calc(100vh - 55px);
+  font-family: "inter";
   background-color: white;
   z-index: 999;
   padding: 16px;
@@ -1948,16 +1970,16 @@ main {
   font-weight: 700;
   border-bottom: 1px solid rgba(0, 0, 0, 0.6);
   padding-bottom: 8px;
-  margin-bottom: 8px;
 }
 .calendar .sidebar .side-details span {
   font-size: 12px;
   color: #7A4400;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
 }
 .calendar .sidebar .side-details .event-name {
   font-size: 14px;
   font-weight: 700;
+  margin: 8px 0;
 }
 .calendar .visible {
   left: 0;
@@ -1975,7 +1997,7 @@ main {
   z-index: 0;
 }
 #chatboard-main .linear-bg {
-  background: linear-gradient(to bottom, #FE8DBA, white, #0099FF);
+  background: linear-gradient(to bottom, #FE8DBA 23%, white 56%, #0099FF 89%);
 }
 #chatboard-main .left-part {
   color: #FFAF00;
