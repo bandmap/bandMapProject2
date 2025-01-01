@@ -128,6 +128,48 @@
                 "nametag": [
                     "柯泯薰 misi Ke"
                 ]
+            },
+            {
+                "year": "2025",
+                "month": "jan",
+                "img": "./images/event/currentevent-json-1.jpg",
+                "key": "10",
+                "date": "2025/01/05 (日）19:30",
+                "calendarDate": "2025-01-05",
+                "calendarTime": "19:30",
+                "event": "陳荒凡個人音樂會",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "陳荒凡"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "jan",
+                "img": "./images/event/currentevent-json-2.jpg",
+                "key": "11",
+                "date": "2025/01/11 (六）19:00",
+                "calendarDate": "2025-01-11",
+                "calendarTime": "19:00",
+                "event": "9m88 演唱會",
+                "location": "Legacy Taichung",
+                "nametag": [
+                    "9m88"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "jan",
+                "img": "./images/event/currentevent-json-3.jpg",
+                "key": "12",
+                "date": "2025/01/19 (日）19:30",
+                "calendarDate": "2025-01-19",
+                "calendarTime": "19:30",
+                "event": "9m88 高雄現場演出",
+                "location": "高雄流行音樂中心 (SPERO)",
+                "nametag": [
+                    "9m88"
+                ]
             }
         ]
     }
