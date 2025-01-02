@@ -1,9 +1,9 @@
-function EventInfoCard({arrEventInfoCard}) {
+function EventInfoCard({ arrEventInfoCard }) {
 
     return (
         <div className="info-sec">
             <div className="time">
-                <p>{arrEventInfoCard[0].time}</p>
+                <p>2024.11.10(四) <br /> 13:00</p>
             </div>
             <div className="li-sec">
                 <h3>演出者</h3>
@@ -16,7 +16,7 @@ function EventInfoCard({arrEventInfoCard}) {
             <div className="li-sec">
                 <h3>票價資訊</h3>
                 <p>
-                    {arrEventInfoCard[0].price}
+                    早鳥票400元<br />一般票500元
                 </p>
             </div>
             <div className="li-sec">

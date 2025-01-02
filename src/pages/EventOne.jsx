@@ -62,7 +62,7 @@ function EventOne() {
                         <figure><img src="./images/event/currentevent-json-1.jpg" alt="" /></figure>
                         <div className="content-words">
                             <h2>{arrEventInfoCard[0].title}</h2>
-                            <p>{arrEventInfoCard[0].content}</p>
+                            <p>這次音樂派對將為你帶來5組獨具特色的音樂人，共同呈現音樂的多元樣貌！<br/><br/>【阿橘】14:00-14:30 <br />阿橘受復古浪潮影響，創作融合R& B與Neo Soul的獨特風格，且擅長詞曲創作與和聲編寫，其作品充滿標誌性復古魅力。<br /><br />【粗大Band】15:30 - 16:00< br />粗大Band以美式流行龐克為基，十年不變地保持青春與龐克態度。推出《難道我是一隻怪獸》專輯大獲好評，登上多個指標音樂舞台。 <br /><br />【Who Cares胡凱兒】17:00 - 17:30< br />以真摯細膩的文字為基，胡凱兒的音樂編織出深刻情感與不為人知的心事。融合多元風格，展現獨樹一幟的另類搖滾魅力。<br /><br />【林潔心】18:30 - 19:00< br />透過作品展現自我成長的省思，結合多元曲風創作獨特音樂風貌。以《等我回家》一曲嶄露頭角，憑其真誠衝擊成為嘻哈圈最強黑馬。<br /><br />【FEniX】20:00 - 20:20<br />以團結力量為基，FEniX從小火苗化為烈焰鳳凰。 成員各自擅長歌舞、創作、戲劇，展現無限潛力與魅力。<br /><br />#揪音秘最挺的就是ME #我挺的 #挺有意思的</p>
                         </div>
                     </div>
                     <div className="right-part">

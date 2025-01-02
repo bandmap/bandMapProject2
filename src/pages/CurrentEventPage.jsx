@@ -77,7 +77,7 @@ function CurrentEventPage() {
                     {/* 近期演出長卡片 */}
                     <div className="cards">
                         {
-                            eventInfo.map((searchcard) => {
+                            eventInfo.slice(0,10).map((searchcard) => {
                                 return <CardLong searchcard={searchcard} />
                             })
                         }

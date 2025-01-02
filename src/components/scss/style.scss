@@ -1095,7 +1095,7 @@ main {
                 font-size: $fontsize_title;
                 margin-bottom: $distance_m;
                 padding: $interval_4_8;
-                background-color: $Neutral_color_white;
+                // background-color: $Neutral_color_white;
             }
 
             .title-ani {
@@ -1126,7 +1126,7 @@ main {
                 font-size: $fontsize_subtitle;
                 font-weight: $font_bold;
                 padding: $interval_4_8;
-                background-color: $Neutral_color_white;
+                // background-color: $Neutral_color_white;
             }
 
             .title-ani-s {
@@ -1323,7 +1323,7 @@ main {
 }
 
 .slick-slide {
-    opacity: 0.7;
+    // opacity: 0.7;
     transition: 0.4s ease;
 }
 
@@ -1589,11 +1589,11 @@ main {
     overflow: hidden;
 
     .linear-bg {
-        background: linear-gradient(to bottom, $Primary_color_orange 23%, $Neutral_color_white 56%, $Primary_color_pink 89%);
+        background: linear-gradient(to bottom, $Primary_color_orange 23%, $Neutral_color_white 70%, $Primary_color_pink 89%);
     }
 
     .left-part {
-        color: $Primary_color_blue;
+        // color: $Primary_color_blue;
 
         .title-ani-tar,
         .title-ani-tar-s {
@@ -1710,11 +1710,11 @@ main {
     overflow: hidden;
 
     .linear-bg {
-        background: linear-gradient(to bottom, $Primary_color_blue 23%, $Neutral_color_white 56%, $Primary_color_red 89%);
+        background: linear-gradient(to bottom, $Primary_color_blue 23%, $Neutral_color_white 70%, $Primary_color_red 89%);
     }
 
     .left-part {
-        color: $Primary_color_pink;
+        // color: $Primary_color_pink;
 
         .title-ani-tar,
         .title-ani-tar-s {
@@ -1757,11 +1757,11 @@ main {
     z-index: 0;
 
     .linear-bg {
-        background: linear-gradient(to bottom, $Primary_color_orange 23%, $Neutral_color_white 56%, $Primary_color_beige 89%);
+        background: linear-gradient(to bottom, $Primary_color_orange 23%, $Neutral_color_white 70%, $Primary_color_beige 89%);
     }
 
     .left-part {
-        color: $Primary_color_red;
+        // color: $Primary_color_red;
 
         .title-ani-tar,
         .title-ani-tar-s {
@@ -2099,13 +2099,13 @@ main {
                     cursor: not-allowed;
                 }
 
+                &:hover {
+                    background-color: rgba($Neutral_color_black, 0.1);
+                }
+
                 &.today {
                     background: $Primary_color_beige;
                     color: $Neutral_color_white;
-                }
-
-                &:hover {
-                    background-color: rgba($Neutral_color_black, 0.1);
                 }
 
                 .number {
@@ -2214,11 +2214,11 @@ main {
     z-index: 0;
 
     .linear-bg {
-        background: linear-gradient(to bottom, $Primary_color_pink 23%, $Neutral_color_white 56%, $Primary_color_blue 89%);
+        background: linear-gradient(to bottom, $Primary_color_pink 23%, $Neutral_color_white 70%, $Primary_color_blue 89%);
     }
 
     .left-part {
-        color: $Primary_color_orange;
+        // color: $Primary_color_orange;
 
         .title-ani-tar,
         .title-ani-tar-s {

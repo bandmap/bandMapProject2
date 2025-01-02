@@ -1082,7 +1082,6 @@ main {
   font-size: 60px;
   margin-bottom: 16px;
   padding: 4px 8px;
-  background-color: white;
 }
 .topbar .left-part .title .title-ani {
   overflow: hidden;
@@ -1108,7 +1107,6 @@ main {
   font-size: 24px;
   font-weight: 700;
   padding: 4px 8px;
-  background-color: white;
 }
 .topbar .left-part .title .title-ani-s {
   overflow: hidden;
@@ -1277,7 +1275,6 @@ main {
 }
 
 .slick-slide {
-  opacity: 0.7;
   transition: 0.4s ease;
 }
 
@@ -1489,10 +1486,7 @@ main {
   /* 搜尋選單 */
 }
 #bandmap-main .linear-bg {
-  background: linear-gradient(to bottom, #FFAF00 23%, white 56%, #FE8DBA 89%);
-}
-#bandmap-main .left-part {
-  color: #0099FF;
+  background: linear-gradient(to bottom, #FFAF00 23%, white 70%, #FE8DBA 89%);
 }
 #bandmap-main .left-part .title-ani-tar::after,
 #bandmap-main .left-part .title-ani-tar-s::after {
@@ -1585,10 +1579,7 @@ main {
   /* current event跑馬燈 */
 }
 #currentevent-main .linear-bg {
-  background: linear-gradient(to bottom, #0099FF 23%, white 56%, #FF4438 89%);
-}
-#currentevent-main .left-part {
-  color: #FE8DBA;
+  background: linear-gradient(to bottom, #0099FF 23%, white 70%, #FF4438 89%);
 }
 #currentevent-main .left-part .title-ani-tar::after,
 #currentevent-main .left-part .title-ani-tar-s::after {
@@ -1621,10 +1612,7 @@ main {
   /* 背景漸層 */
 }
 #banddiscover-main .linear-bg {
-  background: linear-gradient(to bottom, #FFAF00 23%, white 56%, #FFF8E4 89%);
-}
-#banddiscover-main .left-part {
-  color: #FF4438;
+  background: linear-gradient(to bottom, #FFAF00 23%, white 70%, #FFF8E4 89%);
 }
 #banddiscover-main .left-part .title-ani-tar::after,
 #banddiscover-main .left-part .title-ani-tar-s::after {
@@ -1906,12 +1894,12 @@ main {
   pointer-events: none;
   cursor: not-allowed;
 }
+.calendar .body .row .cell:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
 .calendar .body .row .cell.today {
   background: #FFF8E4;
   color: white;
-}
-.calendar .body .row .cell:hover {
-  background-color: rgba(0, 0, 0, 0.1);
 }
 .calendar .body .row .cell .number {
   color: black;
@@ -1997,10 +1985,7 @@ main {
   z-index: 0;
 }
 #chatboard-main .linear-bg {
-  background: linear-gradient(to bottom, #FE8DBA 23%, white 56%, #0099FF 89%);
-}
-#chatboard-main .left-part {
-  color: #FFAF00;
+  background: linear-gradient(to bottom, #FE8DBA 23%, white 70%, #0099FF 89%);
 }
 #chatboard-main .left-part .title-ani-tar::after,
 #chatboard-main .left-part .title-ani-tar-s::after {
