@@ -82,7 +82,7 @@ function CurrentEvent() {
                     {
                         arrEventCard.map((e, index) => {
                             return (
-                                <div className="box-pic" key={e.key}
+                                <Link to='/event1' className="box-pic" key={e.key}
                                     onMouseOver={() => { setHoverIndex(index) }}
                                     onMouseOut={() => { setHoverIndex(null) }}>
                                     <img src={e.img} alt={e.name} />
@@ -96,7 +96,7 @@ function CurrentEvent() {
                                         </div>
                                         <p className="event-time">{e.time}</p>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         })
                     }

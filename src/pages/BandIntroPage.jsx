@@ -4,16 +4,20 @@ import MusicAlbums from '../components/MusicAlbums'
 import NavBar from '../components/NavBar'
 import UpcomingEvents from '../components/UpcomingEvents'
 import Footer from "../components/Footer"
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 function BandIntroPage() {
-
     const navigate = useNavigate();
 
     useEffect(() => {
         window.scrollTo(0, 0);
     });
+
+    const [liked, setLiked] = useState(false);
+    const toggleLiked = () => {
+        setLiked(!liked);
+    }
 
     return (
         <>
@@ -23,8 +27,8 @@ function BandIntroPage() {
                     <img src="./images/btn-back.svg" alt="" />
                     <p>回上一頁</p>
                 </button>
-                <button className='btn-band-collect'>
-                    <img src="./images/icon/icon-like.svg" alt="" />
+                <button onClick={toggleLiked} className='btn-band-like'>
+                    <img src={liked ? "./images/icon/icon-liked.svg" : "./images/icon/icon-like.svg"} alt="like" />
                     <p>收藏樂團</p>
                 </button>
                 <section className="background">
@@ -42,7 +46,7 @@ function BandIntroPage() {
                     <div className="gallery-container">
                         <h2 className="gallery-title">其他樂團</h2>
                         <div className="gallery-grid"></div>
-                        <CarouselBand autoplay={false}/>
+                        <CarouselBand autoplay={false} />
                     </div>
                 </div>
 

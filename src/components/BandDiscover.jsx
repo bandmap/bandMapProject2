@@ -110,7 +110,7 @@ function BandDiscover() {
                     {
                         arrBandCard.map((band, index) => {
                             return (
-                                <div className="box-pic" key={band.key}
+                                <Link to='/band1' className="box-pic" key={band.key}
                                     onMouseOver={() => { setHoverIndex(index) }}
                                     onMouseOut={() => { setHoverIndex(null) }}>
                                     <img src={band.img} alt={band.name} />
@@ -118,7 +118,7 @@ function BandDiscover() {
                                         <h4>{band.band}</h4>
                                         <p>{band.content}</p>
                                     </div>
-                                </div>
+                                </Link>
                             )
                         })
                     }
