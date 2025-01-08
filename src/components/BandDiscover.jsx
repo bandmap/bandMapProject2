@@ -39,35 +39,36 @@ function BandDiscover() {
 
     /* 滾動到每個頁面讓它停留一秒 */
     const containerRef = useRef(null); // 用來參考主容器
-    const isAtTarget = useRef(false); // 紀錄是否已到達目標位置
+    const [isLocked, setIsLocked] = useState(false); // 控制是否鎖住滾動
 
     useEffect(() => {
+        let timeout; // 防止過多操作
+
         const handleScrollAll = () => {
-            const targetPosition2 = window.innerHeight * 2;
+            const targetPosition = window.innerHeight * 2; // 目標位置 (第二頁頂部)
             const currentScroll = window.scrollY;
 
-            if (!isAtTarget.current) {
-                // 如果未到達目標位置
-                if (currentScroll >= targetPosition2) {
-                    window.scrollTo(0, targetPosition2); // 固定滾動到目標位置
-                    isAtTarget.current = true; // 標記為已到達
-                    document.body.style.overflow = "hidden"; // 鎖住滾動
+            if (!isLocked && Math.abs(currentScroll - targetPosition) < 10) {
+                // 達到目標位置時執行動作 (容忍範圍 ±10px)
+                setIsLocked(true); // 標記滾動鎖住
+                clearTimeout(timeout);
 
-                    setTimeout(() => {
-                        document.body.style.overflow = "auto"; // 解鎖滾動
-                    }, 1000); // 停留時間（1秒）
-                }
+                document.body.style.overflow = "hidden"; // 暫時鎖住滾動
+                window.scrollTo({ top: targetPosition, behavior: "smooth" }); // 平滑滾動到目標位置
+
+                setTimeout(() => {
+                    document.body.style.overflow = "auto"; // 解鎖滾動
+                    setIsLocked(false); // 解鎖標記，允許再次觸發
+                }, 500); // 鎖住 1 秒
             }
         };
-
-        document.body.style.overflow = "auto"; // 初始設置：滾動
         window.addEventListener("scroll", handleScrollAll);
 
         return () => {
+            clearTimeout(timeout);
             window.removeEventListener("scroll", handleScrollAll); // 清理事件
         };
-    }, []);
-
+    }, [isLocked]);
 
     return (
         <div id="banddiscover-page" ref={containerRef}>

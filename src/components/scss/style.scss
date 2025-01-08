@@ -759,7 +759,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        transition: $speed-cubebuttomhover;
+        transition: $speed-cubebuttomhover ease;
 
         img {
             width: 100%;
@@ -839,7 +839,7 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        transition: $speed-cubebuttomhover;
+        transition: $speed-cubebuttomhover ease;
 
         img {
             width: 100%;
