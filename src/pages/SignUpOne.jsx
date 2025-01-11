@@ -21,7 +21,10 @@ function SignUpOne() {
                             <form action="">
                                 <div className="login-btns">
                                     <Link to='/signup2' className="orange-btn">註冊</Link>
-                                    <Link to='/signup2' className="orange-btn">使用Google帳號註冊</Link>
+                                    <Link to='/signup2' className="orange-btn link-btn">
+                                        <img src="./images/icon/icon-google.svg" alt="google icon" />
+                                        <p>使用Google帳號註冊</p>
+                                    </Link>
                                     <div className="line"></div>
                                     <Link to='/login' className="normal-btn">登入</Link>
                                 </div>

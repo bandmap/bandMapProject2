@@ -1,7 +1,16 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import ReactDOM from 'react-dom'
+import { signInWithPopup } from "firebase/auth";
+import { auth, provide } from "../config/firebase";
 
 function LogInOne({ togglePopup }) {
+
+    const navigate = useNavigate();
+    const loginGoogle = async () => {
+        const result = await signInWithPopup(auth, provide);
+        console.log(result);
+        navigate('/member'); // 登入成功後導入會員頁
+    }
 
     return ReactDOM.createPortal(
         <>
@@ -26,8 +35,11 @@ function LogInOne({ togglePopup }) {
                         </div>
 
                         <div className="login-btns">
-                            <input type="submit" className="orange-btn" name="submit-btn" id="submit-btn" value="確認" />
-                            <input type="submit" className="orange-btn" name="submit-btn" id="submit-google-btn" value="使用Google帳號登入" />
+                            <button type="submit" className="orange-btn" d="submit-btn" >確認</button>
+                            <button type="submit" className="orange-btn link-btn" id="submit-google-btn" onClick={loginGoogle} >
+                                <img src="./images/icon/icon-google.svg" alt="google icon" />
+                                <p>使用Google帳號登入</p>
+                            </button>
                             <div className="line"></div>
                             <Link to='/signup1' className="normal-btn">註冊</Link>
                         </div>

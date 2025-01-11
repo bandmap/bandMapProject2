@@ -766,7 +766,6 @@
             height: 100%;
             object-fit: cover;
         }
-
     }
 
     &::before {
@@ -1728,8 +1727,6 @@ main {
     }
 
     .left-part {
-        // color: $Primary_color_pink;
-
         .title-ani-tar,
         .title-ani-tar-s {
             &::after {
@@ -1775,8 +1772,6 @@ main {
     }
 
     .left-part {
-        // color: $Primary_color_red;
-
         .title-ani-tar,
         .title-ani-tar-s {
             &::after {
@@ -2075,22 +2070,29 @@ main {
         }
     }
 
+    .cell {
+        padding: 8px 0;
+    }
+
     .days {
         display: grid;
         text-align: center;
         font-size: $fontsize_subtitle;
         grid-template-columns: repeat(7, 1fr);
         background: $Neutral_color_black;
-        padding: 12px 0;
         color: $Neutral_color_white;
         font-family: $font_title_dela;
     }
 
+    .weekend {
+        background: #ff8800;
+    }
+
     .body {
-        height: 75vh;
+        height: 80vh;
 
         .row {
-            height: 15vh;
+            height: 16vh;
             display: grid;
             text-align: center;
             grid-template-columns: repeat(7, 1fr);
@@ -2098,7 +2100,7 @@ main {
             .cell {
                 width: calc(100vw / 7);
                 display: flex;
-                justify-content: space-between;
+                justify-content: flex-start;
                 align-items: center;
                 flex-direction: column;
                 font-size: $fontsize_subtitle;
@@ -2108,7 +2110,7 @@ main {
 
                 &.disabled {
                     color: $Primary_color_beige !important;
-                    background-color: lighten($Primary_color_beige, 40%);
+                    // background-color: lighten($Primary_color_beige, 40%);
                     pointer-events: none;
                     cursor: not-allowed;
                 }
@@ -2165,6 +2167,10 @@ main {
             .has-event {
                 cursor: pointer !important;
                 pointer-events: auto;
+            }
+
+            .weekend {
+                background: rgba(#ff8800, 0.1);
             }
         }
     }
@@ -2232,8 +2238,6 @@ main {
     }
 
     .left-part {
-        // color: $Primary_color_orange;
-
         .title-ani-tar,
         .title-ani-tar-s {
             &::after {
@@ -2889,6 +2893,18 @@ main {
         .orange-btn {
             background-color: $Primary_color_orange;
             border: none;
+        }
+
+        .link-btn {
+            background-color: $Neutral_color_white;
+            border: solid 2px $Primary_color_orange;
+            @extend %box-center;
+
+            img {
+                width: 20px;
+                height: 20px;
+                margin-right: $distance_s;
+            }
         }
     }
 }

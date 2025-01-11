@@ -62,16 +62,16 @@ function MemberPage() {
                     <div id="collect-event" className="collect-a">
                         <h2>收藏的活動</h2>
                         < div className="card-list" >
-                            {sampleCards.map((searchcard) => (
-                                <CardOne searchcard={searchcard} />
+                            {sampleCards.map((searchcard, index) => (
+                                <CardOne searchcard={searchcard} key={index} />
                             ))}
                         </div>
                     </div>
                     <div id="collect-band" className="collect-a">
                         <h2>收藏的樂團</h2>
                         < div className="card-list" >
-                            {sampleBandCard.map((searchcard) => (
-                                <CardCollectBand searchcard={searchcard} />
+                            {sampleBandCard.map((searchcard, index) => (
+                                <CardCollectBand searchcard={searchcard} key={index} />
                             ))}
                         </div>
                     </div>

@@ -52,7 +52,7 @@ a {
 }
 
 /* 日曆樣式 */
-.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .carousel, .card .bottom-line .btns .like-btn, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .like-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #bandmap-main .search-section .btn-container, #bandmap-main .search-section .btn-container .submit-btn, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, #member-bar .menu {
+.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll, .box-roll .box-intro .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .carousel, .card .bottom-line .btns .like-btn, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .like-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #bandmap-main .search-section .btn-container, #bandmap-main .search-section .btn-container .submit-btn, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, .login-card .login-btns .link-btn, #member-bar .menu {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1867,21 +1867,26 @@ main {
   color: black;
   text-align: center;
 }
+.calendar .cell {
+  padding: 8px 0;
+}
 .calendar .days {
   display: grid;
   text-align: center;
   font-size: 24px;
   grid-template-columns: repeat(7, 1fr);
   background: black;
-  padding: 12px 0;
   color: white;
   font-family: "Dela Gothic One";
 }
+.calendar .weekend {
+  background: #ff8800;
+}
 .calendar .body {
-  height: 75vh;
+  height: 80vh;
 }
 .calendar .body .row {
-  height: 15vh;
+  height: 16vh;
   display: grid;
   text-align: center;
   grid-template-columns: repeat(7, 1fr);
@@ -1889,7 +1894,7 @@ main {
 .calendar .body .row .cell {
   width: 14.2857142857vw;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   font-size: 24px;
@@ -1899,7 +1904,6 @@ main {
 }
 .calendar .body .row .cell.disabled {
   color: #FFF8E4 !important;
-  background-color: white;
   pointer-events: none;
   cursor: not-allowed;
 }
@@ -1944,6 +1948,9 @@ main {
 .calendar .body .row .has-event {
   cursor: pointer !important;
   pointer-events: auto;
+}
+.calendar .body .row .weekend {
+  background: rgba(255, 136, 0, 0.1);
 }
 .calendar .sidebar {
   position: fixed;
@@ -2527,6 +2534,15 @@ main {
 .login-card .login-btns .orange-btn {
   background-color: #FFAF00;
   border: none;
+}
+.login-card .login-btns .link-btn {
+  background-color: white;
+  border: solid 2px #FFAF00;
+}
+.login-card .login-btns .link-btn img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
 }
 
 /* 會員專區頁面 */

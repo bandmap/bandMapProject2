@@ -46,9 +46,16 @@ function Calendar() {
                 // 查找行程資料
                 const event = eventInfo.find(e => e.calendarDate === fullDate);
 
+                // 判斷是否為週六或週日
+                const isWeekend = day.getDay() === 6 || day.getDay() === 0;
+
                 days.push(
                     <div
-                        className={`cell ${!isSameMonth(day, currentDate) ? 'disabled' : ''} ${isSameDay(day, new Date()) ? 'today' : ''} ${event ? 'has-event' : ''}`}
+                        className={`cell 
+                            ${!isSameMonth(day, currentDate) ? 'disabled' : ''}
+                            ${isSameDay(day, new Date()) ? 'today' : ''}
+                            ${event ? 'has-event' : ''}
+                            ${isWeekend ? 'weekend' : ''}`}
                         key={day}
                         onClick={() => {
                             if (event) {
@@ -90,7 +97,7 @@ function Calendar() {
         return (
             <div className="days row">
                 {days.map((day, index) => (
-                    <div className="cell" key={index}>
+                    <div className={`cell ${index === 0 || index === 6 ? 'weekend' : ''}`} key={index}>
                         {day}
                     </div>
                 ))}
@@ -110,13 +117,13 @@ function Calendar() {
             <div className={`sidebar ${isSidebarVisible ? 'visible' : ''}`}>
                 {selectedEvent ? (
                     <>
-                    <div className="side-details">
-                        <h2>{selectedEvent.calendarDate} 的活動</h2>
-                        <span className='event-name'>{selectedEvent.event}</span>
-                        <span>演出者: {selectedEvent.nametag}</span>
-                        <span>時間: {selectedEvent.calendarTime}</span>
-                        <span>地點: {selectedEvent.location}</span>
-                    </div>
+                        <div className="side-details">
+                            <h2>{selectedEvent.calendarDate} 的活動</h2>
+                            <span className='event-name'>{selectedEvent.event}</span>
+                            <span>演出者: {selectedEvent.nametag}</span>
+                            <span>時間: {selectedEvent.calendarTime}</span>
+                            <span>地點: {selectedEvent.location}</span>
+                        </div>
                     </>
                 ) : (
                     <p>請選擇日期以查看行程</p>

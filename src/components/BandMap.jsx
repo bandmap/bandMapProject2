@@ -56,7 +56,7 @@ function BandMap() {
                 setTimeout(() => {
                     document.body.style.overflow = "auto"; // 解鎖滾動
                     setIsLocked(false); // 解鎖標記，允許再次觸發
-                }, 500); // 鎖住 1 秒
+                }, 1000); // 鎖住 1 秒
             }
         };
         // const handleScrollAll = () => {
