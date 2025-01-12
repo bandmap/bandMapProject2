@@ -1,23 +1,14 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import { format, addMonths, subMonths, startOfMonth, endOfMonth, startOfWeek, endOfWeek, addDays, isSameMonth, isSameDay } from 'date-fns';
 import axios from 'axios';
+import { CalendarListContext } from "./CalendarListContext";
 
 function Calendar() {
     const [currentDate, setCurrentDate] = useState(new Date());
-
-    const [eventInfo, setEventInfo] = useState([]);
     const [selectedEvent, setSelectedEvent] = useState(null); // 被選到的日期
     const [isSidebarVisible, setSidebarVisible] = useState(false); // sidebar的出現
 
-    useEffect(() => {
-        (async () => {
-            // const data = await axios.get('/json/eventInfo.json');
-            const data = await axios.get('https://bandmap.github.io/bandMapProject2/json/eventInfo.json');
-
-            const { eventinfo } = data.data.eventdata;
-            setEventInfo(eventinfo);
-        })()
-    }, [])
+    const { calendarList } = useContext(CalendarListContext); // 被加進行事曆的清單
 
     // 取得當前的月份和年份
     const currentMonth = () => format(currentDate, 'MMMM yyyy');
@@ -44,7 +35,7 @@ function Calendar() {
                 const cloneDay = day;
 
                 // 查找行程資料
-                const event = eventInfo.find(e => e.calendarDate === fullDate);
+                const event = calendarList.find(e => e.calendarDate === fullDate);
 
                 // 判斷是否為週六或週日
                 const isWeekend = day.getDay() === 6 || day.getDay() === 0;

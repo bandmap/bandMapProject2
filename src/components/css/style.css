@@ -2600,6 +2600,10 @@ main {
   width: 220px;
   padding: 12px 12px 12px 0;
 }
+#member-bar .menu p {
+  font-size: 14px;
+  color: white;
+}
 #member-bar .menu img {
   width: 32px;
   height: 32px;

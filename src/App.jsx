@@ -13,26 +13,35 @@ import SignUpTwo from "./pages/SignUpTwo"
 import SignUpThree from "./pages/SignUpThree"
 import SignUpFour from "./pages/SignUpFour"
 import LogIn from "./pages/LogIn"
+import { UserProvider } from "./components/UserProvider"
+import { LikeListProvider } from "./components/LikeListContext"
+import { CalendarListProvider } from "./components/CalendarListContext"
 
 function App() {
 
   return (
-    <Routes>
-      <Route path='/' element={<Home />}></Route>
-      <Route path='/search' element={<BandMapPage />}></Route>
-      <Route path='/event' element={<CurrentEventPage />}></Route>
-      <Route path='/band' element={<BandDiscoverPage />}></Route>
-      <Route path='/band1' element={<BandIntroPage />}></Route>
-      <Route path='/chatboard' element={<ChatBoardPage />}></Route>
-      <Route path='/calendar' element={<PersonalCalendarPage />}></Route>
-      <Route path='/member' element={<MemberPage />}></Route>
-      <Route path='/event1' element={<EventOne />}></Route>
-      <Route path='/login' element={<LogIn />}></Route>
-      <Route path='/signup1' element={<SignUpOne />}></Route>
-      <Route path='/signup2' element={<SignUpTwo />}></Route>
-      <Route path='/signup3' element={<SignUpThree />}></Route>
-      <Route path='/signup4' element={<SignUpFour />}></Route>
-    </Routes>
+    <UserProvider>
+      <LikeListProvider>
+        <CalendarListProvider>
+          <Routes>
+            <Route path='/' element={<Home />}></Route>
+            <Route path='/search' element={<BandMapPage />}></Route>
+            <Route path='/event' element={<CurrentEventPage />}></Route>
+            <Route path='/band' element={<BandDiscoverPage />}></Route>
+            <Route path='/band1' element={<BandIntroPage />}></Route>
+            <Route path='/chatboard' element={<ChatBoardPage />}></Route>
+            <Route path='/calendar' element={<PersonalCalendarPage />}></Route>
+            <Route path='/member' element={<MemberPage />}></Route>
+            <Route path='/event1' element={<EventOne />}></Route>
+            <Route path='/login' element={<LogIn />}></Route>
+            <Route path='/signup1' element={<SignUpOne />}></Route>
+            <Route path='/signup2' element={<SignUpTwo />}></Route>
+            <Route path='/signup3' element={<SignUpThree />}></Route>
+            <Route path='/signup4' element={<SignUpFour />}></Route>
+          </Routes>
+        </CalendarListProvider>
+      </LikeListProvider>
+    </UserProvider>
   )
 }
 

@@ -78,7 +78,7 @@ function CurrentEventPage() {
                     <div className="cards">
                         {
                             eventInfo.slice(0,10).map((searchcard) => {
-                                return <CardLong searchcard={searchcard} />
+                                return <CardLong searchcard={searchcard} key={searchcard.key} />
                             })
                         }
                     </div>

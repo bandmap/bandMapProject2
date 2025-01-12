@@ -1,18 +1,29 @@
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import './css/style.css';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import LogInOne from './LogInOne';
+import { UserContext } from './UserProvider';
 
 function NavBar() {
-
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const { isLogin } = useContext(UserContext); // 從 UserContext 獲取登入狀態
     const [showPopup, setShowPopup] = useState(false);
+    const [redirectPath, setRedirectPath] = useState('/');
     const navigate = useNavigate();
 
     const handleMemberCenterClick = () => {
-        if (isLoggedIn) {
+        if (isLogin) {
             navigate('/member');
         } else {
+            setRedirectPath('/member');
+            setShowPopup(true);
+        }
+    }
+
+    const handleCalendarClick = () => {
+        if (isLogin) {
+            navigate('/calendar');
+        } else {
+            setRedirectPath('/calendar');
             setShowPopup(true);
         }
     }
@@ -48,19 +59,22 @@ function NavBar() {
                     <div className="word-cube"><p>樂迷留言板</p><span className='line'></span></div>
                     <div className="word-cube"><p>樂迷留言板</p><span className='line'></span></div>
                 </NavLink></li>
-                <li><NavLink to='/calendar' className={({ isActive }) => isActive ? 'active' : ''}>
+                <li><NavLink to='/calendar' className={({ isActive }) => isActive ? 'active' : ''} onClick={(e) => {
+                    e.preventDefault(); // 阻止默認行為，手動處理點擊事件
+                    handleCalendarClick(); // 執行自定義邏輯
+                }}>
                     <div className="word-cube"><p>個人行事曆</p><span className='line'></span></div>
                     <div className="word-cube"><p>個人行事曆</p><span className='line'></span></div>
                 </NavLink></li>
                 <li>
                     <button id='membership-page' onClick={handleMemberCenterClick}>
-                        <div className="word-cube"><p>會員中心</p><span className='line'></span></div>
-                        <div className="word-cube"><p>會員中心</p><span className='line'></span></div>
+                        <div className="word-cube"><p>{isLogin ? '會員中心' : '登入'}</p><span className='line'></span></div>
+                        <div className="word-cube"><p>{isLogin ? '會員中心' : '登入'}</p><span className='line'></span></div>
                     </button>
                 </li>
             </ul>
             {
-                showPopup && <LogInOne togglePopup={togglePopup} />
+                showPopup && <LogInOne togglePopup={togglePopup} redirectPath={redirectPath}/>
             }
 
 

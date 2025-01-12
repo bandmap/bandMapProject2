@@ -1,20 +1,29 @@
-import { useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom"
+import { LikeListContext } from "./LikeListContext";
+import { CalendarListContext } from "./CalendarListContext";
 
 function CardLong({ searchcard }) {
-    const [liked, setLiked] = useState(false);
-    const toggleLiked = (e) => {
-        e.preventDefault(); // 阻止 Link 的預設跳轉行為
-        e.stopPropagation(); // 阻止事件冒泡到 Link
-        setLiked(!liked);
-    }
+    // 加入收藏
+    const { likeList, toggleLike } = useContext(LikeListContext);
+    const isLiked = likeList.some((item) => item.key === searchcard.key); // 判斷是否已經 liked
 
-    const [collected, setCollected] = useState(false);
-    const toggleCollected = (e) => {
-        e.preventDefault(); // 阻止 Link 的預設跳轉行為
-        e.stopPropagation(); // 阻止事件冒泡到 Link
-        setCollected(!collected);
+    const handleLikeClick = (e) => {
+        e.preventDefault(); // 阻止預設行為
+        e.stopPropagation(); // 阻止事件冒泡
+        toggleLike(searchcard); // 更新 likeList 狀態
+    };
+
+    // 加入行事曆
+    const { calendarList, toggleCalendar } = useContext(CalendarListContext);
+    const isCollected = calendarList.some((item) => item.key === searchcard.key);
+
+    const handleCollectClick = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        toggleCalendar(searchcard);
     }
+    console.log(calendarList);
 
     return (
         <Link to='/event1' className="card-long" key={searchcard.key}>
@@ -36,11 +45,11 @@ function CardLong({ searchcard }) {
                         })}
                     </div>
                     <div className="btns">
-                        <figure onClick={toggleLiked} className="like-btn">
-                            <img src={liked ? "./images/icon/icon-liked.svg" : "./images/icon/icon-like.svg"} alt="like" />
+                        <figure onClick={handleLikeClick} className="like-btn">
+                            <img src={isLiked ? "./images/icon/icon-liked.svg" : "./images/icon/icon-like.svg"} alt="like" />
                         </figure>
-                        <div onClick={toggleCollected} className="collect-btn">
-                            <figure><img src={collected ? "./images/icon/icon-collected.svg" : "./images/icon/icon-plus.svg"} alt="collect" /></figure>
+                        <div onClick={handleCollectClick} className="collect-btn">
+                            <figure><img src={isCollected ? "./images/icon/icon-collected.svg" : "./images/icon/icon-plus.svg"} alt="collect" /></figure>
                             <p>行事曆</p>
                         </div>
                     </div>

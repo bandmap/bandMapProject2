@@ -1,36 +1,16 @@
-import { useEffect } from "react"
+import { useContext, useEffect } from "react"
 import MemberBar from "../components/MemberBar";
 import SideBar from "../components/SideBar";
 import CardOne from "../components/CardOne";
 import CardCollectBand from "../components/CardCollectBand";
+import { LikeListContext } from "../components/LikeListContext";
 
 function MemberPage() {
     useEffect(() => {
         window.scrollTo(0, 0);
     });
 
-    const sampleCards = [
-        {
-            img: "./images/event/currentevent-json-7.jpg",
-            key: 1,
-            date: "2024/12/14 (六）20: 00",
-            event: "【2024都市女聲】：洪佩瑜-台北場(加場)",
-            location: "Legacy Taipei 音樂展演空間",
-            nametag: [
-                "洪佩瑜"
-            ]
-        },
-        {
-            img: "./images/event/currentevent-json-9.jpg",
-            key: 2,
-            date: "2024/12/26 (四）19: 30",
-            event: "柯泯薰 misi Ke《好好的 BE GOOD》專輯發片專場",
-            location: "Legacy Taipei 音樂展演空間",
-            nametag: [
-                "柯泯薰 misi Ke"
-            ]
-        },
-    ];
+    const { likeList } = useContext(LikeListContext);
 
     const sampleBandCard = [
         {
@@ -62,7 +42,7 @@ function MemberPage() {
                     <div id="collect-event" className="collect-a">
                         <h2>收藏的活動</h2>
                         < div className="card-list" >
-                            {sampleCards.map((searchcard, index) => (
+                            {likeList.map((searchcard, index) => (
                                 <CardOne searchcard={searchcard} key={index} />
                             ))}
                         </div>

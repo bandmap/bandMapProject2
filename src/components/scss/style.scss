@@ -2978,6 +2978,11 @@ main {
     .menu {
         @extend %box-center;
 
+        p {
+            font-size: $fontsize_14;
+            color: $Neutral_color_white;
+        }
+
         img {
             width: 32px;
             height: 32px;

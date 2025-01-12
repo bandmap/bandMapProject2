@@ -45,6 +45,7 @@ function BandMapPage() {
         })()
     }, [])
 
+
     return (
         <>
             <NavBar />
@@ -68,7 +69,7 @@ function BandMapPage() {
                     </div>
 
                     {/* 輪播banner區 */}
-                    <Carousel maskSrc={maskSrc}/>
+                    <Carousel maskSrc={maskSrc} />
 
                     {/* 搜尋選單 */}
                     <SearchSection />
@@ -90,7 +91,10 @@ function BandMapPage() {
                             eventInfo
                                 .filter(event => event.month === 'nov') // 過濾出 month 為 'nov' 的資料
                                 .map((searchcard) => {
-                                    return <CardOne key={searchcard.key} searchcard={searchcard} />
+                                    return <CardOne
+                                        key={searchcard.key}
+                                        searchcard={searchcard}
+                                    />
                                 })
                         }
                     </div>
@@ -112,7 +116,10 @@ function BandMapPage() {
                                 eventInfo
                                     .filter(event => event.month === 'dec') // 過濾出 month 為 'dec' 的資料
                                     .map((searchcard) => {
-                                        return <CardOne key={searchcard.key} searchcard={searchcard} />
+                                        return <CardOne
+                                            key={searchcard.key}
+                                            searchcard={searchcard}
+                                        />
                                     })
                             }
 
