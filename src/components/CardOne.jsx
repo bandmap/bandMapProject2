@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import { LikeListContext } from "./LikeListContext";
 import { CalendarListContext } from "./CalendarListContext";
 
-function CardOne({ searchcard }) {
+function CardOne({ searchcard, index }) {
     let className = 'card';
-    if (searchcard.key % 2 === 0) {
+    if (index % 2 === 0) {
         className += ' right-place';
     }
 

@@ -27,6 +27,10 @@
         padding: 0 12px;
         @extend %box-center;
         white-space: nowrap;
+
+        p {
+            margin-right: 12px;
+        }
     }
 }
 
@@ -1699,7 +1703,7 @@ main {
         width: 110%;
         height: 80px;
         transform: rotate(-3deg) translateX(-10px);
-        margin-bottom: $distance_60;
+        margin: $distance_60 0;
 
         span {
             font-size: $fontsize_40;

@@ -36,6 +36,20 @@ function CurrentEventPage() {
 
             const { eventinfo } = data.data.eventdata;
             setEventInfo(eventinfo);
+
+            // 取得當前日期
+            const today = new Date();
+
+            // 排序資料，最近的活動排在最前
+            const sortedEventInfo = eventinfo
+                .filter(event => new Date(event.calendarDate) >= today) // 過濾出未來的活動
+                .sort((a, b) => {
+                    const dateA = new Date(a.calendarDate);
+                    const dateB = new Date(b.calendarDate);
+                    return dateA - dateB; // 由近到遠排序
+                });
+
+            setEventInfo(sortedEventInfo);
         })()
     }, [])
 

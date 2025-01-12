@@ -251,6 +251,9 @@ a {
   padding: 0 12px;
   white-space: nowrap;
 }
+.newsTicker span p {
+  margin-right: 12px;
+}
 
 /* 首頁cube區 */
 #cubes {
@@ -1568,7 +1571,7 @@ main {
   width: 110%;
   height: 80px;
   transform: rotate(-3deg) translateX(-10px);
-  margin-bottom: 60px;
+  margin: 60px 0;
 }
 #bandmap-main .newsTicker span {
   font-size: 40px;

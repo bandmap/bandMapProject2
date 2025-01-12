@@ -9,12 +9,27 @@ function Carousel({ maskSrc }) {
     const [eventInfo, setEventInfo] = useState([]);
 
     useEffect(() => {
+
         (async () => {
             // const data = await axios.get('/json/eventInfo.json');
             const data = await axios.get('https://bandmap.github.io/bandMapProject2/json/eventInfo.json');
 
             const { eventinfo } = data.data.eventdata;
             setEventInfo(eventinfo);
+
+            // 取得當前日期
+            const today = new Date();
+
+            // 排序資料，最近的活動排在最前
+            const sortedEventInfo = eventinfo
+                .filter(event => new Date(event.calendarDate) >= today) // 過濾出未來的活動
+                .sort((a, b) => {
+                    const dateA = new Date(a.calendarDate);
+                    const dateB = new Date(b.calendarDate);
+                    return dateA - dateB; // 由近到遠排序
+                });
+
+            setEventInfo(sortedEventInfo);
         })()
     }, [])
 
@@ -34,7 +49,7 @@ function Carousel({ maskSrc }) {
     return (
         <Slider {...settings}>
             {
-                eventInfo.slice(0,5).map((banner) => {
+                eventInfo.slice(0, 5).map((banner) => {
                     return (
                         <div className="carousel" key={banner.key}>
                             <figure className="banner-card">
