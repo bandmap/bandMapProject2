@@ -23,7 +23,6 @@ function CardLong({ searchcard }) {
         e.stopPropagation();
         toggleCalendar(searchcard);
     }
-    console.log(calendarList);
 
     return (
         <Link to='/event1' className="card-long" key={searchcard.key}>

@@ -132,43 +132,243 @@
             {
                 "year": "2025",
                 "month": "jan",
-                "img": "./images/event/currentevent-json-1.jpg",
+                "img": "./images/event/currentevent-json-10.jpg",
                 "key": 10,
-                "date": "2025/01/05 (日）19:30",
-                "calendarDate": "2025-01-05",
-                "calendarTime": "19:30",
-                "event": "陳荒凡個人音樂會",
+                "date": "2025/01/18 (六）19:00",
+                "calendarDate": "2025-01-18",
+                "calendarTime": "19:00",
+                "event": "露波合唱團The Loophole【露波紅不讓】Legacy Presents #千人展II",
                 "location": "Legacy Taipei 音樂展演空間",
                 "nametag": [
-                    "陳荒凡"
+                    "露波合唱團"
                 ]
             },
             {
                 "year": "2025",
                 "month": "jan",
-                "img": "./images/event/currentevent-json-2.jpg",
+                "img": "./images/event/currentevent-json-11.jpg",
                 "key": 11,
+                "date": "2025/01/25 (六）18:00",
+                "calendarDate": "2025-01-25",
+                "calendarTime": "18:00",
+                "event": "2025 夕陽武士祝您《萬事如意》演唱會",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "夕陽武士"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "jan",
+                "img": "./images/event/currentevent-json-12.jpg",
+                "key": 12,
+                "date": "2025/01/18 (六）18:00",
+                "calendarDate": "2025-01-18",
+                "calendarTime": "18:00",
+                "event": "【2024都市女聲】Shino林曉培 2025 START Tour -台中場",
+                "location": "Legacy Taichung 音樂展演空間",
+                "nametag": [
+                    "Shino林曉培"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "jan",
+                "img": "./images/event/currentevent-json-13.jpg",
+                "key": 13,
                 "date": "2025/01/11 (六）19:00",
                 "calendarDate": "2025-01-11",
                 "calendarTime": "19:00",
-                "event": "9m88 演唱會",
-                "location": "Legacy Taichung",
+                "event": "冰球樂團「早安 晚安 好喜歡」2025 Day By Day 演唱會 高雄場",
+                "location": "高雄 LIVE WAREHOUSE 大庫",
                 "nametag": [
-                    "9m88"
+                    "冰球樂團"
                 ]
             },
             {
                 "year": "2025",
                 "month": "jan",
-                "img": "./images/event/currentevent-json-3.jpg",
-                "key": 12,
-                "date": "2025/01/19 (日）19:30",
-                "calendarDate": "2025-01-19",
-                "calendarTime": "19:30",
-                "event": "9m88 高雄現場演出",
-                "location": "高雄流行音樂中心 (SPERO)",
+                "img": "./images/event/currentevent-json-13.jpg",
+                "key": 14,
+                "date": "2025/01/12 (日）17:00",
+                "calendarDate": "2025-01-12",
+                "calendarTime": "17:00",
+                "event": "冰球樂團「早安 晚安 好喜歡」2025 Day By Day 演唱會 高雄場",
+                "location": "高雄 LIVE WAREHOUSE 大庫",
                 "nametag": [
-                    "9m88"
+                    "冰球樂團"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "jan",
+                "img": "./images/event/currentevent-json-15.jpg",
+                "key": 15,
+                "date": "2025/01/17 (五）20:30",
+                "calendarDate": "2025-01-17",
+                "calendarTime": "20:30",
+                "event": "GREEN!EYES 21 — Stigma album release",
+                "location": "SUB LIVE",
+                "nametag": [
+                    "GREEN!EYES 21"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "jan",
+                "img": "./images/event/currentevent-json-16.jpg",
+                "key": 16,
+                "date": "2025/01/24 (五）20:00",
+                "calendarDate": "2025-01-24",
+                "calendarTime": "20:00",
+                "event": "Room307 x 宋柏緯 Edisong《近水樓台沒所謂》",
+                "location": "SUB LIVE",
+                "nametag": [
+                    "Room307",
+                    "宋柏緯"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "jan",
+                "img": "./images/event/currentevent-json-17.jpg",
+                "key": 17,
+                "date": "2025/01/25 (六）20:00",
+                "calendarDate": "2025-01-25",
+                "calendarTime": "20:00",
+                "event": "李英宏aka迪爵迪迪龍 x SAX MACHINE《水噴噴 SWEET BOOMBOOM》",
+                "location": "SUB LIVE",
+                "nametag": [
+                    "李英宏",
+                    "SAX MACHINE"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "feb",
+                "img": "./images/event/currentevent-json-18.jpg",
+                "key": 18,
+                "date": "2025/02/08 (六）20:00",
+                "calendarDate": "2025-02-08",
+                "calendarTime": "20:00",
+                "event": "【2024都市女聲】Sabrina胡恂舞 Shhh….head down and close your eyes. -台北場",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "Sabrina胡恂舞"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "feb",
+                "img": "./images/event/currentevent-json-19.jpg",
+                "key": 19,
+                "date": "2025/02/19 (三）20:00",
+                "calendarDate": "2025-02-19",
+                "calendarTime": "20:00",
+                "event": "怕胖團PAPUN BAND x the telephones 《LV.1 to LV.99-GAME START-》TOUR(台北場)",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "怕胖團PAPUN BAND"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "feb",
+                "img": "./images/event/currentevent-json-20.jpg",
+                "key": 20,
+                "date": "2025/02/27 (四）20:00",
+                "calendarDate": "2025-02-27",
+                "calendarTime": "20:00",
+                "event": "【不小心降臨了 A_Drop】A_Root同根生2025年度專場",
+                "location": "Legacy Taipei 音樂展演空間",
+                "nametag": [
+                    "A_Root同根生"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "jan",
+                "img": "./images/event/currentevent-json-21.jpg",
+                "key": 21,
+                "date": "2025/01/18 (六）18:30",
+                "calendarDate": "2025-01-18",
+                "calendarTime": "18:30",
+                "event": "【2024都市女聲】徐懷鈺『光致・蛻變』 Light It Up音樂分享會－台北站",
+                "location": "Legacy TERA",
+                "nametag": [
+                    "徐懷鈺"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "feb",
+                "img": "./images/event/currentevent-json-22.jpg",
+                "key": 22,
+                "date": "2025/02/08 (六）20:00",
+                "calendarDate": "2025-02-08",
+                "calendarTime": "20:00",
+                "event": "【2024都市女聲】： YILE LIN 林以樂 素顏的樣子 True Colors　2024-25 Live Tour -台中場",
+                "location": "Legacy Taichung 音樂展演空間",
+                "nametag": [
+                    "徐懷鈺"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "feb",
+                "img": "./images/event/currentevent-json-19.jpg",
+                "key": 23,
+                "date": "2025/02/16 (日）19:00",
+                "calendarDate": "2025-02-16",
+                "calendarTime": "19:00",
+                "event": "怕胖團PAPUN BAND x the telephones 《LV.1 to LV.99-GAME START-》TOUR(台北場)",
+                "location": "Legacy Taichung 音樂展演空間",
+                "nametag": [
+                    "怕胖團PAPUN BAND"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "feb",
+                "img": "./images/event/currentevent-json-24.jpg",
+                "key": 24,
+                "date": "2025/02/15 (六）19:30",
+                "calendarDate": "2025-02-15",
+                "calendarTime": "19:30",
+                "event": "《 伏流 | 絲襪小姐 20 週年演唱會 》",
+                "location": "SUB LIVE",
+                "nametag": [
+                    "絲襪小姐"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "feb",
+                "img": "./images/event/currentevent-json-25.jpg",
+                "key": 25,
+                "date": "2025/02/22 (六）19:00",
+                "calendarDate": "2025-02-22",
+                "calendarTime": "19:00",
+                "event": "AAA TOUR BY HYUKOH ＆ SUNSET ROLLERCOASTER, 2025",
+                "location": "海音館",
+                "nametag": [
+                    "HYUKOH",
+                    "落日飛車"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "feb",
+                "img": "./images/event/currentevent-json-25.jpg",
+                "key": 26,
+                "date": "2025/02/23 (日）17:00",
+                "calendarDate": "2025-02-23",
+                "calendarTime": "17:00",
+                "event": "AAA TOUR BY HYUKOH ＆ SUNSET ROLLERCOASTER, 2025",
+                "location": "海音館",
+                "nametag": [
+                    "HYUKOH",
+                    "落日飛車"
                 ]
             }
         ]

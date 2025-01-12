@@ -28,7 +28,7 @@ function CardOne({ searchcard, index }) {
         e.stopPropagation();
         toggleCalendar(searchcard);
     }
-    console.log(calendarList);
+
     return (
         <Link to='/event1' className={className} key={searchcard.key}>
             <figure><img src={searchcard.img} alt={searchcard.event} /></figure>

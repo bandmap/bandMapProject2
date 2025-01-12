@@ -803,7 +803,7 @@ a {
 #bandmap-page {
   height: 100vh;
   padding: 0 50px;
-  background: url(./images/bg-bandmap.svg);
+  background: url(./images/bg-bandmap.png);
   background-size: cover;
   background-position: center;
   position: sticky;
@@ -2306,17 +2306,35 @@ main {
   opacity: 1;
 }
 .event-page .cards-bottom .buttons .left {
-  transform: scale(-1);
   left: 50px;
 }
 .event-page .cards-bottom .buttons .left:hover {
-  transform: scale(-1) translateX(10px);
+  transform: translateX(-10px);
 }
 .event-page .cards-bottom .buttons .right {
   right: 50px;
 }
 .event-page .cards-bottom .buttons .right:hover {
   transform: translateX(10px);
+}
+.event-page .cards-bottom .buttons .disabled {
+  cursor: not-allowed;
+}
+.event-page .cards-bottom .buttons .disabled:hover {
+  opacity: 0.6;
+  transform: none;
+}
+.event-page .cards-bottom .cards-wrapper {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+}
+.event-page .cards-bottom .cards-wrapper .cards {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+.event-page .cards-bottom .cards-wrapper .cards .card {
+  width: 360px;
 }
 
 /* 登入頁面 */

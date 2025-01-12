@@ -731,7 +731,7 @@
     @extend %box-spacearound;
     height: 100vh;
     padding: 0 50px;
-    background: url(./images/bg-bandmap.svg);
+    background: url(./images/bg-bandmap.png);
     background-size: cover;
     background-position: center;
 
@@ -1731,6 +1731,7 @@ main {
     }
 
     .left-part {
+
         .title-ani-tar,
         .title-ani-tar-s {
             &::after {
@@ -1776,6 +1777,7 @@ main {
     }
 
     .left-part {
+
         .title-ani-tar,
         .title-ani-tar-s {
             &::after {
@@ -2144,6 +2146,7 @@ main {
                         display: flex;
                         justify-content: space-between;
                         margin-bottom: $distance_xs;
+
                         .event-left {
                             width: 80%;
                             display: flex;
@@ -2242,6 +2245,7 @@ main {
     }
 
     .left-part {
+
         .title-ani-tar,
         .title-ani-tar-s {
             &::after {
@@ -2407,6 +2411,7 @@ main {
                                 height: 24px;
                                 margin-right: $distance_xs;
                             }
+
                             .btn-point {
                                 cursor: pointer;
                             }
@@ -2614,11 +2619,10 @@ main {
             }
 
             .left {
-                transform: scale(-1);
                 left: 50px;
 
                 &:hover {
-                    transform: scale(-1) translateX(10px);
+                    transform: translateX(-10px);
                 }
             }
 
@@ -2627,6 +2631,29 @@ main {
 
                 &:hover {
                     transform: translateX(10px);
+                }
+            }
+
+            .disabled {
+                cursor: not-allowed;
+                &:hover {
+                    opacity: 0.6;
+                    transform: none;
+                }
+            }
+        }
+
+        .cards-wrapper {
+            display: flex;
+            width: 100%;
+            overflow: hidden;
+
+            .cards {
+                display: flex;
+                transition: transform 0.5s ease-in-out;
+
+                .card {
+                    width: 360px;
                 }
             }
         }
