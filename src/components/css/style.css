@@ -1335,7 +1335,7 @@ main {
 
 /* card卡片樣式 */
 .card {
-  width: 40%;
+  flex-basis: calc(50% - 60px);
   min-width: 360px;
   margin: 0 30px 40px 30px;
   transition: 0.4s;
@@ -1608,6 +1608,7 @@ main {
 #bandmap-main .cards {
   display: flex;
   flex-wrap: wrap;
+  width: 80%;
   max-width: 1200px;
   margin: auto;
 }

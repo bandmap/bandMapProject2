@@ -76,7 +76,6 @@ function BandMapPage() {
         { name: "DECEMBER", key: "dec" },
     ];
 
-
     return (
         <>
             <NavBar />
