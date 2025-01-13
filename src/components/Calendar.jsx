@@ -59,17 +59,24 @@ function Calendar() {
                     >
                         <span className="number">{formattedDate}</span>
                         {/* 顯示行程內容 */}
-                        {event &&
-                            <div className='event-total'>
-                                <div className="event-each">
-                                    <div className="event-left">
-                                        <span className='ball'></span>
-                                        <span className='event-name'>{event.event}</span>
-                                    </div>
-                                    <span className='event-right'>{event.calendarTime}</span>
-                                </div>
-                            </div>
-                        }
+                        <div className='event-total'>
+                            {
+                                calendarList
+                                    .filter(e => e.calendarDate === fullDate) // 過濾出當天的事件
+                                    .map((event, index) => {
+                                        return (
+
+                                            <div className="event-each" key={index}>
+                                                <div className="event-left">
+                                                    <span className='ball'></span>
+                                                    <span className='event-name'>{event.event}</span>
+                                                </div>
+                                                <span className='event-right'>{event.calendarTime}</span>
+                                            </div>
+                                        )
+                                    })
+                            }
+                        </div>
                     </div>
                 );
                 day = addDays(day, 1);
@@ -110,10 +117,20 @@ function Calendar() {
                     <>
                         <div className="side-details">
                             <h2>{selectedEvent.calendarDate} 的活動</h2>
-                            <span className='event-name'>{selectedEvent.event}</span>
-                            <span>演出者: {selectedEvent.nametag}</span>
-                            <span>時間: {selectedEvent.calendarTime}</span>
-                            <span>地點: {selectedEvent.location}</span>
+                            {
+                                calendarList
+                                    .filter(event => event.calendarDate === selectedEvent.calendarDate)
+                                    .map((event, index) => {
+                                        return (
+                                            <>
+                                                <span className='event-name'>{event.event}</span>
+                                                <span>演出者: {event.nametag}</span>
+                                                <span>時間: {event.calendarTime}</span>
+                                                <span>地點: {event.location}</span>
+                                            </>
+                                        )
+                                    })
+                            }
                         </div>
                     </>
                 ) : (

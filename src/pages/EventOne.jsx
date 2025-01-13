@@ -69,7 +69,7 @@ function EventOne() {
     };
 
     // 計算容器的位移
-    const translateX = -currentIndex * 50; // 每次移動寬度
+    const translateX = -currentIndex * 85; // 每次移動寬度
 
     return (
         <>
@@ -129,7 +129,7 @@ function EventOne() {
                                 transition: "transform 0.5s ease-in-out", // 平滑過渡效果
                             }}>
                             {
-                                eventInfo.slice(0, 5).map((searchcard, index) => {
+                                eventInfo.slice(0, 6).map((searchcard, index) => {
                                     return <CardOne searchcard={searchcard} index={index} key={searchcard.key} />
                                 })
                             }

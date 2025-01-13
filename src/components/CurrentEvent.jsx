@@ -70,6 +70,26 @@ function CurrentEvent() {
         };
     }, [isLocked]);
 
+    /* 按鈕控制卡片 */
+    const [currentIndex, setCurrentIndex] = useState(0); // 追蹤當前顯示的起始索引
+    const itemsPerPage = 1; // 每頁顯示的卡片數量
+
+    // 控制上下頁按鈕的點擊事件
+    const handlePrev = () => {
+        if (currentIndex > 0) {
+            setCurrentIndex(currentIndex - 1);
+        }
+    };
+
+    const handleNext = () => {
+        if (currentIndex + itemsPerPage < arrEventCard.length) {
+            setCurrentIndex(currentIndex + 1);
+        }
+    };
+
+    // 計算容器的位移
+    const translateY = -currentIndex * 200; // 每次移動寬度
+
     return (
         <div id="currentevent-page" ref={containerRef}>
             {/* 滑鼠hover進卡片的時候背景也出現相對應的活動圖片 */}
@@ -80,28 +100,46 @@ function CurrentEvent() {
                 )}
             </div>
             <div className="box-roll">
+                <div className="buttons">
+                    <button className={`cta-btn btn-up ${currentIndex === 0 ? "disabled" : ""}`}
+                        onClick={handlePrev}
+                        disabled={currentIndex === 0}>
+                        <img src="./images/btn-up-pink.svg" alt="prev-btn" />
+                    </button>
+                    <button className={`cta-btn btn-down ${currentIndex + itemsPerPage >= arrEventCard.length ? "disabled" : ""
+                        }`}
+                        onClick={handleNext}
+                        disabled={currentIndex + itemsPerPage >= arrEventCard.length}>
+                        <img src="./images/btn-down-pink.svg" alt="next-btn" />
+                    </button>
+                </div>
                 <article className="box-intro">
-                    {
-                        arrEventCard.map((e, index) => {
-                            return (
-                                <Link to='/event1' className="box-pic" key={e.key}
-                                    onMouseOver={() => { setHoverIndex(index) }}
-                                    onMouseOut={() => { setHoverIndex(null) }}>
-                                    <img src={e.img} alt={e.name} />
-                                    <div className="hover-text">
-                                        <div className="text-left">
-                                            <h4>{e.event}</h4>
-                                            <div className="place">
-                                                <figure><img src="./images/icon/icon-location.svg" alt="icon-地點" /></figure>
-                                                <p>{e.place}</p>
+                    <div className="items"
+                        style={{
+                            transform: `translateY(${100 + translateY}px)`
+                        }}>
+                        {
+                            arrEventCard.map((e, index) => {
+                                return (
+                                    <Link to='/event1' className="box-pic" key={index}
+                                        onMouseOver={() => { setHoverIndex(index) }}
+                                        onMouseOut={() => { setHoverIndex(null) }}>
+                                        <img src={e.img} alt={e.name} />
+                                        <div className="hover-text">
+                                            <div className="text-left">
+                                                <h4>{e.event}</h4>
+                                                <div className="place">
+                                                    <figure><img src="./images/icon/icon-location.svg" alt="icon-地點" /></figure>
+                                                    <p>{e.place}</p>
+                                                </div>
                                             </div>
+                                            <p className="event-time">{e.time}</p>
                                         </div>
-                                        <p className="event-time">{e.time}</p>
-                                    </div>
-                                </Link>
-                            )
-                        })
-                    }
+                                    </Link>
+                                )
+                            })
+                        }
+                    </div>
                 </article>
             </div>
             <div className="intro-section">

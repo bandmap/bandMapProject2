@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react"
+import { useContext, useEffect, useRef } from "react"
 import MemberBar from "../components/MemberBar";
 import SideBar from "../components/SideBar";
 import CardOne from "../components/CardOne";
@@ -6,6 +6,13 @@ import CardCollectBand from "../components/CardCollectBand";
 import { LikeListContext } from "../components/LikeListContext";
 
 function MemberPage() {
+    const collectRef = useRef(null);
+    const collectBandRef = useRef(null);
+
+    const scrollToSection = (ref) => {
+        ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+
     useEffect(() => {
         window.scrollTo(0, 0);
     });
@@ -37,9 +44,9 @@ function MemberPage() {
             <main>
                 <div className="collect-content">
                     {/* Sidebar */}
-                    < SideBar />
+                    < SideBar scrollToSection={scrollToSection} collectRef={collectRef} collectBandRef={collectBandRef}/>
                     {/* Content */}
-                    <div id="collect-event" className="collect-a">
+                    <div id="collect-event" className="collect-a" ref={collectRef}>
                         <h2>收藏的活動</h2>
                         < div className="card-list" >
                             {likeList.map((searchcard, index) => (
@@ -47,7 +54,7 @@ function MemberPage() {
                             ))}
                         </div>
                     </div>
-                    <div id="collect-band" className="collect-a">
+                    <div id="collect-band" className="collect-a" ref={collectBandRef}>
                         <h2>收藏的樂團</h2>
                         < div className="card-list" >
                             {sampleBandCard.map((searchcard, index) => (
