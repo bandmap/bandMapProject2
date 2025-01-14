@@ -11,6 +11,7 @@
                 "calendarTime": "14:00",
                 "event": "揪音秘",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "阿橘Ahh G",
                     "粗大Band",
@@ -27,6 +28,7 @@
                 "calendarTime": "18:30",
                 "event": "旺福2024旺聖節《刑男大主廚》演唱會",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "WONFU旺福"
                 ]
@@ -41,6 +43,7 @@
                 "calendarTime": "20:00",
                 "event": "無妄合作社《開往天堂的海盜船》2024專場巡演-台北場(一)",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "無妄合作社"
                 ]
@@ -55,6 +58,7 @@
                 "calendarTime": "20:00",
                 "event": "生祥樂隊《種樹與野生》15+3週年紀念演唱會",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "生祥樂隊"
                 ]
@@ -69,6 +73,7 @@
                 "calendarTime": "20:00",
                 "event": "步行者",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "步行者"
                 ]
@@ -83,6 +88,7 @@
                 "calendarTime": "19:00",
                 "event": "【2024 Forest Night 】巴大雄－雄心未泯",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "巴大雄"
                 ]
@@ -97,6 +103,7 @@
                 "calendarTime": "20:00",
                 "event": "【2024都市女聲】：洪佩瑜-台北場(加場)",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "洪佩瑜"
                 ]
@@ -111,6 +118,7 @@
                 "calendarTime": "19:30",
                 "event": "宋德鶴IRONHORN十週年紀念專場－台北場",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "宋德鶴IRONHORN"
                 ]
@@ -125,6 +133,7 @@
                 "calendarTime": "19:30",
                 "event": "柯泯薰 misi Ke《好好的 BE GOOD》專輯發片專場",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "柯泯薰 misi Ke"
                 ]
@@ -139,6 +148,7 @@
                 "calendarTime": "19:00",
                 "event": "露波合唱團The Loophole【露波紅不讓】Legacy Presents #千人展II",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "露波合唱團"
                 ]
@@ -153,6 +163,7 @@
                 "calendarTime": "18:00",
                 "event": "2025 夕陽武士祝您《萬事如意》演唱會",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "夕陽武士"
                 ]
@@ -167,6 +178,7 @@
                 "calendarTime": "18:00",
                 "event": "【2024都市女聲】Shino林曉培 2025 START Tour -台中場",
                 "location": "Legacy Taichung 音樂展演空間",
+                "area":"中部",
                 "nametag": [
                     "Shino林曉培"
                 ]
@@ -180,7 +192,8 @@
                 "calendarDate": "2025-01-11",
                 "calendarTime": "19:00",
                 "event": "冰球樂團「早安 晚安 好喜歡」2025 Day By Day 演唱會 高雄場",
-                "location": "高雄 LIVE WAREHOUSE 大庫",
+                "location": "LIVE WAREHOUSE 大庫",
+                "area":"南部",
                 "nametag": [
                     "冰球樂團"
                 ]
@@ -194,7 +207,8 @@
                 "calendarDate": "2025-01-12",
                 "calendarTime": "17:00",
                 "event": "冰球樂團「早安 晚安 好喜歡」2025 Day By Day 演唱會 高雄場",
-                "location": "高雄 LIVE WAREHOUSE 大庫",
+                "location": "LIVE WAREHOUSE 大庫",
+                "area":"南部",
                 "nametag": [
                     "冰球樂團"
                 ]
@@ -209,6 +223,7 @@
                 "calendarTime": "20:30",
                 "event": "GREEN!EYES 21 — Stigma album release",
                 "location": "SUB LIVE",
+                "area":"北部",
                 "nametag": [
                     "GREEN!EYES 21"
                 ]
@@ -223,6 +238,7 @@
                 "calendarTime": "20:00",
                 "event": "Room307 x 宋柏緯 Edisong《近水樓台沒所謂》",
                 "location": "SUB LIVE",
+                "area":"北部",
                 "nametag": [
                     "Room307",
                     "宋柏緯"
@@ -238,6 +254,7 @@
                 "calendarTime": "20:00",
                 "event": "李英宏aka迪爵迪迪龍 x SAX MACHINE《水噴噴 SWEET BOOMBOOM》",
                 "location": "SUB LIVE",
+                "area":"北部",
                 "nametag": [
                     "李英宏",
                     "SAX MACHINE"
@@ -253,6 +270,7 @@
                 "calendarTime": "20:00",
                 "event": "【2024都市女聲】Sabrina胡恂舞 Shhh….head down and close your eyes. -台北場",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "Sabrina胡恂舞"
                 ]
@@ -267,6 +285,7 @@
                 "calendarTime": "20:00",
                 "event": "怕胖團PAPUN BAND x the telephones 《LV.1 to LV.99-GAME START-》TOUR(台北場)",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "怕胖團PAPUN BAND"
                 ]
@@ -281,6 +300,7 @@
                 "calendarTime": "20:00",
                 "event": "【不小心降臨了 A_Drop】A_Root同根生2025年度專場",
                 "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
                 "nametag": [
                     "A_Root同根生"
                 ]
@@ -295,6 +315,7 @@
                 "calendarTime": "18:30",
                 "event": "【2024都市女聲】徐懷鈺『光致・蛻變』 Light It Up音樂分享會－台北站",
                 "location": "Legacy TERA",
+                "area":"北部",
                 "nametag": [
                     "徐懷鈺"
                 ]
@@ -309,6 +330,7 @@
                 "calendarTime": "20:00",
                 "event": "【2024都市女聲】： YILE LIN 林以樂 素顏的樣子 True Colors　2024-25 Live Tour -台中場",
                 "location": "Legacy Taichung 音樂展演空間",
+                "area":"中部",
                 "nametag": [
                     "徐懷鈺"
                 ]
@@ -323,6 +345,7 @@
                 "calendarTime": "19:00",
                 "event": "怕胖團PAPUN BAND x the telephones 《LV.1 to LV.99-GAME START-》TOUR(台北場)",
                 "location": "Legacy Taichung 音樂展演空間",
+                "area":"中部",
                 "nametag": [
                     "怕胖團PAPUN BAND"
                 ]
@@ -337,6 +360,7 @@
                 "calendarTime": "19:30",
                 "event": "《 伏流 | 絲襪小姐 20 週年演唱會 》",
                 "location": "SUB LIVE",
+                "area":"北部",
                 "nametag": [
                     "絲襪小姐"
                 ]
@@ -351,6 +375,7 @@
                 "calendarTime": "19:00",
                 "event": "AAA TOUR BY HYUKOH ＆ SUNSET ROLLERCOASTER, 2025",
                 "location": "海音館",
+                "area":"南部",
                 "nametag": [
                     "HYUKOH",
                     "落日飛車"
@@ -366,6 +391,7 @@
                 "calendarTime": "17:00",
                 "event": "AAA TOUR BY HYUKOH ＆ SUNSET ROLLERCOASTER, 2025",
                 "location": "海音館",
+                "area":"南部",
                 "nametag": [
                     "HYUKOH",
                     "落日飛車"
