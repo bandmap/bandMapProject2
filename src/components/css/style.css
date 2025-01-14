@@ -52,7 +52,7 @@ a {
 }
 
 /* 日曆樣式 */
-.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll .box-intro .items .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .carousel, .card .bottom-line .btns .like-btn, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .like-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #bandmap-main .search-section .btn-container, #bandmap-main .search-section .btn-container .submit-btn, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, .login-card .login-btns .link-btn, #member-bar .menu {
+.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll .box-intro .items .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .carousel, .card .bottom-line .btns .like-btn, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .like-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #bandmap-main .search-section .form-section .selector, #bandmap-main .search-section .form-section .selector ul, #bandmap-main .search-section .form-section .when-sec1 .time-sec, #bandmap-main .search-section .btn-container, #bandmap-main .search-section .btn-container .submit-btn, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, .login-card .login-btns .link-btn, #member-bar .menu {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1335,7 +1335,7 @@ main {
 
 /* card卡片樣式 */
 .card {
-  flex-basis: calc(50% - 60px);
+  width: calc(50% - 60px);
   min-width: 360px;
   margin: 0 30px 40px 30px;
   transition: 0.4s;
@@ -1536,13 +1536,18 @@ main {
 #bandmap-main .right-part {
   background-color: #FF4438;
 }
+#bandmap-main .overlay {
+  background-color: transparent;
+  z-index: 0;
+}
 #bandmap-main .search-section {
   width: 70%;
   height: 160px;
   margin: auto;
+  font-size: 14px;
   margin-bottom: 100px;
 }
-#bandmap-main .search-section div {
+#bandmap-main .search-section .form-section {
   height: 100%;
   flex: 1;
   background-color: black;
@@ -1551,35 +1556,100 @@ main {
   flex-direction: column;
   padding: 40px;
 }
-#bandmap-main .search-section div label {
+#bandmap-main .search-section .form-section h4,
+#bandmap-main .search-section .form-section label {
+  font-size: 20px;
+  font-weight: 700;
   margin-bottom: 8px;
 }
-#bandmap-main .search-section div input,
-#bandmap-main .search-section div select {
+#bandmap-main .search-section .form-section .input-btn,
+#bandmap-main .search-section .form-section input {
+  width: 100%;
   background-color: transparent;
   border: solid 3px white;
   height: 40px;
-  padding-left: 4px;
+  flex-shrink: 0;
+  padding: 0 4px 0 8px;
   color: white;
-}
-#bandmap-main .search-section div input:focus,
-#bandmap-main .search-section div select:focus {
-  outline: none;
-}
-#bandmap-main .search-section div ::placeholder {
-  padding-left: 4px;
-}
-#bandmap-main .search-section div select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   cursor: pointer;
-  background: url(./images/selector.svg) no-repeat scroll right center transparent;
 }
-#bandmap-main .search-section div select option {
-  padding-left: 8px;
+#bandmap-main .search-section .form-section .input-btn p,
+#bandmap-main .search-section .form-section input p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
-#bandmap-main .search-section .where {
+#bandmap-main .search-section .form-section .input-btn img,
+#bandmap-main .search-section .form-section input img {
+  width: 20px;
+  flex-shrink: 0;
+}
+#bandmap-main .search-section .form-section .selector {
+  width: 100%;
+  background-color: #003E93;
+  padding: 16px;
+  flex-direction: column;
+  z-index: 999;
+}
+#bandmap-main .search-section .form-section .selector ul {
+  width: 90%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+#bandmap-main .search-section .form-section .selector ul li {
+  border: 1px solid white;
+  border-radius: 4px;
+  padding: 4px 16px;
+  margin: 4px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+#bandmap-main .search-section .form-section .selector ul li:hover {
+  background-color: #0099FF;
+}
+#bandmap-main .search-section .form-section .selector ul .click-status {
+  background-color: #0099FF;
+}
+#bandmap-main .search-section .form-section .selector .where-sec2 .where-sec2-list {
+  width: 100%;
+  background-color: white;
+  color: black;
+  border: solid 3px #003E93;
+  border: none;
+  display: block;
+}
+#bandmap-main .search-section .form-section .selector .where-sec2 .where-sec2-list li {
+  padding: 10px 8px;
+}
+#bandmap-main .search-section .form-section .selector .where-sec2 .where-sec2-list li:hover {
+  background-color: rgba(0, 153, 255, 0.2);
+}
+#bandmap-main .search-section .form-section .selector .where-sec2 .where-sec2-list .click-status {
+  background-color: rgba(0, 153, 255, 0.2);
+}
+#bandmap-main .search-section .form-section .where-sec1 {
+  transform: scale(0);
+  transition: 0.4s ease;
+}
+#bandmap-main .search-section .form-section .show-selector {
+  transform: scale(1);
+}
+#bandmap-main .search-section .form-section .when-sec1 .time-sec {
+  margin-bottom: 16px;
+}
+#bandmap-main .search-section .form-section .when-sec1 .time-sec h4 {
+  margin: 0 16px;
+}
+#bandmap-main .search-section .form-section .when-sec1 .time-sec img {
+  width: 24px;
+}
+#bandmap-main .search-section .form-section .when-sec1 ul li {
+  padding: 4px 8px;
+}
+#bandmap-main .search-section .when {
   background-color: #0099FF;
 }
 #bandmap-main .search-section .btn-container {

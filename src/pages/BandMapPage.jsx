@@ -30,6 +30,14 @@ function BandMapPage() {
 
     const [eventInfo, setEventInfo] = useState([]);
     const [currentMonths, setCurrentMonths] = useState([]);
+    const [filteredEvents, setFilteredEvents] = useState([]);
+    const [isFiltered, setIsFiltered] = useState(false);
+    const [filterWords, setFilterWords] = useState({
+        area: '',
+        venue: '場館',
+        month: '月份',
+        keyword: '',
+    });
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -60,20 +68,49 @@ function BandMapPage() {
         })()
     }, [])
 
+    useEffect(() => {
+        if (
+            !filterWords.area &&
+            filterWords.venue === "場館" &&
+            filterWords.month === "月份" &&
+            !filterWords.keyword
+        ) {
+            setIsFiltered(false); // 沒有篩選條件，回到預設狀態
+        } else {
+            setIsFiltered(true); // 啟用篩選
+            const { area, venue, month, keyword } = filterWords;
+            const filtered = eventInfo.filter((event) => {
+                const matchArea = area || area === "全部" ? true : event.area === area;
+                const matchVenue = venue === "全部場館" || venue === "場館" ? true : event.location === venue;
+                const matchMonth = month !== "月份"
+                    ? event.month === months.find((m) => m.select === month)?.key
+                    : true;
+                const matchKeyword = keyword ? event.event.toLowerCase().includes(keyword.toLowerCase()) : true;
+
+                return matchArea && matchVenue && matchMonth && matchKeyword;
+            });
+            setFilteredEvents(filtered);
+        }
+    }, [filterWords, eventInfo]);
+
+    const handleFilterChange = (words) => {
+        setFilterWords((prev) => ({ ...prev, ...words }));
+    };
+
     // 定義月份清單
     const months = [
-        { name: "JANUARY", key: "jan" },
-        { name: "FEBRUARY", key: "feb" },
-        { name: "MARCH", key: "mar" },
-        { name: "APRIL", key: "apr" },
-        { name: "MAY", key: "may" },
-        { name: "JUNE", key: "jun" },
-        { name: "JULY", key: "jul" },
-        { name: "AUGUST", key: "aug" },
-        { name: "SEPTEMBER", key: "sep" },
-        { name: "OCTOBER", key: "oct" },
-        { name: "NOVEMBER", key: "nov" },
-        { name: "DECEMBER", key: "dec" },
+        { name: "JANUARY", key: "jan", select: '1月' },
+        { name: "FEBRUARY", key: "feb", select: '2月' },
+        { name: "MARCH", key: "mar", select: '3月' },
+        { name: "APRIL", key: "apr", select: '4月' },
+        { name: "MAY", key: "may", select: '5月' },
+        { name: "JUNE", key: "jun", select: '6月' },
+        { name: "JULY", key: "jul", select: '7月' },
+        { name: "AUGUST", key: "aug", select: '8月' },
+        { name: "SEPTEMBER", key: "sep", select: '9月' },
+        { name: "OCTOBER", key: "oct", select: '10月' },
+        { name: "NOVEMBER", key: "nov", select: '11月' },
+        { name: "DECEMBER", key: "dec", select: '12月' },
     ];
 
     return (
@@ -102,11 +139,14 @@ function BandMapPage() {
                     <Carousel maskSrc={maskSrc} />
 
                     {/* 搜尋選單 */}
-                    <SearchSection />
+                    <SearchSection months={months} onFilterChange={handleFilterChange} />
 
                     {/* 根據月份動態生成跑馬燈和演出卡片 */}
                     {
-                        currentMonths.slice(0, 2).map((month) => (
+                        (filterWords.month === "月份"
+                            ? currentMonths.slice(0, 2)
+                            : months.filter((m) => m.select === filterWords.month) // 篩選選取的月份
+                        ).map((month) => (
                             <div key={month.key}>
                                 {/* 月份跑馬燈 */}
                                 <div className="newsTicker">
@@ -133,15 +173,17 @@ function BandMapPage() {
                                 {/* 演出卡片 */}
                                 <div className="cards-center">
                                     <div className="cards">
-                                        {eventInfo
-                                            .filter(event => event.month === month.key) // 過濾出對應月份的資料
-                                            .map((searchcard, index) => (
-                                                <CardOne
-                                                    key={searchcard.key}
-                                                    searchcard={searchcard}
-                                                    index={index}
-                                                />
-                                            ))
+                                        {isFiltered
+                                            ? filteredEvents.map((event, index) => <CardOne key={index} searchcard={event} index={index} />)
+                                            : eventInfo
+                                                .filter(event => event.month === month.key) // 過濾出對應月份的資料
+                                                .map((searchcard, index) => (
+                                                    <CardOne
+                                                        key={searchcard.key}
+                                                        searchcard={searchcard}
+                                                        index={index}
+                                                    />
+                                                ))
                                         }
                                     </div>
                                 </div>

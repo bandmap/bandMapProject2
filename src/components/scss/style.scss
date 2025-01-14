@@ -724,6 +724,7 @@
     .box-intro {
         .items {
             transition: transform 0.5s ease-in-out;
+
             .box-pic {
                 @extend %box-center;
                 height: 300px;
@@ -1391,7 +1392,7 @@ main {
 
 /* card卡片樣式 */
 .card {
-    flex-basis: calc(50% - 60px);
+    width: calc(50% - 60px);
     min-width: 360px;
     margin: 0 30px 40px 30px;
     transition: $speed-cubebuttomhover;
@@ -1658,15 +1659,21 @@ main {
         background-color: $Primary_color_red;
     }
 
+    .overlay {
+        background-color: transparent;
+        z-index: 0;
+    }
+
     /* 搜尋選單 */
     .search-section {
         width: 70%;
         height: 160px;
         margin: auto;
+        font-size: $fontsize_14;
         @extend %box-center;
         margin-bottom: 100px;
 
-        div {
+        .form-section {
             height: 100%;
             flex: 1;
             background-color: $Neutral_color_black;
@@ -1675,41 +1682,127 @@ main {
             flex-direction: column;
             padding: $distance_xxl;
 
+            h4,
             label {
+                font-size: $fontsize_content;
+                font-weight: $font_bold;
                 margin-bottom: $distance_s;
             }
 
-            input,
-            select {
+            .input-btn,
+            input {
+                width: 100%;
                 background-color: transparent;
                 border: solid 3px $Neutral_color_white;
                 height: $distance_xxl;
-                padding-left: $distance_xs;
+                flex-shrink: 0;
+                padding: 0 4px 0 8px;
                 color: $Neutral_color_white;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                cursor: pointer;
 
-                &:focus {
-                    outline: none;
+                p {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
+
+                img {
+                    width: 20px;
+                    flex-shrink: 0;
                 }
             }
 
-            ::placeholder {
-                padding-left: $distance_xs;
+            .selector {
+                width: 100%;
+                background-color: $color_blue_800;
+                padding: $distance_m;
+                @extend %box-center;
+                flex-direction: column;
+                z-index: $z_index-l;
+
+                ul {
+                    width: 90%;
+                    margin: 0 auto;
+                    @extend %box-center;
+                    flex-wrap: wrap;
+
+                    li {
+                        border: 1px solid $Neutral_color_white;
+                        border-radius: 4px;
+                        padding: 4px 16px;
+                        margin: $distance_xs;
+                        cursor: pointer;
+                        transition: 0.2s ease;
+
+                        &:hover {
+                            background-color: $Primary_color_blue;
+                        }
+                    }
+
+                    .click-status {
+                        background-color: $Primary_color_blue;
+                    }
+                }
+
+                .where-sec2 {
+                    .where-sec2-list {
+                        width: 100%;
+                        background-color: $Neutral_color_white;
+                        color: $Neutral_color_black;
+                        border: solid 3px $color_blue_800;
+                        border: none;
+                        display: block;
+
+                        li {
+                            padding: 10px 8px;
+
+                            &:hover {
+                                background-color: rgba($Primary_color_blue, 0.2);
+                            }
+                        }
+
+                        .click-status {
+                            background-color: rgba($Primary_color_blue, 0.2);
+                        }
+                    }
+                }
             }
 
-            select {
-                appearance: none;
-                -webkit-appearance: none;
-                -moz-appearance: none;
-                cursor: pointer;
-                background: url(./images/selector.svg) no-repeat scroll right center transparent;
+            .where-sec1 {
+                transform: scale(0);
+                transition: $speed-cubebuttomhover ease;
+            }
 
-                option {
-                    padding-left: $distance_s;
+            .show-selector {
+                transform: scale(1);
+            }
+
+            .when-sec1 {
+                .time-sec {
+                    @extend %box-center;
+                    margin-bottom: $distance_m;
+
+                    h4 {
+                        margin: 0 $distance_m;
+                    }
+
+                    img {
+                        width: 24px;
+                    }
+                }
+
+                ul {
+                    li {
+                        padding: 4px 8px;
+                    }
                 }
             }
         }
 
-        .where {
+        .when {
             background-color: $Primary_color_blue;
         }
 

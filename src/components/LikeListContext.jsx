@@ -18,6 +18,8 @@ export const LikeListProvider = ({ children }) => {
                 return [...prevList, card];
             }
         });
+        window.localStorage.setItem('user1-likelist', likeList);
+        console.log(window.localStorage.getItem('user1-likelist'));
     };
 
     return (

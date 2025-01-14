@@ -17,6 +17,8 @@ function LogInOne({ togglePopup, redirectPath }) {
     }
 
     const handleLogin = () => {
+        window.localStorage.setItem('user1','login');
+        console.log(window.localStorage.getItem('user1'));
         login(); // 更新登入狀態
         togglePopup(); // 關閉彈窗
         navigate(redirectPath); // 導向指定頁面

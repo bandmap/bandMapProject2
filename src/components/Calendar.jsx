@@ -21,6 +21,7 @@ function Calendar() {
 
     // 生成月份的所有日期
     const renderDays = () => {
+
         const startDate = startOfWeek(startOfMonth(currentDate));
         const endDate = endOfWeek(endOfMonth(currentDate));
         const dateFormat = 'yyyy-MM-dd';
@@ -112,6 +113,9 @@ function Calendar() {
             </div>
             {renderWeekDays()}
             {renderDays()}
+            {/* {
+                    window.localStorage.getItem('user1') == 'login' ? renderDays() : alert('尚未登入')
+                } */}
             <div className={`sidebar ${isSidebarVisible ? 'visible' : ''}`}>
                 {selectedEvent ? (
                     <>
