@@ -84,7 +84,7 @@ function SearchSection({ months, onFilterChange }) {
                 <div className="form-section">
                     <h4>地點</h4>
                     <button className="input-btn" onClick={handleLocationClick}>
-                        <p>{selectedVenue}</p>
+                        <p>{selectedVenue !== '場館' ? selectedVenue : selectedArea || '場館'}</p>
                         <img
                             style={{
                                 transform: showLocation ? 'rotate(180deg)' : 'rotate(0)',
@@ -142,7 +142,12 @@ function SearchSection({ months, onFilterChange }) {
                     <h4>時間</h4>
                     <button id="drop-down-toggle" className="input-btn" onClick={handleMonthClick}>
                         <p>{selectedMonth}</p>
-                        <img src="./images/selector.svg" alt="selector" />
+                        <img
+                            style={{
+                                transform: showMonth ? 'rotate(180deg)' : 'rotate(0)',
+                                transition: 'transform 0.4s ease'
+                            }}
+                            src="./images/selector.svg" alt="selector" />
                     </button>
                     {
                         showMonth &&
@@ -169,11 +174,11 @@ function SearchSection({ months, onFilterChange }) {
                 </div>
                 <div className="form-section">
                     <label htmlFor="search">搜尋</label>
-                    <input type="search" name="search" id="search" 
-                    title="搜尋欄位" 
-                    placeholder="關鍵字"
-                    value={searchKeyword}
-                    onChange={handleSearchChange}></input>
+                    <input type="search" name="search" id="search"
+                        title="搜尋欄位"
+                        placeholder="關鍵字"
+                        value={searchKeyword}
+                        onChange={handleSearchChange}></input>
                 </div>
             </form>
         </>

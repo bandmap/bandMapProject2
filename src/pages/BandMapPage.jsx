@@ -28,6 +28,22 @@ function BandMapPage() {
         <path d="M48.5087 22.5592C44.5605 22.9046 35.7104 26.613 37.9081 27.0011C35.7104 26.613 42.7602 33.1234 46.3523 34.7993C42.7602 33.1234 33.2397 31.9006 34.9487 33.3346C33.2397 31.9006 36.0971 41.0641 38.3712 44.3106C36.0971 41.0641 28.4615 35.2518 29.2253 37.3487C28.4615 35.2518 26.3463 44.6114 26.6918 48.5596C26.3463 44.6114 22.638 35.7613 22.2499 37.959C22.638 35.7613 16.1275 42.8111 14.4517 46.4032C16.1275 42.8111 17.3503 33.2906 15.9163 34.9996C17.3503 33.2906 8.18686 36.148 4.9403 38.4221C8.18686 36.148 13.9991 28.5124 11.9022 29.2762C13.9991 28.5124 4.63957 26.3972 0.691346 26.7426C4.63957 26.3972 13.4896 22.6889 11.292 22.3008C13.4896 22.6889 6.43987 16.1784 2.84776 14.5026C6.43987 16.1784 15.9603 17.4012 14.2514 15.9672C15.9603 17.4012 13.103 8.23775 10.8288 4.99119C13.103 8.23775 20.7386 14.05 19.9748 11.9531C20.7386 14.05 22.8537 4.69045 22.5083 0.742247C22.8537 4.69047 26.5621 13.5405 26.9502 11.3429C26.5621 13.5405 33.0725 6.49077 34.7484 2.89866C33.0725 6.49077 31.8497 16.0112 33.2837 14.3022C31.8497 16.0112 41.0132 13.1539 44.2597 10.8797C41.0132 13.1539 35.2009 20.7895 37.2978 20.0257C35.2009 20.7894 44.5605 22.9046 48.5087 22.5592Z" fill="#0099FF" />
     </svg>
 
+    // 定義月份清單
+    const months = [
+        { name: "JANUARY", key: "jan", select: '1月' },
+        { name: "FEBRUARY", key: "feb", select: '2月' },
+        { name: "MARCH", key: "mar", select: '3月' },
+        { name: "APRIL", key: "apr", select: '4月' },
+        { name: "MAY", key: "may", select: '5月' },
+        { name: "JUNE", key: "jun", select: '6月' },
+        { name: "JULY", key: "jul", select: '7月' },
+        { name: "AUGUST", key: "aug", select: '8月' },
+        { name: "SEPTEMBER", key: "sep", select: '9月' },
+        { name: "OCTOBER", key: "oct", select: '10月' },
+        { name: "NOVEMBER", key: "nov", select: '11月' },
+        { name: "DECEMBER", key: "dec", select: '12月' },
+    ];
+
     const [eventInfo, setEventInfo] = useState([]);
     const [currentMonths, setCurrentMonths] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
@@ -51,8 +67,8 @@ function BandMapPage() {
         setCurrentMonths(dynamicMonths);
 
         (async () => {
-            // const data = await axios.get('/json/eventInfo.json');
-            const data = await axios.get('https://bandmap.github.io/bandMapProject2/json/eventInfo.json');
+            const data = await axios.get('/json/eventInfo.json');
+            // const data = await axios.get('https://bandmap.github.io/bandMapProject2/json/eventInfo.json');
 
             const { eventinfo } = data.data.eventdata;
             setEventInfo(eventinfo);
@@ -69,26 +85,44 @@ function BandMapPage() {
     }, [])
 
     useEffect(() => {
-        if (
-            !filterWords.area &&
-            filterWords.venue === "場館" &&
-            filterWords.month === "月份" &&
-            !filterWords.keyword
-        ) {
+        const { area, venue, month, keyword } = filterWords;
+
+        if (!area && venue === "場館" && month === "月份" && !keyword) {
             setIsFiltered(false); // 沒有篩選條件，回到預設狀態
+            setFilteredEvents(eventInfo); // 顯示所有活動
         } else {
             setIsFiltered(true); // 啟用篩選
-            const { area, venue, month, keyword } = filterWords;
-            const filtered = eventInfo.filter((event) => {
-                const matchArea = area || area === "全部" ? true : event.area === area;
-                const matchVenue = venue === "全部場館" || venue === "場館" ? true : event.location === venue;
-                const matchMonth = month !== "月份"
-                    ? event.month === months.find((m) => m.select === month)?.key
-                    : true;
-                const matchKeyword = keyword ? event.event.toLowerCase().includes(keyword.toLowerCase()) : true;
 
-                return matchArea && matchVenue && matchMonth && matchKeyword;
-            });
+            let filtered = eventInfo;
+
+            // 篩選地區
+            if (area && area !== "全部") {
+                filtered = filtered.filter((event) => event.area === area);
+            }
+
+            // 篩選場館
+            if (venue && venue !== "全部場館" && venue !== "場館") {
+                if (venue === "音樂祭") {
+                    filtered = filtered.filter((event) => event.area === venue);
+                } else {
+                    filtered = filtered.filter((event) => event.location === venue);
+                }
+            }
+
+            // 篩選月份
+            if (month !== "月份") {
+                filtered = filtered.filter(
+                    (event) => event.month === months.find((m) => m.select === month)?.key
+                );
+            }
+
+            // 關鍵字篩選（獨立處理，適用於全部資料）
+            if (keyword) {
+                filtered = eventInfo.filter((event) =>
+                    event.event.toLowerCase().includes(keyword.toLowerCase())
+                );
+            }
+
             setFilteredEvents(filtered);
         }
     }, [filterWords, eventInfo]);
@@ -97,21 +131,12 @@ function BandMapPage() {
         setFilterWords((prev) => ({ ...prev, ...words }));
     };
 
-    // 定義月份清單
-    const months = [
-        { name: "JANUARY", key: "jan", select: '1月' },
-        { name: "FEBRUARY", key: "feb", select: '2月' },
-        { name: "MARCH", key: "mar", select: '3月' },
-        { name: "APRIL", key: "apr", select: '4月' },
-        { name: "MAY", key: "may", select: '5月' },
-        { name: "JUNE", key: "jun", select: '6月' },
-        { name: "JULY", key: "jul", select: '7月' },
-        { name: "AUGUST", key: "aug", select: '8月' },
-        { name: "SEPTEMBER", key: "sep", select: '9月' },
-        { name: "OCTOBER", key: "oct", select: '10月' },
-        { name: "NOVEMBER", key: "nov", select: '11月' },
-        { name: "DECEMBER", key: "dec", select: '12月' },
-    ];
+    // 動態計算可見月份
+    const visibleMonths = isFiltered
+        ? months.filter((m) => m.select === filterWords.month)
+        : currentMonths.slice(0, 2);
+
+    // const visibleMonths = months.filter((m) => m.select === filterWords.month)
 
     return (
         <>
@@ -142,53 +167,57 @@ function BandMapPage() {
                     <SearchSection months={months} onFilterChange={handleFilterChange} />
 
                     {/* 根據月份動態生成跑馬燈和演出卡片 */}
-                    {
-                        (filterWords.month === "月份"
-                            ? currentMonths.slice(0, 2)
-                            : months.filter((m) => m.select === filterWords.month) // 篩選選取的月份
-                        ).map((month) => (
+                    {visibleMonths.map((month) => {
+                        // 篩選對應月份的活動
+                        const monthEvents = (isFiltered ? filteredEvents : eventInfo).filter(
+                            (event) => event.month === month.key
+                        );
+                        return (
                             <div key={month.key}>
-                                {/* 月份跑馬燈 */}
-                                <div className="newsTicker">
-                                    <div className="bandmap-wrapper">
-                                        {[...Array(4)].map((_, i) => (
-                                            <span key={i}>
-                                                <p>{month.name}</p>
-                                                {sparkleBlue}
-                                            </span>
+                                {/* 如果有活動，顯示跑馬燈和活動卡片；如果沒有活動，顯示提示文字 */}
+                                {monthEvents.length > 0 ? (
+                                    <>
+                                        {/* 跑馬燈 */}
+                                        <div className="newsTicker">
+                                            <div className="bandmap-wrapper">
+                                                {[...Array(4)].map((_, i) => (
+                                                    <span key={i}>
+                                                        <p>{month.name}</p>
+                                                        {sparkleBlue}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                            <div className="bandmap-wrapper">
+                                                {[...Array(4)].map((_, i) => (
+                                                    <span key={i}>
+                                                        <p>{month.name}</p>
+                                                        {sparkleBlue}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        </div>
 
-                                        ))}
-                                    </div>
-                                    <div className="bandmap-wrapper">
-                                        {[...Array(4)].map((_, i) => (
-                                            <span key={i}>
-                                                <p>{month.name}</p>
-                                                {sparkleBlue}
-                                            </span>
-
-                                        ))}
-                                    </div>
-                                </div>
-
-                                {/* 演出卡片 */}
-                                <div className="cards-center">
-                                    <div className="cards">
-                                        {isFiltered
-                                            ? filteredEvents.map((event, index) => <CardOne key={index} searchcard={event} index={index} />)
-                                            : eventInfo
-                                                .filter(event => event.month === month.key) // 過濾出對應月份的資料
-                                                .map((searchcard, index) => (
-                                                    <CardOne
-                                                        key={searchcard.key}
-                                                        searchcard={searchcard}
-                                                        index={index}
-                                                    />
-                                                ))
-                                        }
-                                    </div>
-                                </div>
+                                        {/* 卡片 */}
+                                        <div className="cards-center">
+                                            <div className="cards">
+                                                {(isFiltered ? filteredEvents : eventInfo)
+                                                    .filter((event) => event.month === month.key)
+                                                    .map((event, index) => (
+                                                        <CardOne key={event.key} searchcard={event} index={index} />
+                                                    ))}
+                                            </div>
+                                        </div>
+                                    </>)
+                                    : (
+                                        <div className="no-events">
+                                            <p className="noevent-month">{month.select}</p>
+                                            <p>目前沒有活動</p>
+                                        </div>
+                                    )
+                                }
                             </div>
-                        ))}
+                        )
+                    })}
                 </div >
             </main>
             <footer>

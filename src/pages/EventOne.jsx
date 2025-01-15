@@ -56,13 +56,15 @@ function EventOne() {
     const itemsPerPage = 6; // 每頁顯示的卡片數量
 
     // 控制上下頁按鈕的點擊事件
-    const handleNext = () => {
+    const handleNext = (e) => {
+        e.preventDefault();
         if (currentIndex + itemsPerPage < eventInfo.length) {
             setCurrentIndex(currentIndex + itemsPerPage);
         }
     };
 
-    const handlePrev = () => {
+    const handlePrev = (e) => {
+        e.preventDefault();
         if (currentIndex - itemsPerPage >= 0) {
             setCurrentIndex(currentIndex - itemsPerPage);
         }
@@ -110,13 +112,15 @@ function EventOne() {
                 <div className="cards-bottom">
                     {/* 下一張按鈕 */}
                     <div className="buttons">
-                        <button className={`cta-btn left ${currentIndex === 0 ? "disabled" : ""}`}
+                        <button type="button"
+                            className={`cta-btn left ${currentIndex === 0 ? "disabled" : ""}`}
                             onClick={handlePrev}
                             disabled={currentIndex === 0}>
                             <img src="./images/btn-back.svg" alt="prev-btn" />
                         </button>
-                        <button className={`cta-btn right ${currentIndex + itemsPerPage >= eventInfo.length ? "disabled" : ""
-                            }`}
+                        <button type="button"
+                            className={`cta-btn right ${currentIndex + itemsPerPage >= eventInfo.length ? "disabled" : ""
+                                }`}
                             onClick={handleNext}
                             disabled={currentIndex + itemsPerPage >= eventInfo.length}>
                             <img src="./images/btn-next.svg" alt="next-btn" />

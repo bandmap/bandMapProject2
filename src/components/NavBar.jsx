@@ -5,9 +5,10 @@ import LogInOne from './LogInOne';
 import { UserContext } from './UserProvider';
 
 function NavBar() {
-    const { isLogin } = useContext(UserContext); // 從 UserContext 獲取登入狀態
+    const { isLogin, logout } = useContext(UserContext); // 從 UserContext 獲取登入狀態
     const [showPopup, setShowPopup] = useState(false);
     const [redirectPath, setRedirectPath] = useState('/');
+    const [isMemberMenuVisible, setIsMemberMenuVisible] = useState(false);
     const navigate = useNavigate();
 
     const handleMemberCenterClick = () => {
@@ -67,14 +68,31 @@ function NavBar() {
                     <div className="word-cube"><p>個人行事曆</p><span className='line'></span></div>
                 </NavLink></li>
                 <li>
-                    <button id='membership-page' onClick={handleMemberCenterClick}>
+                    <button id='membership-page'
+                        onClick={handleMemberCenterClick}
+                        onMouseEnter={() => setIsMemberMenuVisible(true)}
+                        onMouseLeave={() => setIsMemberMenuVisible(false)}>
                         <div className="word-cube"><p>{isLogin ? '會員中心' : '登入'}</p><span className='line'></span></div>
                         <div className="word-cube"><p>{isLogin ? '會員中心' : '登入'}</p><span className='line'></span></div>
                     </button>
                 </li>
             </ul>
             {
-                showPopup && <LogInOne togglePopup={togglePopup} redirectPath={redirectPath}/>
+                isLogin &&
+                <button
+                    className={`member-link ${isMemberMenuVisible ? 'visible' : ''}`}
+                    onClick={logout}
+                    onMouseEnter={() => setIsMemberMenuVisible(true)}
+                    onMouseLeave={() => setIsMemberMenuVisible(false)}>
+                    <div className="word-cube">
+                        <p>登出</p>
+                        <span className='line'></span>
+                    </div>
+                </button>
+            }
+
+            {
+                showPopup && <LogInOne togglePopup={togglePopup} redirectPath={redirectPath} />
             }
 
 

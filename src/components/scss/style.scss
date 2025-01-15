@@ -521,6 +521,54 @@
             }
         }
     }
+
+    .member-link {
+        position: absolute;
+        top: 55px;
+        right: 40px;
+        border: none;
+        width: 91px;
+        height: 100%;
+        background-color: $Primary_color_beige;
+        padding: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+        transition: 0.2s ease;
+        cursor: pointer;
+
+        .word-cube {
+            height: 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: $interval_0_8;
+
+            p {
+                color: $Neutral_color_black;
+                font-size: 18px;
+                font-weight: 700;
+                letter-spacing: 0.05rem;
+            }
+
+            span {
+                margin-top: 2px;
+                display: block;
+                height: 1px;
+                width: 0;
+                background-color: $Neutral_color_black;
+                transition: 0.2s;
+            }
+        }
+        &:hover {
+            span {
+                width: 100%;
+            }
+        }
+    }
+
+    .visible {
+        transform: scaleY(1);
+    }
 }
 
 /* Footer區 */
@@ -1361,7 +1409,6 @@ main {
 }
 
 .slick-slide {
-    // opacity: 0.7;
     transition: 0.4s ease;
 }
 
@@ -1396,6 +1443,7 @@ main {
     min-width: 360px;
     margin: 0 30px 40px 30px;
     transition: $speed-cubebuttomhover;
+    cursor: pointer;
 
     &:hover {
         box-shadow: 10px 10px $Primary_color_blue;
@@ -1638,7 +1686,7 @@ main {
 #bandmap-main {
     position: relative;
     z-index: 0;
-    overflow: hidden;
+    overflow-x: hidden;
 
     .linear-bg {
         background: linear-gradient(to bottom, $Primary_color_orange 23%, $Neutral_color_white 70%, $Primary_color_pink 89%);
@@ -1712,6 +1760,10 @@ main {
                 img {
                     width: 20px;
                     flex-shrink: 0;
+                }
+
+                &:focus {
+                    outline: none;
                 }
             }
 
@@ -1843,6 +1895,21 @@ main {
         width: 80%;
         max-width: 1200px;
         margin: auto;
+    }
+
+    .no-events {
+        @extend %box-center;
+        flex-direction: column;
+
+        p {
+            margin-bottom: $distance_s;
+            font-size: $fontsize_content;
+            color: rgba($Neutral_color_black, 0.7);
+        }
+        .noevent-month {
+            font-weight: $font_bold;
+            color: $Neutral_color_black;
+        }
     }
 }
 
@@ -2729,7 +2796,7 @@ main {
 
 
         .buttons {
-            z-index: $z_index-l;
+            // z-index: 1200;
 
             .cta-btn {
                 position: absolute;
@@ -2738,6 +2805,7 @@ main {
                 opacity: 0.6;
                 border: 1px solid $Neutral_color_white;
                 transition: $speed-cubebuttomhover;
+                z-index: 1200;
 
                 &:hover {
                     opacity: 1;

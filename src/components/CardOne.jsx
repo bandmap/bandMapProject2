@@ -1,9 +1,16 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LikeListContext } from "./LikeListContext";
 import { CalendarListContext } from "./CalendarListContext";
 
 function CardOne({ searchcard, index }) {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    },[])
+
     let className = 'card';
     if (index % 2 === 0) {
         className += ' right-place';
@@ -29,8 +36,16 @@ function CardOne({ searchcard, index }) {
         toggleCalendar(searchcard);
     }
 
+    // 強制刷新頁面
+    const handleLinkClick = (e) => {
+        e.preventDefault();
+        location.pathname === '/event1'
+            ? navigate(0)
+            : navigate('/event1')
+    }
+
     return (
-        <Link to='/event1' className={className} key={searchcard.key}>
+        <div className={className} key={searchcard.key} onClick={handleLinkClick}>
             <figure><img src={searchcard.img} alt={searchcard.event} /></figure>
             <div className="content">
                 <p className="date">{searchcard.date}</p>
@@ -41,9 +56,10 @@ function CardOne({ searchcard, index }) {
                 </div>
                 <div className="bottom-line">
                     <div className="name-tags">
-                        {searchcard.nametag.map((band, i) => {
-                            return <p key={i} className="nametag">{band}</p>
-                        })}
+                        {
+                            searchcard.nametag.map((band, i) => {
+                                return <p key={i} className="nametag">{band}</p>
+                            })}
                     </div>
                     <div className="btns">
                         <figure className="like-btn" onClick={handleLikeClick}>
@@ -58,8 +74,7 @@ function CardOne({ searchcard, index }) {
                     </div>
                 </div>
             </div>
-        </Link>
-
+        </div>
     )
 }
 

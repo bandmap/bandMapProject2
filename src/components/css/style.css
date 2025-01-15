@@ -52,7 +52,7 @@ a {
 }
 
 /* 日曆樣式 */
-.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll .box-intro .items .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .carousel, .card .bottom-line .btns .like-btn, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .like-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #bandmap-main .search-section .form-section .selector, #bandmap-main .search-section .form-section .selector ul, #bandmap-main .search-section .form-section .when-sec1 .time-sec, #bandmap-main .search-section .btn-container, #bandmap-main .search-section .btn-container .submit-btn, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, .login-card .login-btns .link-btn, #member-bar .menu {
+.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll .box-intro .items .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .carousel, .card .bottom-line .btns .like-btn, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .like-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #bandmap-main .search-section .form-section .selector, #bandmap-main .search-section .form-section .selector ul, #bandmap-main .search-section .form-section .when-sec1 .time-sec, #bandmap-main .search-section .btn-container, #bandmap-main .search-section .btn-container .submit-btn, #bandmap-main .no-events, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, .login-card .login-btns .link-btn, #member-bar .menu {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -636,6 +636,47 @@ a {
 }
 #nav-bar .menu li:hover span {
   width: 100%;
+}
+#nav-bar .member-link {
+  position: absolute;
+  top: 55px;
+  right: 40px;
+  border: none;
+  width: 91px;
+  height: 100%;
+  background-color: #FFF8E4;
+  padding: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+#nav-bar .member-link .word-cube {
+  height: 55px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 8px;
+}
+#nav-bar .member-link .word-cube p {
+  color: black;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+#nav-bar .member-link .word-cube span {
+  margin-top: 2px;
+  display: block;
+  height: 1px;
+  width: 0;
+  background-color: black;
+  transition: 0.2s;
+}
+#nav-bar .member-link:hover span {
+  width: 100%;
+}
+#nav-bar .visible {
+  transform: scaleY(1);
 }
 
 /* Footer區 */
@@ -1339,6 +1380,7 @@ main {
   min-width: 360px;
   margin: 0 30px 40px 30px;
   transition: 0.4s;
+  cursor: pointer;
 }
 .card:hover {
   box-shadow: 10px 10px #0099FF;
@@ -1523,7 +1565,7 @@ main {
 #bandmap-main {
   position: relative;
   z-index: 0;
-  overflow: hidden;
+  overflow-x: hidden;
   /* 搜尋選單 */
 }
 #bandmap-main .linear-bg {
@@ -1586,6 +1628,10 @@ main {
 #bandmap-main .search-section .form-section input img {
   width: 20px;
   flex-shrink: 0;
+}
+#bandmap-main .search-section .form-section .input-btn:focus,
+#bandmap-main .search-section .form-section input:focus {
+  outline: none;
 }
 #bandmap-main .search-section .form-section .selector {
   width: 100%;
@@ -1681,6 +1727,18 @@ main {
   width: 80%;
   max-width: 1200px;
   margin: auto;
+}
+#bandmap-main .no-events {
+  flex-direction: column;
+}
+#bandmap-main .no-events p {
+  margin-bottom: 8px;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.7);
+}
+#bandmap-main .no-events .noevent-month {
+  font-weight: 700;
+  color: black;
 }
 
 /* 近期演出頁面 */
@@ -2391,9 +2449,6 @@ main {
   position: relative;
   z-index: 888;
 }
-.event-page .cards-bottom .buttons {
-  z-index: 999;
-}
 .event-page .cards-bottom .buttons .cta-btn {
   position: absolute;
   width: 60px;
@@ -2401,6 +2456,7 @@ main {
   opacity: 0.6;
   border: 1px solid white;
   transition: 0.4s;
+  z-index: 1200;
 }
 .event-page .cards-bottom .buttons .cta-btn:hover {
   opacity: 1;
