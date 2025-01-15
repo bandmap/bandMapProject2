@@ -67,8 +67,8 @@ function BandMapPage() {
         setCurrentMonths(dynamicMonths);
 
         (async () => {
-            const data = await axios.get('/json/eventInfo.json');
-            // const data = await axios.get('https://bandmap.github.io/bandMapProject2/json/eventInfo.json');
+            // const data = await axios.get('/json/eventInfo.json');
+            const data = await axios.get('https://bandmap.github.io/bandMapProject2/json/eventInfo.json');
 
             const { eventinfo } = data.data.eventdata;
             setEventInfo(eventinfo);
