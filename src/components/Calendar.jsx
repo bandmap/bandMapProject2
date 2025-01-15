@@ -7,6 +7,7 @@ function Calendar() {
     const [currentDate, setCurrentDate] = useState(new Date());
     const [selectedEvent, setSelectedEvent] = useState(null); // 被選到的日期
     const [isSidebarVisible, setSidebarVisible] = useState(false); // sidebar的出現
+    const [isMultiEventSelected, setIsMultiEventSelected] = useState(false);
 
     const { calendarList } = useContext(CalendarListContext); // 被加進行事曆的清單
 
@@ -36,7 +37,12 @@ function Calendar() {
                 const cloneDay = day;
 
                 // 查找行程資料
-                const event = calendarList.find(e => e.calendarDate === fullDate);
+                // const event = calendarList.find(e => e.calendarDate === fullDate);
+
+                // 查找當天的所有活動
+                const dayEvents = calendarList.filter(e => e.calendarDate === fullDate);
+                // 直接檢查當天的活動數量是否超過1個
+                const isMultiEvent = dayEvents.length > 1;
 
                 // 判斷是否為週六或週日
                 const isWeekend = day.getDay() === 6 || day.getDay() === 0;
@@ -46,36 +52,35 @@ function Calendar() {
                         className={`cell 
                             ${!isSameMonth(day, currentDate) ? 'disabled' : ''}
                             ${isSameDay(day, new Date()) ? 'today' : ''}
-                            ${event ? 'has-event' : ''}
+                            ${dayEvents.length ? 'has-event' : ''}
                             ${isWeekend ? 'weekend' : ''}`}
                         key={day}
                         onClick={() => {
-                            if (event) {
-                                setSelectedEvent(event);
+                            if (dayEvents.length > 0) {
+                                setSelectedEvent(dayEvents[0]); // 預設選擇第一個活動
+                                setIsMultiEventSelected(dayEvents.length > 1); // 設定是否多個活動
                                 setSidebarVisible(true);
                             } else {
                                 setSidebarVisible(false);
                             }
                         }}
                     >
-                        <span className="number">{formattedDate}</span>
+                        <span className={`number ${isMultiEvent ? 'multi-events' : ''}`}>{formattedDate}</span>
                         {/* 顯示行程內容 */}
                         <div className='event-total'>
                             {
-                                calendarList
-                                    .filter(e => e.calendarDate === fullDate) // 過濾出當天的事件
-                                    .map((event, index) => {
-                                        return (
-
-                                            <div className="event-each" key={index}>
-                                                <div className="event-left">
-                                                    <span className='ball'></span>
-                                                    <span className='event-name'>{event.event}</span>
-                                                </div>
-                                                <span className='event-right'>{event.calendarTime}</span>
+                                dayEvents.map((event, index) => {           
+                                    return (
+                                        <div
+                                            className={`event-each ${isMultiEvent ? 'multi-events' : ''}`}
+                                            key={index}>
+                                            <div className="event-left">
+                                                <span className='event-name'>{event.event}</span>
                                             </div>
-                                        )
-                                    })
+                                            <span className='event-right'>{event.calendarTime}</span>
+                                        </div>
+                                    )
+                                })
                             }
                         </div>
                     </div>
@@ -121,17 +126,23 @@ function Calendar() {
                     <>
                         <div className="side-details">
                             <h2>{selectedEvent.calendarDate} 的活動</h2>
+                            {isMultiEventSelected && 
+                            <div className="alert-sec">
+                                <img src="./images/icon/icon-alert.svg" alt="alert" />
+                                <h3 className="warning">活動撞期囉！再確認一下吧！</h3>
+                            </div>
+                            }
                             {
                                 calendarList
                                     .filter(event => event.calendarDate === selectedEvent.calendarDate)
                                     .map((event, index) => {
                                         return (
-                                            <>
-                                                <span className='event-name'>{event.event}</span>
-                                                <span>演出者: {event.nametag}</span>
-                                                <span>時間: {event.calendarTime}</span>
-                                                <span>地點: {event.location}</span>
-                                            </>
+                                            <div className='side-event-each'>
+                                                <span className={`event-name ${isMultiEventSelected ? 'multi-events' : ''}`}>{event.event}</span>
+                                                <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>演出者: {event.nametag}</span>
+                                                <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>時間: {event.calendarTime}</span>
+                                                <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>地點: {event.location}</span>
+                                            </div>
                                         )
                                     })
                             }

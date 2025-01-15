@@ -559,6 +559,7 @@
                 transition: 0.2s;
             }
         }
+
         &:hover {
             span {
                 width: 100%;
@@ -1906,6 +1907,7 @@ main {
             font-size: $fontsize_content;
             color: rgba($Neutral_color_black, 0.7);
         }
+
         .noevent-month {
             font-weight: $font_bold;
             color: $Neutral_color_black;
@@ -2305,6 +2307,7 @@ main {
                 font-size: $fontsize_subtitle;
                 font-family: 'inter';
                 padding-top: $distance_xs;
+                overflow: hidden;
                 transition: 0.3s ease;
 
                 &.disabled {
@@ -2328,6 +2331,10 @@ main {
                     font-family: $font_title_dela;
                 }
 
+                .multi-events {
+                    color: $Primary_color_red;
+                }
+
                 .event-total {
                     width: 100%;
                     padding: 8px 16px 8px 8px;
@@ -2335,7 +2342,10 @@ main {
                     .event-each {
                         width: 100%;
                         font-size: $fontsize_12;
-                        color: $color_orange_900;
+                        color: $Neutral_color_white;
+                        background-color: $Primary_color_blue;
+                        padding: 6px 4px;
+                        border-radius: 4px;
                         display: flex;
                         justify-content: space-between;
                         margin-bottom: $distance_xs;
@@ -2347,19 +2357,14 @@ main {
                             align-items: center;
                             margin-right: $distance_xs;
 
-                            .ball {
-                                width: 8px;
-                                height: 8px;
-                                flex-shrink: 0;
-                                background-color: $Primary_color_orange;
-                                border-radius: 50%;
-                                margin-right: $distance_xs;
-                            }
-
                             .event-name {
                                 @extend %line-single;
                             }
                         }
+                    }
+
+                    .multi-events {
+                        background-color: $Primary_color_red;
                     }
                 }
             }
@@ -2399,16 +2404,52 @@ main {
                 padding-bottom: $distance_s;
             }
 
-            span {
-                font-size: $fontsize_12;
-                color: $color_orange_900;
-                margin-bottom: $distance_xs;
+            .alert-sec {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $Primary_color_red;
+                padding: $distance_s;
+                border-radius: 5px; 
+                margin-top: $distance_s;
+
+                img {
+                    width: 20px;
+                    margin-right: $distance_s;
+                }
+                h3 {   
+                    color: $Neutral_color_white;  
+                    font-size: $fontsize_16; 
+                    font-weight: $font_bold;      
+                }
             }
 
-            .event-name {
-                font-size: $fontsize_14;
-                font-weight: $font_bold;
-                margin: $distance_s 0;
+            .side-event-each {
+                display: flex;
+                flex-direction: column;
+                padding: $distance_s 0;
+                border-bottom: solid 1px $Neutral_color_grey_300;
+
+                span {
+                    font-size: $fontsize_12;
+                    color: $color_blue_800;
+                    margin-bottom: $distance_xs;
+                }
+
+                .event-name {
+                    font-size: $fontsize_14;
+                    font-weight: $font_bold;
+                    color: $Primary_color_blue;
+                    margin: $distance_s 0;
+                }
+
+                .multi-events {
+                    color: $Primary_color_red;
+                }
+
+                .multi-events-span {
+                    color: #992922;
+                }
             }
         }
     }

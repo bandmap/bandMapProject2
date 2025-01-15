@@ -7,10 +7,6 @@ function CardOne({ searchcard, index }) {
     const navigate = useNavigate();
     const location = useLocation();
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    },[])
-
     let className = 'card';
     if (index % 2 === 0) {
         className += ' right-place';

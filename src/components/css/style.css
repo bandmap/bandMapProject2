@@ -2061,6 +2061,7 @@ main {
   font-size: 24px;
   font-family: "inter";
   padding-top: 4px;
+  overflow: hidden;
   transition: 0.3s ease;
 }
 .calendar .body .row .cell.disabled {
@@ -2079,6 +2080,9 @@ main {
   color: black;
   font-family: "Dela Gothic One";
 }
+.calendar .body .row .cell .multi-events {
+  color: #FF4438;
+}
 .calendar .body .row .cell .event-total {
   width: 100%;
   padding: 8px 16px 8px 8px;
@@ -2086,7 +2090,10 @@ main {
 .calendar .body .row .cell .event-total .event-each {
   width: 100%;
   font-size: 12px;
-  color: #7A4400;
+  color: white;
+  background-color: #0099FF;
+  padding: 6px 4px;
+  border-radius: 4px;
   display: flex;
   justify-content: space-between;
   margin-bottom: 4px;
@@ -2098,13 +2105,8 @@ main {
   align-items: center;
   margin-right: 4px;
 }
-.calendar .body .row .cell .event-total .event-each .event-left .ball {
-  width: 8px;
-  height: 8px;
-  flex-shrink: 0;
-  background-color: #FFAF00;
-  border-radius: 50%;
-  margin-right: 4px;
+.calendar .body .row .cell .event-total .multi-events {
+  background-color: #FF4438;
 }
 .calendar .body .row .has-event {
   cursor: pointer !important;
@@ -2136,15 +2138,46 @@ main {
   border-bottom: 1px solid rgba(0, 0, 0, 0.6);
   padding-bottom: 8px;
 }
-.calendar .sidebar .side-details span {
+.calendar .sidebar .side-details .alert-sec {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #FF4438;
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 8px;
+}
+.calendar .sidebar .side-details .alert-sec img {
+  width: 20px;
+  margin-right: 8px;
+}
+.calendar .sidebar .side-details .alert-sec h3 {
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+}
+.calendar .sidebar .side-details .side-event-each {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 0;
+  border-bottom: solid 1px #B2B2B2;
+}
+.calendar .sidebar .side-details .side-event-each span {
   font-size: 12px;
-  color: #7A4400;
+  color: #003E93;
   margin-bottom: 4px;
 }
-.calendar .sidebar .side-details .event-name {
+.calendar .sidebar .side-details .side-event-each .event-name {
   font-size: 14px;
   font-weight: 700;
+  color: #0099FF;
   margin: 8px 0;
+}
+.calendar .sidebar .side-details .side-event-each .multi-events {
+  color: #FF4438;
+}
+.calendar .sidebar .side-details .side-event-each .multi-events-span {
+  color: #992922;
 }
 .calendar .visible {
   left: 0;
