@@ -396,6 +396,51 @@
                     "HYUKOH",
                     "落日飛車"
                 ]
+            },
+            {
+                "year": "2025",
+                "month": "mar",
+                "img": "./images/event/currentevent-json-27.jpg",
+                "key": 27,
+                "date": "2025/03/08 (六）19:30",
+                "calendarDate": "2025-03-08",
+                "calendarTime": "19:30",
+                "event": "打倒三明治《人生曬百味》專場 Legacy Presents #千人展II",
+                "location": "Legacy Taipei 音樂展演空間",
+                "area":"北部",
+                "nametag": [
+                    "打倒三明治"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "mar",
+                "img": "./images/event/currentevent-json-28.jpg",
+                "key": 28,
+                "date": "2025/03/14 (五）20:00",
+                "calendarDate": "2025-03-14",
+                "calendarTime": "20:00",
+                "event": "竇靖童 狀況外 巡迴演唱會 臺北站",
+                "location": "Legacy TERA",
+                "area":"北部",
+                "nametag": [
+                    "竇靖童"
+                ]
+            },
+            {
+                "year": "2025",
+                "month": "mar",
+                "img": "./images/event/currentevent-json-29.jpg",
+                "key": 29,
+                "date": "2025/03/14 (五）20:00",
+                "calendarDate": "2025-03-14",
+                "calendarTime": "20:00",
+                "event": "大港開唱2025",
+                "location": "高雄駁二藝術特區",
+                "area":"音樂祭",
+                "nametag": [
+                    "拍謝少年 Sorry Youth", "百合花", "美秀集團", "草東沒有派對"
+                ]
             }
         ]
     }
