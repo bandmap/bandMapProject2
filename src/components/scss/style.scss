@@ -1554,6 +1554,29 @@ main {
     }
 }
 
+/* 加入/取消通知彈出視窗 */
+.popup-alert {
+    position: absolute;
+    background-color: $Primary_color_orange;
+    border-radius: 5px;
+    color: $Neutral_color_black;
+    left: 82%;
+    top: 77%;
+    opacity: 0;
+    padding: 8px 12px;
+    font-size: $fontsize_14;
+    transition: all 0.3s ease;
+}
+
+.like-alert {
+    left: 71%;                
+}
+
+.alert-slidein {
+    top: 75%;
+    opacity: 1;
+}
+
 /* 右邊卡片 */
 .right-place {
     margin: 40px 30px 0 30px;
@@ -1677,6 +1700,15 @@ main {
                     p {
                         font-size: $fontsize_12;
                     }
+                }
+                .popup-alert {
+                    position: absolute;
+                    left: 90%;
+                    top: 39%;
+                }
+                
+                .alert-slidein {
+                    top: 37%;
                 }
             }
         }

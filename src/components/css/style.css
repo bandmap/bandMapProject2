@@ -1462,6 +1462,29 @@ main {
   font-size: 12px;
 }
 
+/* 加入/取消通知彈出視窗 */
+.popup-alert {
+  position: absolute;
+  background-color: #FFAF00;
+  border-radius: 5px;
+  color: black;
+  left: 82%;
+  top: 77%;
+  opacity: 0;
+  padding: 8px 12px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.like-alert {
+  left: 71%;
+}
+
+.alert-slidein {
+  top: 75%;
+  opacity: 1;
+}
+
 /* 右邊卡片 */
 .right-place {
   margin: 40px 30px 0 30px;
@@ -1559,6 +1582,14 @@ main {
 }
 .card-long .card-right .bottom-line .btns .collect-btn p {
   font-size: 12px;
+}
+.card-long .card-right .bottom-line .btns .popup-alert {
+  position: absolute;
+  left: 90%;
+  top: 39%;
+}
+.card-long .card-right .bottom-line .btns .alert-slidein {
+  top: 37%;
 }
 
 /* 演出搜尋頁面 */

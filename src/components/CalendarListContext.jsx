@@ -8,16 +8,20 @@ export const CalendarListProvider = ({ children }) => {
 
     // 更新 likeList 的函數
     const toggleCalendar = (card) => {
+        let action;
         setCalendarList((prevList) => {
             const isCollected = prevList.some((item) => item.key === card.key);
             if (isCollected) {
                 // 移除已經存在的卡片
+                action = 'removed';
                 return prevList.filter((item) => item.key !== card.key);
             } else {
                 // 新增新的卡片
+                action = 'added';
                 return [...prevList, card];
             }
         });
+        return action;
     };
 
     return (
