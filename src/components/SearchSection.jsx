@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 
-function SearchSection({ months, onFilterChange }) {
+function SearchSection({ months, onFilterChange, eventInfo }) {
 
     /* 場館選單 */
     const locations = {
@@ -31,7 +31,7 @@ function SearchSection({ months, onFilterChange }) {
         setCurrentVenues(locations[area] || []); // 根據地區更新場館
         setShowVenue(true);
         setSelectedVenue('場館'); // 重置選取的場館
-        onFilterChange({ area, venue: selectedVenue, month: selectedMonth, keyword: searchKeyword });
+        onFilterChange({ area, venue: selectedVenue, month: selectedMonth });
         console.log(area);
     };
 
@@ -39,7 +39,7 @@ function SearchSection({ months, onFilterChange }) {
         setSelectedVenue(venue); // 更新選取的場館
         setShowVenue(false);
         setShowLocation(false);
-        onFilterChange({ area: selectedArea, venue, month: selectedMonth, keyword: searchKeyword });
+        onFilterChange({ area: selectedArea, venue, month: selectedMonth });
     };
 
     /* 月份選單 */
@@ -53,7 +53,7 @@ function SearchSection({ months, onFilterChange }) {
     const handleSelectedMonth = (monthSelect) => {
         setSelectedMonth(monthSelect);
         setShowMonth(false);
-        onFilterChange({ area: selectedArea, venue: selectedVenue, month: monthSelect, keyword: searchKeyword });
+        onFilterChange({ area: selectedArea, venue: selectedVenue, month: monthSelect });
     }
 
     /* 共用 overlay 點擊狀態 */
@@ -66,13 +66,21 @@ function SearchSection({ months, onFilterChange }) {
         }
     };
 
+    const [search, setSearch] = useState('');
+
+    const filterKeywords = useMemo(() => {
+        return [...eventInfo].filter((event) => {
+            return event.event.match(search);
+        })
+    },[search])
+
     /* 搜尋關鍵字 */
-    const [searchKeyword, setSearchKeyword] = useState('');
+    /* const [searchKeyword, setSearchKeyword] = useState('');
     const handleSearchChange = (e) => {
         const keyword = e.target.value;
         setSearchKeyword(keyword);
         onFilterChange({ area: selectedArea, venue: selectedVenue, month: selectedMonth, keyword });
-    };
+    }; */
 
     return (
         <>
@@ -177,8 +185,9 @@ function SearchSection({ months, onFilterChange }) {
                     <input type="search" name="search" id="search"
                         title="搜尋欄位"
                         placeholder="關鍵字"
-                        value={searchKeyword}
-                        onChange={handleSearchChange}></input>
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                        ></input>
                 </div>
             </form>
         </>

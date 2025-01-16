@@ -2392,6 +2392,7 @@ main {
         padding: $distance_m;
         transition: $speed-cubebuttomhover ease;
         z-index: 1001;
+        overflow: hidden;
 
         .side-details {
             display: flex;
@@ -2410,46 +2411,72 @@ main {
                 align-items: center;
                 background-color: $Primary_color_red;
                 padding: $distance_s;
-                border-radius: 5px; 
-                margin-top: $distance_s;
+                border-radius: 5px;
+                margin: $distance_s 0;
 
                 img {
                     width: 20px;
                     margin-right: $distance_s;
                 }
-                h3 {   
-                    color: $Neutral_color_white;  
-                    font-size: $fontsize_16; 
-                    font-weight: $font_bold;      
+
+                h3 {
+                    color: $Neutral_color_white;
+                    font-size: $fontsize_16;
+                    font-weight: $font_bold;
                 }
             }
 
             .side-event-each {
                 display: flex;
-                flex-direction: column;
-                padding: $distance_s 0;
-                border-bottom: solid 1px $Neutral_color_grey_300;
+                transition: $speed-cubebuttomhover ease;
 
-                span {
-                    font-size: $fontsize_12;
-                    color: $color_blue_800;
-                    margin-bottom: $distance_xs;
+                .side-event-content {
+                    display: flex;
+                    flex-direction: column;
+                    width: 276px;
+                    flex-shrink: 0;
+                    padding: $distance_s 0;
+                    border-bottom: solid 1px $Neutral_color_grey_300;
+                    cursor: pointer;
+
+                    span {
+                        font-size: $fontsize_12;
+                        color: $color_blue_800;
+                        margin-bottom: $distance_xs;
+                    }
+
+                    .event-name {
+                        font-size: $fontsize_14;
+                        font-weight: $font_bold;
+                        color: $Primary_color_blue;
+                        margin: $distance_s 0;
+                    }
+
+                    .multi-events {
+                        color: $Primary_color_red;
+                    }
+
+                    .multi-events-span {
+                        color: #992922;
+                    }
                 }
 
-                .event-name {
-                    font-size: $fontsize_14;
-                    font-weight: $font_bold;
-                    color: $Primary_color_blue;
-                    margin: $distance_s 0;
-                }
+                .side-event-delete {
+                    background-color: $Primary_color_red;
+                    width: 50px;
+                    margin-left: $distance_s;
+                    padding: $distance_m;
+                    @extend %box-center;
+                    cursor: pointer;
 
-                .multi-events {
-                    color: $Primary_color_red;
+                    img {
+                        width: 24px;  
+                    }
                 }
+            }
 
-                .multi-events-span {
-                    color: #992922;
-                }
+            .delete-active {
+                transform: translateX(-50px);
             }
         }
     }

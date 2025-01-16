@@ -52,7 +52,6 @@ function BandMapPage() {
         area: '',
         venue: '場館',
         month: '月份',
-        keyword: '',
     });
 
     useEffect(() => {
@@ -85,9 +84,9 @@ function BandMapPage() {
     }, [])
 
     useEffect(() => {
-        const { area, venue, month, keyword } = filterWords;
+        const { area, venue, month } = filterWords;
 
-        if (!area && venue === "場館" && month === "月份" && !keyword) {
+        if (!area && venue === "場館" && month === "月份") {
             setIsFiltered(false); // 沒有篩選條件，回到預設狀態
             setFilteredEvents(eventInfo); // 顯示所有活動
         } else {
@@ -113,13 +112,6 @@ function BandMapPage() {
             if (month !== "月份") {
                 filtered = filtered.filter(
                     (event) => event.month === months.find((m) => m.select === month)?.key
-                );
-            }
-
-            // 關鍵字篩選（獨立處理，適用於全部資料）
-            if (keyword) {
-                filtered = eventInfo.filter((event) =>
-                    event.event.toLowerCase().includes(keyword.toLowerCase())
                 );
             }
 
@@ -164,7 +156,7 @@ function BandMapPage() {
                     <Carousel maskSrc={maskSrc} />
 
                     {/* 搜尋選單 */}
-                    <SearchSection months={months} onFilterChange={handleFilterChange} />
+                    <SearchSection months={months} onFilterChange={handleFilterChange} eventInfo={eventInfo}/>
 
                     {/* 根據月份動態生成跑馬燈和演出卡片 */}
                     {visibleMonths.map((month) => {

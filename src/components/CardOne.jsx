@@ -40,6 +40,13 @@ function CardOne({ searchcard, index }) {
             : navigate('/event1')
     }
 
+    // 從nametag連結到樂團頁面
+    const handleNametagClick = (e) => {
+        e.preventDefault();
+        e.stopPropagation(); // 防止冒泡
+        navigate('/band1');
+    }
+
     return (
         <div className={className} key={searchcard.key} onClick={handleLinkClick}>
             <figure><img src={searchcard.img} alt={searchcard.event} /></figure>
@@ -54,7 +61,7 @@ function CardOne({ searchcard, index }) {
                     <div className="name-tags">
                         {
                             searchcard.nametag.map((band, i) => {
-                                return <p key={i} className="nametag">{band}</p>
+                                return <p key={i} onClick={handleNametagClick} className="nametag">{band}</p>
                             })}
                     </div>
                     <div className="btns">

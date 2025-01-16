@@ -8,8 +8,9 @@ function Calendar() {
     const [selectedEvent, setSelectedEvent] = useState(null); // 被選到的日期
     const [isSidebarVisible, setSidebarVisible] = useState(false); // sidebar的出現
     const [isMultiEventSelected, setIsMultiEventSelected] = useState(false);
+    const [activeEventId, setActiveEventId] = useState(null); // 控制哪個事件被點擊
 
-    const { calendarList } = useContext(CalendarListContext); // 被加進行事曆的清單
+    const { calendarList, setCalendarList } = useContext(CalendarListContext); // 被加進行事曆的清單
 
     // 取得當前的月份和年份
     const currentMonth = () => format(currentDate, 'MMMM yyyy');
@@ -69,7 +70,7 @@ function Calendar() {
                         {/* 顯示行程內容 */}
                         <div className='event-total'>
                             {
-                                dayEvents.map((event, index) => {           
+                                dayEvents.map((event, index) => {
                                     return (
                                         <div
                                             className={`event-each ${isMultiEvent ? 'multi-events' : ''}`}
@@ -109,6 +110,23 @@ function Calendar() {
         );
     };
 
+    const handleDeleteEvent = (eventId) => {
+        const updatedCalendarList = calendarList.filter(event => event.key !== eventId);
+        setCalendarList(updatedCalendarList); // 更新上下文
+    };
+
+    const handleEventClick = (eventId) => {
+        setActiveEventId(eventId === activeEventId ? null : eventId); // 切換激活狀態
+    };
+
+    // const handleDragStart = (eventId) => {
+    //     setActiveEventId(eventId); // 設定拖曳的事件ID
+    // };
+    
+    // const handleDragEnd = () => {
+    //     setActiveEventId(null); // 拖曳結束時清除狀態
+    // };
+
     return (
         <div className="calendar">
             <div className="menu">
@@ -126,22 +144,35 @@ function Calendar() {
                     <>
                         <div className="side-details">
                             <h2>{selectedEvent.calendarDate} 的活動</h2>
-                            {isMultiEventSelected && 
-                            <div className="alert-sec">
-                                <img src="./images/icon/icon-alert.svg" alt="alert" />
-                                <h3 className="warning">活動撞期囉！再確認一下吧！</h3>
-                            </div>
+                            {isMultiEventSelected &&
+                                <div className="alert-sec">
+                                    <img src="./images/icon/icon-alert.svg" alt="alert" />
+                                    <h3 className="warning">活動撞期囉！再確認一下吧！</h3>
+                                </div>
                             }
                             {
                                 calendarList
                                     .filter(event => event.calendarDate === selectedEvent.calendarDate)
                                     .map((event, index) => {
                                         return (
-                                            <div className='side-event-each'>
-                                                <span className={`event-name ${isMultiEventSelected ? 'multi-events' : ''}`}>{event.event}</span>
-                                                <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>演出者: {event.nametag}</span>
-                                                <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>時間: {event.calendarTime}</span>
-                                                <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>地點: {event.location}</span>
+                                            <div 
+                                            className={`side-event-each ${activeEventId === event.key ? 'delete-active' : ''}`} 
+                                            key={event.key}
+                                            onClick={() => handleEventClick(event.key)}>
+                                                <div className={`side-event-content ${activeEventId === event.id ? 'active' : ''}`} >
+                                                    <span className={`event-name ${isMultiEventSelected ? 'multi-events' : ''}`}>{event.event}</span>
+                                                    <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>演出者: {event.nametag}</span>
+                                                    <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>時間: {event.calendarTime}</span>
+                                                    <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>地點: {event.location}</span>
+                                                </div>
+                                                <div 
+                                                className="side-event-delete"
+                                                onClick={(e) => {
+                                                    e.stopPropagation(); // 防止點擊冒泡
+                                                    handleDeleteEvent(event.key);
+                                                }}>
+                                                    <img src="./images/icon/icon-delete.svg" alt="delete" />
+                                                </div>
                                             </div>
                                         )
                                     })

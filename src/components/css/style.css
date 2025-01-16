@@ -52,7 +52,7 @@ a {
 }
 
 /* 日曆樣式 */
-.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll .box-intro .items .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .carousel, .card .bottom-line .btns .like-btn, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .like-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #bandmap-main .search-section .form-section .selector, #bandmap-main .search-section .form-section .selector ul, #bandmap-main .search-section .form-section .when-sec1 .time-sec, #bandmap-main .search-section .btn-container, #bandmap-main .search-section .btn-container .submit-btn, #bandmap-main .no-events, #currentevent-main .cards, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, .login-card .login-btns .link-btn, #member-bar .menu {
+.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll .box-intro .items .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .carousel, .card .bottom-line .btns .like-btn, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .like-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #bandmap-main .search-section .form-section .selector, #bandmap-main .search-section .form-section .selector ul, #bandmap-main .search-section .form-section .when-sec1 .time-sec, #bandmap-main .search-section .btn-container, #bandmap-main .search-section .btn-container .submit-btn, #bandmap-main .no-events, #currentevent-main .cards, .calendar .sidebar .side-details .side-event-each .side-event-delete, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, .login-card .login-btns .link-btn, #member-bar .menu {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2127,6 +2127,7 @@ main {
   padding: 16px;
   transition: 0.4s ease;
   z-index: 1001;
+  overflow: hidden;
 }
 .calendar .sidebar .side-details {
   display: flex;
@@ -2145,7 +2146,7 @@ main {
   background-color: #FF4438;
   padding: 8px;
   border-radius: 5px;
-  margin-top: 8px;
+  margin: 8px 0;
 }
 .calendar .sidebar .side-details .alert-sec img {
   width: 20px;
@@ -2158,26 +2159,46 @@ main {
 }
 .calendar .sidebar .side-details .side-event-each {
   display: flex;
+  transition: 0.4s ease;
+}
+.calendar .sidebar .side-details .side-event-each .side-event-content {
+  display: flex;
   flex-direction: column;
+  width: 276px;
+  flex-shrink: 0;
   padding: 8px 0;
   border-bottom: solid 1px #B2B2B2;
+  cursor: pointer;
 }
-.calendar .sidebar .side-details .side-event-each span {
+.calendar .sidebar .side-details .side-event-each .side-event-content span {
   font-size: 12px;
   color: #003E93;
   margin-bottom: 4px;
 }
-.calendar .sidebar .side-details .side-event-each .event-name {
+.calendar .sidebar .side-details .side-event-each .side-event-content .event-name {
   font-size: 14px;
   font-weight: 700;
   color: #0099FF;
   margin: 8px 0;
 }
-.calendar .sidebar .side-details .side-event-each .multi-events {
+.calendar .sidebar .side-details .side-event-each .side-event-content .multi-events {
   color: #FF4438;
 }
-.calendar .sidebar .side-details .side-event-each .multi-events-span {
+.calendar .sidebar .side-details .side-event-each .side-event-content .multi-events-span {
   color: #992922;
+}
+.calendar .sidebar .side-details .side-event-each .side-event-delete {
+  background-color: #FF4438;
+  width: 50px;
+  margin-left: 8px;
+  padding: 16px;
+  cursor: pointer;
+}
+.calendar .sidebar .side-details .side-event-each .side-event-delete img {
+  width: 24px;
+}
+.calendar .sidebar .side-details .delete-active {
+  transform: translateX(-50px);
 }
 .calendar .visible {
   left: 0;

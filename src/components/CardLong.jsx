@@ -1,9 +1,11 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { LikeListContext } from "./LikeListContext";
 import { CalendarListContext } from "./CalendarListContext";
 
 function CardLong({ searchcard }) {
+    const navigate = useNavigate();
+
     // 加入收藏
     const { likeList, toggleLike } = useContext(LikeListContext);
     const isLiked = likeList.some((item) => item.key === searchcard.key); // 判斷是否已經 liked
@@ -24,6 +26,13 @@ function CardLong({ searchcard }) {
         toggleCalendar(searchcard);
     }
 
+    // 從nametag連結到樂團頁面
+    const handleNametagClick = (e) => {
+        e.preventDefault();
+        e.stopPropagation(); // 防止冒泡
+        navigate('/band1');
+    }
+
     return (
         <Link to='/event1' className="card-long" key={searchcard.key}>
             <figure><img src={searchcard.img} alt={searchcard.event} /></figure>
@@ -40,7 +49,7 @@ function CardLong({ searchcard }) {
                 <div className="bottom-line">
                     <div className="name-tags">
                         {searchcard.nametag.map((band, i) => {
-                            return <p key={i} className="nametag">{band}</p>
+                            return <p key={i} onClick={handleNametagClick} className="nametag">{band}</p>
                         })}
                     </div>
                     <div className="btns">

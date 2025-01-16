@@ -21,7 +21,7 @@ export const CalendarListProvider = ({ children }) => {
     };
 
     return (
-        <CalendarListContext.Provider value={{ calendarList, toggleCalendar }}>
+        <CalendarListContext.Provider value={{ calendarList, toggleCalendar, setCalendarList }}>
             {children}
         </CalendarListContext.Provider>
     );
