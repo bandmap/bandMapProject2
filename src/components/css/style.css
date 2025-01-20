@@ -2944,4 +2944,16 @@ main {
 #sidebar .nav .collect-thing:hover {
   background-color: #FFF8E4;
   color: black;
+}
+#sidebar .logout-btn {
+  list-style-type: none;
+  padding: 18px 16px;
+  margin: 10px;
+  font-weight: 700;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+#sidebar .logout-btn:hover {
+  background-color: #FFF8E4;
+  color: black;
 }/*# sourceMappingURL=style.css.map */

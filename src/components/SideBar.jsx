@@ -1,7 +1,16 @@
-import React, { useRef } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useRef } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { UserContext } from "./UserProvider";
 
 function SideBar({ scrollToSection, collectBandRef, collectRef }) {
+    const { logout } = useContext(UserContext);
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        navigate('/');
+    }
+
     return (
         <div id="sidebar">
             <ul className="nav">
@@ -13,6 +22,7 @@ function SideBar({ scrollToSection, collectBandRef, collectRef }) {
                 <li className="section-title">我的貼文</li>
                 <li><button className="collect-thing">收藏的貼文</button></li>
             </ul>
+            <li className="logout-btn" onClick={handleLogout}>登出</li>
         </div>
     )
 }

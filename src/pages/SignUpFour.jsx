@@ -1,8 +1,27 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import NavBar from "../components/NavBar"
+import { useContext } from "react";
+import { UserContext } from "../components/UserProvider";
 
 
 function SignUpFour() {
+    const { login } = useContext(UserContext);
+    const navigate = useNavigate();
+
+    const handleSignUp = () => {
+        window.localStorage.setItem('user1','login');
+        console.log(window.localStorage.getItem('user1'));
+        login(); // 更新登入狀態
+        navigate('/member'); // 導向指定頁面
+    }
+
+    const handleSignUpHome = () => {
+        window.localStorage.setItem('user1','login');
+        console.log(window.localStorage.getItem('user1'));
+        login(); // 更新登入狀態
+        navigate('/'); // 導向指定頁面
+    }
+
     return (
         <>
             <NavBar />
@@ -24,8 +43,8 @@ function SignUpFour() {
                         <p>開始你的隨Band地圖規劃吧!</p>
                         <div className="card-content">
                             <div className="login-btns">
-                                <Link to='/member' className="orange-btn">前往會員中心</Link>
-                                <Link to='/' className="normal-btn">返回首頁</Link>
+                                <button className="orange-btn" onClick={handleSignUp}>前往會員中心</button>
+                                <button className="normal-btn" onClick={handleSignUpHome}>返回首頁</button>
                             </div>
                         </div>
                     </div>

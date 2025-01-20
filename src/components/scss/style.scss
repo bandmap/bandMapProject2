@@ -3407,4 +3407,17 @@ main {
             }
         }
     }
+    .logout-btn {
+        list-style-type: none;
+        padding: 18px 16px;
+        margin: 10px;
+        font-weight: $font_bold;
+        transition: all 0.3s;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $Primary_color_beige;
+            color: $Neutral_color_black;
+        }
+    }
 }
