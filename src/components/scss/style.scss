@@ -34,6 +34,20 @@
     }
 }
 
+#media-Sm {
+    display: none;
+}
+
+@media ($mediaSm) {
+    #media-Lg {
+        display: none;
+    }
+
+    // #media-Sm {
+
+    // }
+}
+
 /* 首頁cube區 */
 #cubes {
     width: 100%;
@@ -452,12 +466,18 @@
     position: sticky;
     margin-top: 0;
     top: 0; // 當到達這個位置後固定
-
-    img {
-        width: 220px;
-        padding: 12px 12px 12px 0;
+    
+    .logo-sec {
+        img {
+            width: 220px;
+            padding: 12px 12px 12px 0;
+        }
     }
 
+    .hamburger {
+        display: none;
+    }
+    
     .menu {
         display: flex;
         align-items: flex-end;
@@ -570,6 +590,10 @@
     .visible {
         transform: scaleY(1);
     }
+}
+
+@media ($mediaSm) {
+
 }
 
 /* Footer區 */
@@ -1569,7 +1593,7 @@ main {
 }
 
 .like-alert {
-    left: 71%;                
+    left: 71%;
 }
 
 .alert-slidein {
@@ -1701,12 +1725,13 @@ main {
                         font-size: $fontsize_12;
                     }
                 }
+
                 .popup-alert {
                     position: absolute;
                     left: 90%;
                     top: 39%;
                 }
-                
+
                 .alert-slidein {
                     top: 37%;
                 }
@@ -2431,7 +2456,8 @@ main {
             flex-direction: column;
 
             h2 {
-                font-size: $fontsize_16;
+                font-size: $fontsize_subtitle;
+                font-family: $font_title_dela;
                 font-weight: $font_bold;
                 border-bottom: 1px solid rgba($Neutral_color_black, 0.6);
                 padding-bottom: $distance_s;
@@ -2473,7 +2499,7 @@ main {
 
                     span {
                         font-size: $fontsize_12;
-                        color: $color_blue_800;
+                        color: $Neutral_color_black;
                         margin-bottom: $distance_xs;
                     }
 
@@ -2487,10 +2513,6 @@ main {
                     .multi-events {
                         color: $Primary_color_red;
                     }
-
-                    .multi-events-span {
-                        color: #992922;
-                    }
                 }
 
                 .side-event-delete {
@@ -2502,13 +2524,43 @@ main {
                     cursor: pointer;
 
                     img {
-                        width: 24px;  
+                        width: 24px;
                     }
                 }
             }
 
             .delete-active {
                 transform: translateX(-50px);
+            }
+
+            .delete-popup {
+                width: 90%;
+                position: absolute;
+                top: 25%;
+                @extend %box-center;
+                flex-direction: column;
+                background-color: $Neutral_color_white;
+                border: 5px solid $Neutral_color_black;
+                font-size: $fontsize_16;
+                padding: 30px 30px 18px 30px;
+
+                p {
+                    margin-bottom: $distance_l;
+                }
+
+                button {
+                    width: 100%;
+                    border: solid 1px $Neutral_color_black;
+                    padding: $distance_s;
+                    margin-bottom: 12px;
+                    background-color: $Neutral_color_white;
+                    cursor: pointer;
+                }
+                .confirm-delete-btn {
+                    background-color: $Primary_color_red;
+                    border: none;
+                    color: $Neutral_color_white;
+                }
             }
         }
     }
@@ -2889,15 +2941,12 @@ main {
 
     .cards-bottom {
         @extend %box-center;
-        overflow: hidden;
         padding: $interval_16_0;
         position: relative;
         z-index: $z_index-m;
 
 
         .buttons {
-            // z-index: 1200;
-
             .cta-btn {
                 position: absolute;
                 width: 60px;
@@ -2941,7 +2990,6 @@ main {
         .cards-wrapper {
             display: flex;
             width: 100%;
-            overflow: hidden;
 
             .cards {
                 display: flex;

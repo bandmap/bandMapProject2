@@ -71,83 +71,52 @@ function CubeSection() {
     }, [])
 
     return (
-        <div>
-            <div className="newsTicker">
-                <div className='bandmap-wrapper'>
-                    <span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span>
+        <>
+            <div id='media-Lg'>
+                <div className="newsTicker">
+                    <div className='bandmap-wrapper'>
+                        <span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span>
+                    </div>
+                    <div className='bandmap-wrapper'>
+                        <span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span>
+                    </div>
                 </div>
-                <div className='bandmap-wrapper'>
-                    <span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span><span>BANDMAP</span>
-                </div>
-            </div>
-            <div id="cubes">
-                <div className="cube-left">
-                    <Link to='/search' className='row-left-up'>
-                        <figure className="cube1 cube-btn">
-                            <img className='texture' src="./images/texture.png" alt="背景材質" />
-                            <img className='logo' src="./images/logo.svg" alt="隨Band地圖logo" />
-                        </figure>
-                        <figure className="cube2 cube-btn">
-                            <img className='texture' src="./images/texture.png" alt="背景材質" />
-                            <img src="./images/logo.svg" alt="隨Band地圖logo" /></figure>
-                    </Link>
+                <div id="cubes">
+                    <div className="cube-left">
+                        <Link to='/search' className='row-left-up'>
+                            <figure className="cube1 cube-btn">
+                                <img className='texture' src="./images/texture.png" alt="背景材質" />
+                                <img className='logo' src="./images/logo.svg" alt="隨Band地圖logo" />
+                            </figure>
+                            <figure className="cube2 cube-btn">
+                                <img className='texture' src="./images/texture.png" alt="背景材質" />
+                                <img src="./images/logo.svg" alt="隨Band地圖logo" /></figure>
+                        </Link>
 
-                    <div className='row-left-down'>
-                        <figure className='cube3'>
-                            <div className="arrow-roll">
-                                {arrowSvgRed}{arrowSvgBeige}{arrowSvgRed}{arrowSvgBeige}
-                            </div>
-                            <div className="arrow-roll">
-                                {arrowSvgRed}{arrowSvgBeige}{arrowSvgRed}{arrowSvgBeige}
-                            </div>
-                        </figure>
-                        <div className="row-right">
-                            <div className='row-1'>
-                                <figure className="cube4">
-                                    <div className="note-roll">
-                                        {noteSvg}{noteSvg}{noteSvg}{noteSvg}
-                                    </div>
-                                    <div className="note-roll">
-                                        {noteSvg}{noteSvg}{noteSvg}{noteSvg}
-                                    </div>
+                        <div className='row-left-down'>
+                            <figure className='cube3'>
+                                <div className="arrow-roll">
+                                    {arrowSvgRed}{arrowSvgBeige}{arrowSvgRed}{arrowSvgBeige}
+                                </div>
+                                <div className="arrow-roll">
+                                    {arrowSvgRed}{arrowSvgBeige}{arrowSvgRed}{arrowSvgBeige}
+                                </div>
+                            </figure>
+                            <div className="row-right">
+                                <div className='row-1'>
+                                    <figure className="cube4">
+                                        <div className="note-roll">
+                                            {noteSvg}{noteSvg}{noteSvg}{noteSvg}
+                                        </div>
+                                        <div className="note-roll">
+                                            {noteSvg}{noteSvg}{noteSvg}{noteSvg}
+                                        </div>
 
-                                </figure>
-                                <Link to='/band' id='changeBandTitle'
-                                    className="cube5 cube-btn">
-                                    <img className='texture' src="./images/texture.png" alt="背景材質" />
-                                    <p id='change1' className='band-introducement btn-ani' href="">BAND利商店</p>
-                                    <figure>
-                                        <svg className='arrow' height="57" viewBox="0 0 556 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0 28.1738H554.985" strokeWidth="10" strokeMiterlimit="10" />
-                                            <path d="M506.397 1.08984C506.397 1.08984 508.321 13.2502 524.18 20.8808C533.795 25.5236 544.308 28.0108 554.985 28.1685" strokeWidth="10" strokeMiterlimit="10" />
-                                            <path d="M506.397 55.2574C506.397 55.2574 508.321 43.097 524.18 35.4664C533.795 30.8236 544.308 28.3364 554.985 28.1787" strokeWidth="10" strokeMiterlimit="10" />
-                                        </svg>
                                     </figure>
-                                </Link>
-
-                            </div>
-                            <div className="row-2">
-                                <div className="row-right-left">
-                                    <div className='row-right-left-up'>
-                                        <figure className="cube6"><img src="./images/line.svg" alt="" /></figure>
-
-                                        <figure className="cube7">
-                                            {/* 笑臉動畫 */}
-                                            <div className="smile-face-roll">
-                                                {smileFaceSvg}{smileFaceSvg}{smileFaceSvg}{smileFaceSvg}{smileFaceSvg}{smileFaceSvg}
-                                            </div>
-                                            <div className="smile-face-roll">
-                                                {smileFaceSvg}{smileFaceSvg}{smileFaceSvg}{smileFaceSvg}{smileFaceSvg}{smileFaceSvg}
-                                            </div>
-
-                                        </figure>
-
-                                        <figure className="cube8"></figure>
-                                    </div>
-                                    <Link to='/calendar' id='changeBoardTitle'
-                                        className="cube9 cube-btn">
+                                    <Link to='/band' id='changeBandTitle'
+                                        className="cube5 cube-btn">
                                         <img className='texture' src="./images/texture.png" alt="背景材質" />
-                                        <p id='change2' className='band-discussion' href="">隨BAND排</p>
+                                        <p id='change1' className='band-introducement btn-ani' href="">BAND利商店</p>
                                         <figure>
                                             <svg className='arrow' height="57" viewBox="0 0 556 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M0 28.1738H554.985" strokeWidth="10" strokeMiterlimit="10" />
@@ -156,44 +125,78 @@ function CubeSection() {
                                             </svg>
                                         </figure>
                                     </Link>
+
                                 </div>
-                                <figure className="cube10">
-                                    {bongSvg}
-                                </figure>
+                                <div className="row-2">
+                                    <div className="row-right-left">
+                                        <div className='row-right-left-up'>
+                                            <figure className="cube6"><img src="./images/line.svg" alt="" /></figure>
+
+                                            <figure className="cube7">
+                                                {/* 笑臉動畫 */}
+                                                <div className="smile-face-roll">
+                                                    {smileFaceSvg}{smileFaceSvg}{smileFaceSvg}{smileFaceSvg}{smileFaceSvg}{smileFaceSvg}
+                                                </div>
+                                                <div className="smile-face-roll">
+                                                    {smileFaceSvg}{smileFaceSvg}{smileFaceSvg}{smileFaceSvg}{smileFaceSvg}{smileFaceSvg}
+                                                </div>
+
+                                            </figure>
+
+                                            <figure className="cube8"></figure>
+                                        </div>
+                                        <Link to='/calendar' id='changeBoardTitle'
+                                            className="cube9 cube-btn">
+                                            <img className='texture' src="./images/texture.png" alt="背景材質" />
+                                            <p id='change2' className='band-discussion' href="">隨BAND排</p>
+                                            <figure>
+                                                <svg className='arrow' height="57" viewBox="0 0 556 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 28.1738H554.985" strokeWidth="10" strokeMiterlimit="10" />
+                                                    <path d="M506.397 1.08984C506.397 1.08984 508.321 13.2502 524.18 20.8808C533.795 25.5236 544.308 28.0108 554.985 28.1685" strokeWidth="10" strokeMiterlimit="10" />
+                                                    <path d="M506.397 55.2574C506.397 55.2574 508.321 43.097 524.18 35.4664C533.795 30.8236 544.308 28.3364 554.985 28.1787" strokeWidth="10" strokeMiterlimit="10" />
+                                                </svg>
+                                            </figure>
+                                        </Link>
+                                    </div>
+                                    <figure className="cube10">
+                                        {bongSvg}
+                                    </figure>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div className="cube-right">
-                    <div className="cube-right-up">
-                        {/* 耳朵動畫 */}
-                        <figure className="cube11">{earSvg}</figure>
-                        {/* 四排音符來回動畫 */}
-                        <figure className="cube12">
-                            <div className="note-roll-cube12 odd-roll">
-                                {noteSvgOdd}{noteSvgOdd}{noteSvgOdd}{noteSvgOdd}
-                            </div>
-                            <div className="note-roll-cube12 even-roll">
-                                {noteSvg}{noteSvg}{noteSvg}{noteSvg}
-                            </div>
-                            <div className="note-roll-cube12 odd-roll">
-                                {noteSvgOdd}{noteSvgOdd}{noteSvgOdd}{noteSvgOdd}
-                            </div>
-                            <div className="note-roll-cube12 even-roll">
-                                {noteSvg}{noteSvg}{noteSvg}{noteSvg}
-                            </div>
+                    <div className="cube-right">
+                        <div className="cube-right-up">
+                            {/* 耳朵動畫 */}
+                            <figure className="cube11">{earSvg}</figure>
+                            {/* 四排音符來回動畫 */}
+                            <figure className="cube12">
+                                <div className="note-roll-cube12 odd-roll">
+                                    {noteSvgOdd}{noteSvgOdd}{noteSvgOdd}{noteSvgOdd}
+                                </div>
+                                <div className="note-roll-cube12 even-roll">
+                                    {noteSvg}{noteSvg}{noteSvg}{noteSvg}
+                                </div>
+                                <div className="note-roll-cube12 odd-roll">
+                                    {noteSvgOdd}{noteSvgOdd}{noteSvgOdd}{noteSvgOdd}
+                                </div>
+                                <div className="note-roll-cube12 even-roll">
+                                    {noteSvg}{noteSvg}{noteSvg}{noteSvg}
+                                </div>
+                            </figure>
+                        </div>
+                        {/* 眼睛動畫 */}
+                        <figure className="cube13">
+                            <img className='texture' src="./images/texture.png" alt="背景材質" />
+                            {eyesSvg}
                         </figure>
                     </div>
-                    {/* 眼睛動畫 */}
-                    <figure className="cube13">
-                        <img className='texture' src="./images/texture.png" alt="背景材質" />
-                        {eyesSvg}
-                    </figure>
-
                 </div>
             </div>
-
-        </div>
+            <div id="media-Sm">
+                
+            </div>
+        </>
     )
 }
 

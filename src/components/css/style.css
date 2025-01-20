@@ -52,7 +52,7 @@ a {
 }
 
 /* 日曆樣式 */
-.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll .box-intro .items .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .carousel, .card .bottom-line .btns .like-btn, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .like-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #bandmap-main .search-section .form-section .selector, #bandmap-main .search-section .form-section .selector ul, #bandmap-main .search-section .form-section .when-sec1 .time-sec, #bandmap-main .search-section .btn-container, #bandmap-main .search-section .btn-container .submit-btn, #bandmap-main .no-events, #currentevent-main .cards, .calendar .sidebar .side-details .side-event-each .side-event-delete, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, .login-card .login-btns .link-btn, #member-bar .menu {
+.newsTicker .bandmap-wrapper, .newsTicker span, #cubes .cube-left .row-left-down .cube3, #cubes .cube-left .row-left-down .cube3 .arrow-roll, #cubes .cube-left .row-left-down .row-right .row-1 .cube4, #cubes .cube-left .row-left-down .row-right .row-1 .cube5, #cubes .cube-left .row-left-down .row-right .row-1 .cube5 figure, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .row-right-left-up .cube7, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9, #cubes .cube-left .row-left-down .row-right .row-2 .row-right-left .cube9 figure, #cubes .cube-left .row-left-down .row-right .row-2 .cube10, #cubes .cube-right .cube-right-up .cube11, #cubes .cube-right .cube-right-up .cube12, #cubes .cube-right .cube-right-up .cube12 .note-roll-cube12, #cubes .cube-right .cube13, #footer, #footer .footer-main .menu, .box-roll .box-intro .items .box-pic, #bandmap-page figure, #currentevent-page .hover-text .text-left .place, #chatboard-page .buttons .button, #personalcal-page .calendar-illu, .topbar, .topbar .left-part, .topbar .right-part, .carousel, .card .bottom-line .btns .like-btn, .card .bottom-line .btns .collect-btn, .card-long .card-right .bottom-line .btns .like-btn, .card-long .card-right .bottom-line .btns .collect-btn, #bandmap-main .search-section, #bandmap-main .search-section .form-section .selector, #bandmap-main .search-section .form-section .selector ul, #bandmap-main .search-section .form-section .when-sec1 .time-sec, #bandmap-main .search-section .btn-container, #bandmap-main .search-section .btn-container .submit-btn, #bandmap-main .no-events, #currentevent-main .cards, .calendar .sidebar .side-details .side-event-each .side-event-delete, .calendar .sidebar .side-details .delete-popup, #chatboard-main .main-area .searchbar .magnifier, .event-page .content-down .right-part .info-sec .share, .event-page .cards-bottom, #login-page, #login-page .login-left, .login-popup, .login-card, .login-card .card-content form, .login-card .login-btns, .login-card .login-btns .link-btn, #member-bar .menu {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -255,6 +255,15 @@ a {
   margin-right: 12px;
 }
 
+#media-Sm {
+  display: none;
+}
+
+@media (max-width: 390px) {
+  #media-Lg {
+    display: none;
+  }
+}
 /* 首頁cube區 */
 #cubes {
   width: 100%;
@@ -580,9 +589,12 @@ a {
   margin-top: 0;
   top: 0;
 }
-#nav-bar img {
+#nav-bar .logo-sec img {
   width: 220px;
   padding: 12px 12px 12px 0;
+}
+#nav-bar .hamburger {
+  display: none;
 }
 #nav-bar .menu {
   display: flex;
@@ -2165,7 +2177,8 @@ main {
   flex-direction: column;
 }
 .calendar .sidebar .side-details h2 {
-  font-size: 16px;
+  font-size: 24px;
+  font-family: "Dela Gothic One";
   font-weight: 700;
   border-bottom: 1px solid rgba(0, 0, 0, 0.6);
   padding-bottom: 8px;
@@ -2203,7 +2216,7 @@ main {
 }
 .calendar .sidebar .side-details .side-event-each .side-event-content span {
   font-size: 12px;
-  color: #003E93;
+  color: black;
   margin-bottom: 4px;
 }
 .calendar .sidebar .side-details .side-event-each .side-event-content .event-name {
@@ -2214,9 +2227,6 @@ main {
 }
 .calendar .sidebar .side-details .side-event-each .side-event-content .multi-events {
   color: #FF4438;
-}
-.calendar .sidebar .side-details .side-event-each .side-event-content .multi-events-span {
-  color: #992922;
 }
 .calendar .sidebar .side-details .side-event-each .side-event-delete {
   background-color: #FF4438;
@@ -2230,6 +2240,32 @@ main {
 }
 .calendar .sidebar .side-details .delete-active {
   transform: translateX(-50px);
+}
+.calendar .sidebar .side-details .delete-popup {
+  width: 90%;
+  position: absolute;
+  top: 25%;
+  flex-direction: column;
+  background-color: white;
+  border: 5px solid black;
+  font-size: 16px;
+  padding: 30px 30px 18px 30px;
+}
+.calendar .sidebar .side-details .delete-popup p {
+  margin-bottom: 24px;
+}
+.calendar .sidebar .side-details .delete-popup button {
+  width: 100%;
+  border: solid 1px black;
+  padding: 8px;
+  margin-bottom: 12px;
+  background-color: white;
+  cursor: pointer;
+}
+.calendar .sidebar .side-details .delete-popup .confirm-delete-btn {
+  background-color: #FF4438;
+  border: none;
+  color: white;
 }
 .calendar .visible {
   left: 0;
@@ -2529,7 +2565,6 @@ main {
   font-size: 40px;
 }
 .event-page .cards-bottom {
-  overflow: hidden;
   padding: 16px 0;
   position: relative;
   z-index: 888;
@@ -2568,7 +2603,6 @@ main {
 .event-page .cards-bottom .cards-wrapper {
   display: flex;
   width: 100%;
-  overflow: hidden;
 }
 .event-page .cards-bottom .cards-wrapper .cards {
   display: flex;

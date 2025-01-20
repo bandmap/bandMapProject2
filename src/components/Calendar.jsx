@@ -9,6 +9,11 @@ function Calendar() {
     const [isSidebarVisible, setSidebarVisible] = useState(false); // sidebar的出現
     const [isMultiEventSelected, setIsMultiEventSelected] = useState(false);
     const [activeEventId, setActiveEventId] = useState(null); // 控制哪個事件被點擊
+    const [showDeletePopup, setShowDeletePopup] = useState(false);
+
+    useEffect(() => {
+        console.log('Updated activeEventId:', activeEventId);
+    }, [activeEventId]);
 
     const { calendarList, setCalendarList } = useContext(CalendarListContext); // 被加進行事曆的清單
 
@@ -113,19 +118,14 @@ function Calendar() {
     const handleDeleteEvent = (eventId) => {
         const updatedCalendarList = calendarList.filter(event => event.key !== eventId);
         setCalendarList(updatedCalendarList); // 更新上下文
+        setShowDeletePopup(false);
     };
 
     const handleEventClick = (eventId) => {
-        setActiveEventId(eventId === activeEventId ? null : eventId); // 切換激活狀態
+        if (!showDeletePopup) {
+            setActiveEventId(eventId === activeEventId ? null : eventId); // 切換選取狀態    
+        }
     };
-
-    // const handleDragStart = (eventId) => {
-    //     setActiveEventId(eventId); // 設定拖曳的事件ID
-    // };
-    
-    // const handleDragEnd = () => {
-    //     setActiveEventId(null); // 拖曳結束時清除狀態
-    // };
 
     return (
         <div className="calendar">
@@ -143,7 +143,7 @@ function Calendar() {
                 {selectedEvent ? (
                     <>
                         <div className="side-details">
-                            <h2>{selectedEvent.calendarDate} 的活動</h2>
+                            <h2>{selectedEvent.calendarDate}</h2>
                             {isMultiEventSelected &&
                                 <div className="alert-sec">
                                     <img src="./images/icon/icon-alert.svg" alt="alert" />
@@ -155,25 +155,38 @@ function Calendar() {
                                     .filter(event => event.calendarDate === selectedEvent.calendarDate)
                                     .map((event, index) => {
                                         return (
-                                            <div 
-                                            className={`side-event-each ${activeEventId === event.key ? 'delete-active' : ''}`} 
-                                            key={event.key}
-                                            onClick={() => handleEventClick(event.key)}>
-                                                <div className={`side-event-content ${activeEventId === event.id ? 'active' : ''}`} >
-                                                    <span className={`event-name ${isMultiEventSelected ? 'multi-events' : ''}`}>{event.event}</span>
-                                                    <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>演出者: {event.nametag}</span>
-                                                    <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>時間: {event.calendarTime}</span>
-                                                    <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>地點: {event.location}</span>
+                                            <>
+                                                <div
+                                                    className={`side-event-each ${activeEventId === event.key ? 'delete-active' : ''}`}
+                                                    key={event.key}
+                                                    onClick={() => handleEventClick(event.key)}>
+                                                    <div className={`side-event-content ${activeEventId === event.id ? 'active' : ''}`} >
+                                                        <span className={`event-name ${isMultiEventSelected ? 'multi-events' : ''}`}>{event.event}</span>
+                                                        <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>演出者: {event.nametag}</span>
+                                                        <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>時間: {event.calendarTime}</span>
+                                                        <span className={`${isMultiEventSelected ? 'multi-events-span' : ''}`}>地點: {event.location}</span>
+                                                    </div>
+                                                    <div
+                                                        className="side-event-delete"
+                                                        onClick={() => setShowDeletePopup(true)}>
+                                                        <img src="./images/icon/icon-delete.svg" alt="delete" />
+                                                    </div>
                                                 </div>
-                                                <div 
-                                                className="side-event-delete"
-                                                onClick={(e) => {
-                                                    e.stopPropagation(); // 防止點擊冒泡
-                                                    handleDeleteEvent(event.key);
-                                                }}>
-                                                    <img src="./images/icon/icon-delete.svg" alt="delete" />
-                                                </div>
-                                            </div>
+                                                {
+                                                    showDeletePopup &&
+                                                    <div className="delete-popup">
+                                                        <p>確定要刪除此活動嗎？</p>
+                                                        <button className='confirm-delete-btn' onClick={(e) => {
+                                                            e.stopPropagation(); // 防止點擊冒泡
+                                                            handleDeleteEvent(event.key);
+                                                        }}>刪除</button>
+                                                        <button onClick={() => {
+                                                            setShowDeletePopup(false);
+                                                            setActiveEventId(null);
+                                                        }}>取消</button>
+                                                    </div>
+                                                }
+                                            </>
                                         )
                                     })
                             }
@@ -184,7 +197,7 @@ function Calendar() {
                 )}
             </div>
             {isSidebarVisible && <div className="overlay" onClick={() => setSidebarVisible(false)} />}
-        </div>
+        </div >
     );
 };
 

@@ -42,7 +42,8 @@ function NavBar() {
 
     return (
         <div id="nav-bar" className="sticky-header">
-            <h1><Link to='/'><img src="./images/logo.svg" alt="logo" /></Link></h1>
+            <h1><Link to='/' className='logo-sec'><img src="./images/logo.svg" alt="logo" /></Link></h1>
+            <div className="hamburger"><img src="./images/icon/menu-hamburger.svg" alt="hamburger" /></div>
             <ul className="menu">
                 <li><NavLink to='/search' className={({ isActive }) => isActive ? 'active' : ''}>
                     <div className="word-cube"><p>演出搜尋</p><span className='line'></span></div>
